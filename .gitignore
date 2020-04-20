@@ -1,3 +1,4 @@
 /config/keys.js
 /node_modules
 .env.local
+/frontend/node_modules

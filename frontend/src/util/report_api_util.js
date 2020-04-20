@@ -6,7 +6,7 @@ export const getReports = reports => {
 
 export const getReport = reportId => {
     return axios.get(`api/reports/${reportId}`)
-}
+};
 
 export const postReport = report => {
     return axios.post('api/reports', report)

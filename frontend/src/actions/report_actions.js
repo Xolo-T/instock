@@ -1,4 +1,4 @@
-import * as APIUtil from './report_actions';
+import * as APIUtil from '../util/report_api_util';
 
 export const RECEIVE_REPORTS = "RECEIVE_REPORTS";
 export const RECEIVE_REPORT = "RECEIVE_REPORT";
@@ -13,14 +13,14 @@ export const receiveReport = report => ({
     report
 });
 
-export const fetchReports = () => (
-    getReports().then(reports => dispatch(receiveReports(reports))).catch(err => console.log(err))
+export const fetchReports = () => dispatch => (
+    APIUtil.getReports().then(reports => dispatch(receiveReports(reports))).catch(err => console.log(err))
 );
 
-export const fetchReport = report => (
-    getReport(report).then(report => dispatch(receiveReport(report))).catch(err => console.log(err))
+export const fetchReport = report => dispatch => (
+    APIUtil.getReport(report).then(report => dispatch(receiveReport(report))).catch(err => console.log(err))
 );
 
 export const composeReport = report => dispatch => (
-    postReport(report).then(report => dispatch(receiveReport(report))).catch(err => console.log(err))
+    APIUtil.postReport(report).then(report => dispatch(receiveReport(report))).catch(err => console.log(err))
 );

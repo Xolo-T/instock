@@ -32,13 +32,28 @@ export default function App() {
 
 const users = require("./routes/api/users");
 
+const User = require('./models/User')
+const bodyParser = require("body-parser");
+
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.log(err));
 
+app.use(bodyParser.urlencoded({ 
+    extended: false 
+}));
+
+app.use(bodyParser.json());
+
 app.get("/", (req, res) => {
-    // console.log(res);
+    // const user = new User({
+    //     userName: 'dev',
+    //     email: 'dev@email.com',
+    //     password: 'password'
+    // })
+    // user.save();
     res.send("inStock coming very very Soon!");
 });
 

@@ -75,12 +75,12 @@ export const logoutUser = () => ({
   type: RECEIVE_USER_LOGOUT,
 });
 
-// export const signup = (user) => (dispatch) => {
-//   debugger
-//   return (
-//   APIUtil.signup(user).then(
-//     () => dispatch(receiveUserSignIn())
-//   ))};
+export const signup = (user) => (dispatch) => {
+  debugger
+  return (
+  APIUtil.signup(user).then(
+    () => dispatch(receiveUserSignIn())
+  ))};
 
 export const login = (user) => (dispatch) =>
   APIUtil.login(user)

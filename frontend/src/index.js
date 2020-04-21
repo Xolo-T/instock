@@ -7,6 +7,7 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
+
   let store;
 
   

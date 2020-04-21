@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import LoginFormContainer from '../session/login_form_container';
-import SignupFormContainer from '../session/signup_form_container';
 
 class Navbar extends React.Component{
     constructor(props){
@@ -19,18 +16,18 @@ class Navbar extends React.Component{
         if (this.props.loggedIn) {
             return (
                 <div>
-                    <Link to={"/profile"}>Profile</Link>
+                    <button>Profile</button>
                     <button onClick={this.logoutUser}>Logout</button>
-                    {/* <Link to={"/logout"}>Logout</Link> */}
                 </div>
             )
         } else {
             return (
-                <div>
-                    <SignupFormContainer/>
-                    <LoginFormContainer/>
-                </div>
-            )
+              <div>
+                <button onClick={() => this.props.openModal("login")}>Login</button>
+                &nbsp;or&nbsp;
+                <button onClick={() => this.props.openModal("signup")}>Signup</button>
+              </div>
+            );
         }
     }
 

@@ -51,6 +51,7 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user, this.props.history);
+    // this.props.login(user).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -67,6 +68,7 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit}>
+          Please sign up or {this.props.otherForm}
           <div className="signup-form">
             <br />
             <input

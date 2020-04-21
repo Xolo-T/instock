@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component{
     constructor(props){
@@ -9,7 +8,7 @@ class Navbar extends React.Component{
     }
 
     logoutUser(e) {
-        e.preventDefaultf();
+        e.preventDefault();
         this.props.logout();
     }
 
@@ -17,18 +16,18 @@ class Navbar extends React.Component{
         if (this.props.loggedIn) {
             return (
                 <div>
-                    <Link to={"/profile"}>Profile</Link>
-                    <Link to={"/logout"}>Logout</Link>
+                    <button>Profile</button>
+                    <button onClick={this.logoutUser}>Logout</button>
                 </div>
             )
         } else {
             return (
-                <div>
-                    <Link to={"/login"}>Login</Link>
-                    <Link to={"/signup"}>Sign up</Link>
-                    }
-                </div>
-            )
+              <div>
+                <button onClick={() => this.props.openModal("login")}>Login</button>
+                &nbsp;or&nbsp;
+                <button onClick={() => this.props.openModal("signup")}>Signup</button>
+              </div>
+            );
         }
     }
 

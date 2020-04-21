@@ -6,22 +6,33 @@ class SignupForm extends React.Component {
     super(props);
     this.state = {
       email: "",
-      username: "",
+      userName: "",
       password: "",
+      password2: "",
       errors: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+    this.renderForm = this.renderForm.bind(this);
     this.clearedErrors = false;
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push("/login");
+    if (nextProps.currentUser === true) {
+      this.props.history.push("/logged_in");
     }
 
     this.setState({ errors: nextProps.errors });
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.signedIn === true) {
+  //     this.props.history.push("/login");
+  //   }
+
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   update(field) {
     return (e) =>
@@ -34,11 +45,13 @@ class SignupForm extends React.Component {
     e.preventDefault();
     let user = {
       email: this.state.email,
-      username: this.state.username,
-      password: this.state.password
+      userName: this.state.userName,
+      password: this.state.password,
+      password2: this.state.password2,
     };
 
     this.props.signup(user, this.props.history);
+    // this.props.login(user).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -51,10 +64,11 @@ class SignupForm extends React.Component {
     );
   }
 
-  render() {
+  renderForm() {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit}>
+          Please sign up or {this.props.otherForm}
           <div className="signup-form">
             <br />
             <input
@@ -66,8 +80,8 @@ class SignupForm extends React.Component {
             <br />
             <input
               type="text"
-              value={this.state.username}
-              onChange={this.update("username")}
+              value={this.state.userName}
+              onChange={this.update("userName")}
               placeholder="Username"
             />
             <br />
@@ -78,12 +92,23 @@ class SignupForm extends React.Component {
               placeholder="Password"
             />
             <br />
+            <input
+              type="password"
+              value={this.state.password2}
+              onChange={this.update("password2")}
+              placeholder="Confirm Password"
+            />
+            <br />
             <input type="submit" value="Submit" />
             {this.renderErrors()}
           </div>
         </form>
       </div>
     );
+  }
+
+  render() {
+    return this.renderForm();
   }
 }
 

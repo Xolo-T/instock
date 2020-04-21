@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.renderForm = this.renderForm.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -52,9 +53,9 @@ class LoginForm extends React.Component {
         );
     }
 
-    render() {
+    renderForm() {
         return (
-          <div>
+        <div>
             <form onSubmit={this.handleSubmit}>
               <div>
                 <input
@@ -77,6 +78,10 @@ class LoginForm extends React.Component {
             </form>
           </div>
         );
+    }
+
+    render() {
+        return (this.renderForm());
     }
 }
 

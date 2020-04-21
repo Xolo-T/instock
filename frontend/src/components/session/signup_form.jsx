@@ -12,6 +12,8 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+    this.renderForm = this.renderForm.bind(this);
     this.clearedErrors = false;
   }
 
@@ -51,7 +53,7 @@ class SignupForm extends React.Component {
     );
   }
 
-  render() {
+  renderForm() {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit}>
@@ -85,6 +87,11 @@ class SignupForm extends React.Component {
       </div>
     );
   }
+
+  render() {
+    return (this.renderForm());
+  }
+
 }
 
 export default withRouter(SignupForm);

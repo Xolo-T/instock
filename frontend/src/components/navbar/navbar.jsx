@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LoginFormContainer from '../session/login_form_container';
+import SignupFormContainer from '../session/signup_form_container';
 
 class Navbar extends React.Component{
     constructor(props){
@@ -24,9 +26,8 @@ class Navbar extends React.Component{
         } else {
             return (
                 <div>
-                    <Link to={"/login"}>Login</Link>
-                    <Link to={"/signup"}>Sign up</Link>
-                    }
+                    <SignupFormContainer/>
+                    <LoginFormContainer/>
                 </div>
             )
         }

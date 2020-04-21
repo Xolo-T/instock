@@ -89,7 +89,7 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    this.renderForm();
+    return (this.renderForm());
   }
 
 }

@@ -81,9 +81,7 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        return (
-            this.renderForm()
-        );
+        return (this.renderForm());
     }
 }
 

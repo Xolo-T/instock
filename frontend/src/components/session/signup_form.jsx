@@ -6,8 +6,9 @@ class SignupForm extends React.Component {
     super(props);
     this.state = {
       email: "",
-      username: "",
+      userName: "",
       password: "",
+      password2: "",
       errors: {},
     };
 
@@ -18,12 +19,20 @@ class SignupForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push("/login");
+    if (nextProps.currentUser === true) {
+      this.props.history.push("/logged_in");
     }
 
     this.setState({ errors: nextProps.errors });
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.signedIn === true) {
+  //     this.props.history.push("/login");
+  //   }
+
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   update(field) {
     return (e) =>
@@ -36,8 +45,9 @@ class SignupForm extends React.Component {
     e.preventDefault();
     let user = {
       email: this.state.email,
-      username: this.state.username,
-      password: this.state.password
+      userName: this.state.userName,
+      password: this.state.password,
+      password2: this.state.password2,
     };
 
     this.props.signup(user, this.props.history);
@@ -68,8 +78,8 @@ class SignupForm extends React.Component {
             <br />
             <input
               type="text"
-              value={this.state.username}
-              onChange={this.update("username")}
+              value={this.state.userName}
+              onChange={this.update("userName")}
               placeholder="Username"
             />
             <br />
@@ -78,6 +88,13 @@ class SignupForm extends React.Component {
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
+            />
+            <br />
+            <input
+              type="password"
+              value={this.state.password2}
+              onChange={this.update("password2")}
+              placeholder="Confirm Password"
             />
             <br />
             <input type="submit" value="Submit" />
@@ -89,9 +106,8 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    return (this.renderForm());
+    return this.renderForm();
   }
-
 }
 
 export default withRouter(SignupForm);

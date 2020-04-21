@@ -11,7 +11,8 @@ class Navbar extends React.Component{
     }
 
     logoutUser(e) {
-        e.preventDefaultf();
+        debugger
+        e.preventDefault();
         this.props.logout();
     }
 
@@ -20,7 +21,8 @@ class Navbar extends React.Component{
             return (
                 <div>
                     <Link to={"/profile"}>Profile</Link>
-                    <Link to={"/logout"}>Logout</Link>
+                    <button onClick={this.logoutUser}>Logout</button>
+                    {/* <Link to={"/logout"}>Logout</Link> */}
                 </div>
             )
         } else {

@@ -9,6 +9,7 @@ import SignupFormContainer from './session/signup_form_container';
 
 const App = () => (
     <div>
+
     <NavbarContainer/>
     <Switch>
         <AuthRoute exapct path="/" component={SplashContainer} />

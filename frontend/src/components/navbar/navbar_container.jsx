@@ -6,8 +6,9 @@ const mapState = state => ({
     loggedIn: state.session.isAuthenticated
 });
 
-const mapDispatch = dispatch => ({
-    logout: dispatch(logout)
-});
+// const mapDispatch = dispatch => {
+//     debugger
+//     return {logout: dispatch(logout)}
+// };
 
-export default connect(mapState, mapDispatch)(Navbar);
+export default connect(mapState,{ logout })(Navbar);

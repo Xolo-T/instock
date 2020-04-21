@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+// var jwt = require('jwt-simple');
+// const jwt = require("jsonwebtoken");
 const passport = require('passport');
+
+require('../../config/passport')(passport)
 
 const Report = require('../../models/Report');
 const validateReportInput = require('../../validation/reports');
@@ -15,18 +19,20 @@ router.get('/test', (req, res) => {
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        const { errors, isValid } = validateTweetInput(req.body);
-
+        const { errors, isValid } = validateReportInput(req.body);
+        debugger
         if (!isValid) {
             return res.status(400).json(errors);
         }
 
-        const newTweet = new Tweet({
-            text: req.body.text,
-            user: req.user.id
+        const newReport = new Report({
+            reporterId: req.user.id,
+            placeId: req.body.placeId,
+            productType: req.body.productType,
         });
 
-        newTweet.save().then(tweet => res.json(tweet));
+        newReport.save()
+            .then(report => res.json(report));
     }
 );
 

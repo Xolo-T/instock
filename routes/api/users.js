@@ -9,6 +9,8 @@ const jwt = require("jsonwebtoken");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
+const passport = require('passport');
+
 
 router.get("/test", (req, res) => {
     res.json({ msg: "This is the users route" });    
@@ -93,8 +95,17 @@ router.post("/login", (req, res) => {
 // Logout
 router.get('/logout', (req, res) => {
     req.logout();
-    req.flash('success_msg', 'You are logged out');
-    res.redirect('/users/login');
+    // req.flash('success_msg', 'You are logged out');
+    // res.redirect('/users/login');
+    res.json({ message: 'You are logged out'})
 });
+
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+    res.json({
+        id: req.user.id,
+        userName: req.user.handle,
+        email: req.user.email
+    });
+})
 
 module.exports = router;

@@ -11,6 +11,11 @@ const User = require('./models/User')
 const bodyParser = require("body-parser");
 
 
+const passport = require('passport');
+app.use(passport.initialize());
+
+require('./config/passport')(passport);
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))

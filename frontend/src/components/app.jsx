@@ -8,6 +8,8 @@ import Map from './map/map';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 
+console.log(process.env.REACT_APP_GOOGLE_KEY)
+
 const App = () => (
     <div>
     <NavbarContainer/>

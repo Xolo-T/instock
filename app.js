@@ -10,6 +10,8 @@ const users = require("./routes/api/users");
 const User = require('./models/User')
 const bodyParser = require("body-parser");
 
+require("dotenv").config(); 
+
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -33,6 +35,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", users);
+
+// console.log(REACT_APP_GOOGLE_KEY) 
 
 const port = process.env.PORT || 5000;
 

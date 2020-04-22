@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-
-const googleMap = require("../../google_keys_dev").REACT_APP_GOOGLE_KEY;
+const googleMap = require("../../config/keys.js").REACT_APP_GOOGLE_KEY;
 
 class Map extends Component {
 

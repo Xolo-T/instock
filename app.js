@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const users = require("./routes/api/users");
 const reports = require("./routes/api/reports");
+const approvals = require("./routes/api/approvals");
 
 const User = require('./models/User')
 const bodyParser = require("body-parser");
@@ -46,8 +47,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", users);
-
 app.use("/api/reports", reports);
+app.use("/api/approvals", approvals);
 
 const port = process.env.PORT || 5000;
 

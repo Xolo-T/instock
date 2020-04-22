@@ -16,16 +16,16 @@ class Navbar extends React.Component{
         if (this.props.loggedIn) {
             return (
                 <div className='navbar-buttons'>
-                    <button>Profile</button>
-                    <button onClick={this.logoutUser}>Logout</button>
+                    <button className='navbar-button'>Profile</button>
+                    <button className='navbar-button' onClick={this.logoutUser}>Logout</button>
                 </div>
             )
         } else {
             return (
               <div className='navbar-buttons'>
-                <button onClick={() => this.props.openModal("login")}>Login</button>
+                <button className='navbar-button' onClick={() => this.props.openModal("login")}>Login</button>
                 &nbsp;or&nbsp;
-                <button onClick={() => this.props.openModal("signup")}>Signup</button>
+                <button className='navbar-button' onClick={() => this.props.openModal("signup")}>Signup</button>
               </div>
             );
         }

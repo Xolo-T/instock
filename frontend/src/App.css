@@ -36,10 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-/* MODALS */
-
-.navbar-buttons {
-  display: flex;
-  justify-content: right;
-}

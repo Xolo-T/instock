@@ -9,6 +9,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+  debugger
   Object.freeze(state);
   
   switch (action.type) {

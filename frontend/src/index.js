@@ -7,20 +7,22 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
+
   let store;
 
+  
   if (localStorage.jwtToken) {
-
+    
     setAuthToken(localStorage.jwtToken);
-
+    
     const decodedUser = jwt_decode(localStorage.jwtToken);
-
+    
     const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
-
+    
     store = configureStore(preloadedState);
-
+    
     const currentTime = Date.now() / 1000;
-
+    
     if (decodedUser.exp < currentTime) {
       store.dispatch(logout());
       window.location.href = '/login';
@@ -28,7 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   }
+  //TESTING//
+  window.getState = store.getState
+  window.dispatch = store.dispatch;
+  window.logout = logout;
+  //
   const root = document.getElementById('root');
-
+  
   ReactDOM.render(<Root store={store} />, root);
 });

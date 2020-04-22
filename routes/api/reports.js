@@ -18,7 +18,7 @@ router.post('/',
     // passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validateReportInput(req.body);
-        debugger
+        // debugger
         if (!isValid) {
             return res.status(400).json(errors);
         }
@@ -34,8 +34,23 @@ router.post('/',
     }
 );
 
+
+router.get("/place", (req, res) => {
+//   debugger;
+  Report.find({ placeId: req.body.placeId })
+    // Report.find({ placeId: 'New York' })
+    .sort({ date: -1 })
+    .then((reports) => res.json(reports))
+    .catch((err) =>
+      res
+        .status(404)
+        .json({ noReportsFound: "No reports found for this location" })
+    );
+});
+
+
 router.get('/', (req, res) => {
-    debugger
+    // debugger
     Report.find()
         .sort({ date: -1 })
         .then(reports => res.json(reports))
@@ -43,23 +58,8 @@ router.get('/', (req, res) => {
 });
 
 
-
-
-router.get('/place', (req, res) => {
-    debugger
-    Report.find({ placeId: req.body.placeId })
-    // Report.find({ placeId: 'New York' })
-        .sort({ date: -1 })
-        .then(reports => res.json(reports))
-        .catch(err =>
-            res.status(404).json({ noReportsFound: 'No reports found for this location' }
-            )
-        );
-});
-
-
 router.get('/:id', (req, res) => {
-    debugger
+    // debugger
     Report.findById(req.params.id)
         .then(report => res.json(report))
         .catch(err =>

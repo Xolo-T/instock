@@ -35,9 +35,9 @@ router.post('/',
 );
 
 
-router.get("/place", (req, res) => {
+router.get("/:placeId", (req, res) => {
 //   debugger;
-  Report.find({ placeId: req.body.placeId })
+  Report.find({ placeId: req.params.placeId })
     // Report.find({ placeId: 'New York' })
     .sort({ date: -1 })
     .then((reports) => res.json(reports))

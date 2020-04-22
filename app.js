@@ -5,6 +5,7 @@ const db = require("./config/keys").mongoURI;
 const mongoose = require("mongoose");
 
 const users = require("./routes/api/users");
+const reports = require("./routes/api/reports");
 
 const User = require('./models/User')
 const bodyParser = require("body-parser");
@@ -17,6 +18,11 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   });
 }
+
+const passport = require('passport');
+app.use(passport.initialize());
+
+require('./config/passport')(passport);
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -40,6 +46,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", users);
+
+app.use("/api/reports", reports);
 
 const port = process.env.PORT || 5000;
 

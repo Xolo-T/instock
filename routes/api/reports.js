@@ -35,33 +35,37 @@ router.post('/',
 );
 
 router.get('/', (req, res) => {
+    debugger
     Report.find()
         .sort({ date: -1 })
         .then(reports => res.json(reports))
         .catch(err => res.status(404).json({ noReportsFound: 'No reports found' }));
 });
 
+
+
+
+router.get('/place', (req, res) => {
+    debugger
+    Report.find({ placeId: req.body.placeId })
+    // Report.find({ placeId: 'New York' })
+        .sort({ date: -1 })
+        .then(reports => res.json(reports))
+        .catch(err =>
+            res.status(404).json({ noReportsFound: 'No reports found for this location' }
+            )
+        );
+});
+
+
 router.get('/:id', (req, res) => {
+    debugger
     Report.findById(req.params.id)
         .then(report => res.json(report))
         .catch(err =>
             res.status(404).json({ noreportfound: 'No report found with that ID' })
         );
 });
-
-
-// still to work on ------------------------------------------------------------
-router.get('/place', (req, res) => {
-    Report.find({ placeId: req.body.placeId })
-        .sort({ date: -1 })
-        .then(reports => res.json(reports))
-        .catch(err =>
-            res.status(404).json({ noReportsFound: 'No reports found from that user' }
-            )
-        );
-});
-// ----------------------------------------------------------------------------
-
 
 router.get('/user/:user_id', (req, res) => {
     Report.find({ reporterId: req.params.user_id })

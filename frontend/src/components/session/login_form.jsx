@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.renderForm = this.renderForm.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -37,7 +38,7 @@ class LoginForm extends React.Component {
             password: this.state.password
         }
 
-        this.props.login(user);
+        this.props.login(user).then(this.props.closeModal);
     }
 
     renderErrors() {
@@ -52,10 +53,11 @@ class LoginForm extends React.Component {
         );
     }
 
-    render() {
+    renderForm() {
         return (
-          <div>
+        <div>
             <form onSubmit={this.handleSubmit}>
+                Please log in or {this.props.otherForm}
               <div>
                 <input
                   type="text"
@@ -77,6 +79,10 @@ class LoginForm extends React.Component {
             </form>
           </div>
         );
+    }
+
+    render() {
+        return (this.renderForm());
     }
 }
 

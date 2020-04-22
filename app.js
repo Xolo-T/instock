@@ -6,6 +6,8 @@ const db = require("./config/keys").mongoURI;
 const mongoose = require("mongoose");
 
 const users = require("./routes/api/users");
+const reports = require("./routes/api/reports");
+const approvals = require("./routes/api/approvals");
 
 const User = require('./models/User')
 const bodyParser = require("body-parser");
@@ -18,6 +20,11 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   });
 }
+
+const passport = require('passport');
+app.use(passport.initialize());
+
+require('./config/passport')(passport);
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -41,6 +48,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", users);
+app.use("/api/reports", reports);
+app.use("/api/approvals", approvals);
 
 // console.log(REACT_APP_GOOGLE_KEY) 
 

@@ -62,9 +62,9 @@ export const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,
   currentUser,
 });
-export const receiveUserSignIn = () => ({
-  type: RECEIVE_USER_SIGN_IN,
-});
+export const receiveUserSignIn = () => {
+  return {type: RECEIVE_USER_SIGN_IN}
+};
 
 export const receiveErrors = (errors) => ({
   type: RECEIVE_SESSION_ERRORS,
@@ -79,13 +79,13 @@ export const signup = (user) => (dispatch) => {
   debugger
   return (
   APIUtil.signup(user).then(
-    () => dispatch(receiveUserSignIn())
+    (currentUser) => dispatch(receiveUserSignIn(currentUser))
   ))};
 
 export const login = (user) => (dispatch) =>
   APIUtil.login(user)
     .then((res) => {
-      debugger
+      
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
       APIUtil.setAuthToken(token);
@@ -99,6 +99,5 @@ export const login = (user) => (dispatch) =>
 export const logout = () => (dispatch) => {
   localStorage.removeItem("jwtToken");
   APIUtil.setAuthToken(false);
-  debugger;
   dispatch(logoutUser());
 };

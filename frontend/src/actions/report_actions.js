@@ -17,6 +17,9 @@ export const fetchReports = () => dispatch => (
     APIUtil.getReports().then(reports => dispatch(receiveReports(reports))).catch(err => console.log(err))
 );
 
+export const fetchPlaceReports = placeId => dispatch => (APIUtil.getPlaceReports(placeId).then(reports => dispatch(receiveReports(reports))).catch(err => console.log(err))
+);
+
 export const fetchReport = report => dispatch => (
     APIUtil.getReport(report).then(report => dispatch(receiveReport(report))).catch(err => console.log(err))
 );

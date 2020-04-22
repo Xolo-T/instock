@@ -4,7 +4,8 @@ import Root from './components/root';
 import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
-import { logout } from './actions/session_actions';
+import { logout, signup, login } from './actions/session_actions';
+import { getReports, getReport, postReport, getPlaceReports } from './util/report_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -34,6 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState
   window.dispatch = store.dispatch;
   window.logout = logout;
+  window.signup = signup;
+  window.login = login;
+  window.getReports = getReports;
+  window.getReport = getReport;
+  window.postReport = postReport;
+  window.getPlaceReports = getPlaceReports;
   //
   const root = document.getElementById('root');
   

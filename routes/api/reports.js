@@ -18,7 +18,7 @@ router.post('/',
     // passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validateReportInput(req.body);
-        // debugger
+        
         if (!isValid) {
             return res.status(400).json(errors);
         }
@@ -36,7 +36,7 @@ router.post('/',
 
 
 router.get("/:placeId", (req, res) => {
-//   debugger;
+
   Report.find({ placeId: req.params.placeId })
     // Report.find({ placeId: 'New York' })
     .sort({ date: -1 })
@@ -50,7 +50,7 @@ router.get("/:placeId", (req, res) => {
 
 
 router.get('/', (req, res) => {
-    // debugger
+    
     Report.find()
         .sort({ date: -1 })
         .then(reports => res.json(reports))
@@ -59,7 +59,7 @@ router.get('/', (req, res) => {
 
 
 router.get('/:id', (req, res) => {
-    // debugger
+    
     Report.findById(req.params.id)
         .then(report => res.json(report))
         .catch(err =>

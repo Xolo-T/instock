@@ -12,3 +12,7 @@ export const postReport = report => {
     return axios.post('api/reports', report)
 };
 
+export const getPlaceReports = placeReports => {
+    return axios.get(`api/reports/${placeReports}`, placeReports)
+};
+

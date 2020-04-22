@@ -5,7 +5,7 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout, signup, login } from './actions/session_actions';
-import { getReports, getReport, postReport } from './util/report_api_util';
+import { getReports, getReport, postReport, getPlaceReports } from './util/report_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getReports = getReports;
   window.getReport = getReport;
   window.postReport = postReport;
+  window.getPlaceReports = getPlaceReports;
   //
   const root = document.getElementById('root');
   

@@ -17,10 +17,11 @@ router.get('/test', (req, res) => {
 router.post('/',
     // passport.authenticate('jwt', { session: false }),
     (req, res) => {
+        debugger
         const { errors, isValid } = validateReportInput(req.body);
         
         if (!isValid) {
-            return res.status(400).json(errors);
+            return res.status(600).json(errors);
         }
 
         const newReport = new Report({

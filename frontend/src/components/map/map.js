@@ -9,12 +9,13 @@ import {
 } from "react-google-maps";
 import * as reportsData from "./skateboard-parks-copy.json";
 import * as dbData from "./tp-parks.json";
+import MapFormContainer from './map_form_container'
 
 
 const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 const googleMap = require("../../config/keys.js").REACT_APP_GOOGLE_KEY;
 
-class Map extends Component {
+class Map extends React.PureComponent {
   constructor() {
     super();
 
@@ -53,7 +54,7 @@ class Map extends Component {
   };
 
   handleReportInputChange = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({ reportInputText: event.target.value });
   };
 
@@ -75,15 +76,19 @@ class Map extends Component {
                 lng: this.state.selectedCoords.lng,
               }}
             >
-              <div>
-                <h2>Report Info</h2>
+              <MapFormContainer 
+                lat={this.state.selectedCoords.lat}
+                lng={this.state.selectedCoords.lng}
+              />
+              {/* <div>
+                <h2>Submit store name</h2>
                 <input
                   id="report-text-input"
                   value={this.state.reportInputText}
                   onChange={this.handleReportInputChange}
                 ></input>
                 <button onClick={this.handleReportSubmission}>Submit</button>
-              </div>
+              </div> */}
             </InfoWindow>
           )}
 

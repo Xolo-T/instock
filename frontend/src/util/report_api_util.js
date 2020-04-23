@@ -9,6 +9,7 @@ export const getReport = reportId => {
 };
 
 export const postReport = report => {
+    debugger
     return axios.post('api/reports', report)
 };
 

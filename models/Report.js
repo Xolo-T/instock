@@ -8,11 +8,25 @@ const ReportSchema = new Schema({
     },
     placeId: {
         type: String,
-        required: true
+    },
+    name: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+    lng: {
+        type: Number,
+        required: true,
+    },
+    lat: {
+        type: Number,
+        required: true,
     },
     productType: {
         type: String,
-        required: true
     },
     date: {
         type: Date,

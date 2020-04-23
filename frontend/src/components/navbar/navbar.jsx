@@ -15,17 +15,19 @@ class Navbar extends React.Component{
     populateNavbar() {
         if (this.props.loggedIn) {
             return (
-                <div className='navbar-buttons'>
-                    <button className='navbar-button'>Profile</button>
-                    <button className='navbar-button' onClick={this.logoutUser}>Logout</button>
-                </div>
-            )
+              <div className="navbar-buttons-container">
+                <p>LOGO</p>
+                <button className="navbar-button-1">Profile</button>
+                <button className="navbar-button-2" onClick={this.logoutUser}>
+                  Logout
+                </button>
+              </div>
+            );
         } else {
             return (
               <div className='navbar-buttons'>
-                <button className='navbar-button' onClick={() => this.props.openModal("login")}>Login</button>
-                &nbsp;or&nbsp;
-                <button className='navbar-button' onClick={() => this.props.openModal("signup")}>Signup</button>
+                <button className='navbar-button-1' onClick={() => this.props.openModal("login")}>log in</button>
+                <button className='navbar-button-2' onClick={() => this.props.openModal("signup")}>sign up</button>
               </div>
             );
         }

@@ -136,7 +136,7 @@ class Map extends Component {
         <header className="call-to-action">
           <h1>Looking for toilet paper in your neighborhood?</h1>
           <h2>Don't waste time traveling from one bodega to another only to come up empty-handed.</h2>
-          <p>Use InStock to get the latest updates on who has toilet paper, hand sanitizer, you name it!</p>
+          <h2>Click on one of the pins to find the stores where your neighbors have identified toilet paper is in stock.</h2>
           <h1>Sign up to help notify your neighborhood about what is InStock!</h1>
         </header>
         <footer>Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.</footer>

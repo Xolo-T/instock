@@ -16,44 +16,6 @@ span, article, footer, time, small {
   background: transparent;
 } */
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /*NAVBAR*/
 
@@ -62,7 +24,7 @@ span, article, footer, time, small {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   background-color: #793AFC;
 }
 
@@ -171,4 +133,45 @@ span, article, footer, time, small {
   font-size: 28px;
   color: #793AFC;
   text-decoration: underline;
+}
+
+/* HEADER STYLING */
+.call-to-action {
+  background-color: #793AFC;
+  margin: 0px;
+  padding: 20px;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+
+.call-to-action h1 {
+  font-size: 2rem;
+  color: #793AFC;
+  background-color: #F6F2ED;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  margin: 0px 20px;
+  box-shadow: 5px 5px black;
+}
+
+/*FOOTER STYLING */
+  footer {
+    padding: 5px;
+    margin: 5px;
+  }
+
+/*MAP STYLING */
+.map-component {
+  margin: 0px;
+  padding: 0px;
+  background-color: #793AFC;
+}
+.gm-style .gm-style-iw-c {
+  position: absolute;
+  top: -40px;
+}
+
+.gm-style .gm-style-iw-t::after {
+  top: -40px;
 }

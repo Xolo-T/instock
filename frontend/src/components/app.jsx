@@ -11,14 +11,14 @@ import Modal from './modal/modal';
 
 
 const App = () => (
-    <div>
-    <Modal />
-    <NavbarContainer/>
-    <Map/>
-    <Switch>
-        <AuthRoute exapct path="/" component={SplashContainer} />
-    </Switch>
-    </div>
+    <>
+        <Modal />
+        <NavbarContainer/>
+        <Map/>
+        <Switch>
+            <AuthRoute exapct path="/" component={SplashContainer} />
+        </Switch>
+    </>
 );
 
 export default App;

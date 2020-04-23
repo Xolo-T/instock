@@ -62,7 +62,7 @@ class Map extends Component {
     const MyMapComponent = withScriptjs(
       withGoogleMap((props) => (
         <GoogleMap
-          defaultZoom={8}
+          defaultZoom={14}
           // defaultCenter={{ lat: 40.73061, lng: -73.935242 }}
           defaultCenter={{ lat: 45.421532, lng: -75.697189 }}
           onClick={this.onMapClick}

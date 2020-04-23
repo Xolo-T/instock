@@ -10,6 +10,28 @@
     },
     {
       "properties": {
+        "placeId": 97560,
+        "NAME": "Atlantic Terminal",
+        "DESCRIPTIO": "Flat asphalt surface, 5 components",
+        "coordinates": [
+          -73.97625529,
+          40.68439376
+        ]
+      }
+    },
+    {
+      "properties": {
+        "placeId": 700,
+        "NAME": "Bridlewood Skateboard Park",
+        "DESCRIPTIO": "Flat asphalt surface, 5 components",
+        "coordinates": [
+          -73.98042032,
+          40.68279359
+        ]
+      }
+    },
+    {
+      "properties": {
         "placeId": 1219,
         "coordinates": [-75.546518086577947, 45.467134581917357]
       }

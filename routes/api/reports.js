@@ -24,9 +24,12 @@ router.post('/',
         }
 
         const newReport = new Report({
-            reporterId: req.body.userId,
+            reporterId: req.body.reporterId,
             placeId: req.body.placeId,
-            productType: req.body.productType,
+            name: req.body.name,
+            description: req.body.description,
+            lng: req.body.lng,
+            lat: req.body.lat,
         });
 
         newReport.save()

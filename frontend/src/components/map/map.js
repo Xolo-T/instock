@@ -10,7 +10,7 @@ import {
 import * as reportsData from "./skateboard-parks-copy.json";
 
 
-const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
+// const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 const googleMap = require("../../config/keys.js").REACT_APP_GOOGLE_KEY;
 
 class Map extends Component {

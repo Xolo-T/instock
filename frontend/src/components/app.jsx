@@ -9,7 +9,6 @@ import NavbarContainer from './navbar/navbar_container';
 import Map from './map/map';
 import Modal from './modal/modal';
 
-console.log(process.env.REACT_APP_GOOGLE_KEY)
 
 const App = () => (
     <div>

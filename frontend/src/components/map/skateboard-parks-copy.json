@@ -1,0 +1,19 @@
+{
+  "reports": [
+    {
+      "properties": {
+        "placeId": 960,
+        "NAME": "Bridlewood Skateboard Park",
+        "DESCRIPTIO": "Flat asphalt surface, 5 components",
+        "coordinates": [-75.3372987731628, 45.383321536272049]
+      }
+    },
+    {
+      "properties": {
+        "placeId": 1219,
+        "coordinates": [-75.546518086577947, 45.467134581917357]
+      }
+    }
+   
+  ]
+}

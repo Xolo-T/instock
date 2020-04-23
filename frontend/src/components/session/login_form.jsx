@@ -94,23 +94,29 @@ class LoginForm extends React.Component {
     return (
       <div className="auth-form-container">
         <span className="modal-closer-button" onClick={this.props.closeModal}>
-          X
+          <i class="fas fa-times"></i>
         </span>
         <form className="auth-form" onSubmit={this.handleSubmit}>
-          <span>Please log in</span>
-          <input
-            type="text"
-            value={this.state.email}
-            onChange={this.update("email")}
-            placeholder="Email"
-          />
+          <span className="login-or-signup-message">log in</span>
+          <label>
+            Email:
+            <input
+              type="text"
+              value={this.state.email}
+              onChange={this.update("email")}
+              placeholder="Email"
+            />
+          </label>
           <div className="frontEnd-session-errors">{this.state.emailError}</div>
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.update("password")}
-            placeholder="Password"
-          />
+          <label>
+            Password:
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              placeholder="Password"
+            />
+          </label>
           <div className="frontEnd-session-errors">
             {this.state.passwordError}
           </div>

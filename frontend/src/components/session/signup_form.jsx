@@ -145,9 +145,11 @@ class SignupForm extends React.Component {
   renderForm() {
     return (
       <div className="auth-form-container">
-        <span className='modal-closer-button' onClick={this.props.closeModal}>X</span>
+        <span className="modal-closer-button" onClick={this.props.closeModal}>
+          <i class="fas fa-times"></i>
+        </span>
         <form className="auth-form" onSubmit={this.handleSubmit}>
-          <span>Please sign up</span>
+          <span className="login-or-signup-message">sign up</span>
           <input
             type="text"
             value={this.state.email}

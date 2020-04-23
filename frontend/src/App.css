@@ -117,8 +117,8 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  height: 85%;
-  width: 85%;
+  height: 100%;
+  width: 100%;
 
 }
 
@@ -132,9 +132,20 @@
 }
 
 .modal-closer-button{
-  font-weight: 900;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .modal-closer-button:hover{
   cursor: pointer;
+}
+
+.fa-times {
+  font-size: 28px;
+}
+
+.login-or-signup-message{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
 }

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchReports, fetchPlaceReports, fetchReport, composeReport } from '../../actions/report_actions';
+import Map from './map';
 
 const mapDispatch = dispatch => ({
     fetchReports: () => dispatch(fetchReports()),

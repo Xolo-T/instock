@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 
-const db = require("./config/keys").mongoURI;
+const db = require("./frontend/src/config/keys").mongoURI;
 const mongoose = require("mongoose");
 
 const users = require("./routes/api/users");
@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
 const passport = require('passport');
 app.use(passport.initialize());
 
-require('./config/passport')(passport);
+require('./frontend/src/config/passport')(passport);
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -1,4 +1,3 @@
-/config/keys_dev.js
+/frontend/src/config/keys_dev.js
 /node_modules
-/frontend/src/google_keys_dev.js
 /frontend/node_modules

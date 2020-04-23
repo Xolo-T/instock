@@ -97,12 +97,19 @@
 }
 
 .modal-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #FBFAFB;
+  background: #8CB3DF;
   height: 500px;
   width: 500px;
-  box-shadow: 10px 10px black;
+  box-shadow: 10px 10px #793AFC;
+}
+
+.login-form-container{
+  
 }

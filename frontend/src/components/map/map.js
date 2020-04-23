@@ -62,7 +62,9 @@ class Map extends React.PureComponent {
 
   render() {
     const MyMapComponent = withScriptjs(
-      withGoogleMap((props) => (
+      withGoogleMap((props) => {
+        debugger
+        return(
         <GoogleMap
           defaultZoom={10}
           // defaultCenter={{ lat: 40.73061, lng: -73.935242 }}
@@ -76,19 +78,10 @@ class Map extends React.PureComponent {
                 lng: this.state.selectedCoords.lng,
               }}
             >
-              <MapFormContainer 
+              <MapFormContainer
                 lat={this.state.selectedCoords.lat}
                 lng={this.state.selectedCoords.lng}
               />
-              {/* <div>
-                <h2>Submit store name</h2>
-                <input
-                  id="report-text-input"
-                  value={this.state.reportInputText}
-                  onChange={this.handleReportInputChange}
-                ></input>
-                <button onClick={this.handleReportSubmission}>Submit</button>
-              </div> */}
             </InfoWindow>
           )}
 
@@ -125,7 +118,7 @@ class Map extends React.PureComponent {
             </InfoWindow>
           )}
         </GoogleMap>
-      ))
+      )})
     );
 
     return (

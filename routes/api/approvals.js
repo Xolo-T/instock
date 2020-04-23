@@ -8,7 +8,7 @@ const ReportApproval = require("../../models/Report_approval");
 const validateReportApprovalInput = require("../../validation/report-approvals");
 
 router.get("/test", (req, res) => {
-    debugger
+    // debugger
     res.json({ msg: "Welcome to reportsApprovals" });
 });
 

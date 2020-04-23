@@ -8,6 +8,7 @@ import {
   InfoWindow,
 } from "react-google-maps";
 import * as reportsData from "./skateboard-parks-copy.json";
+import * as dbData from "./tp-parks.json";
 
 
 const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
@@ -34,7 +35,7 @@ class Map extends Component {
     geocoder.geocode({ location: coord.latLng }, function (results, status) {
       if (status === "OK") {
         if (results[0]) {
-          console.log(results[0]);
+          // console.log(results[0]);
         } else {
           window.alert("No results found");
         }
@@ -43,11 +44,11 @@ class Map extends Component {
       }
     });
 
-    console.log("The map was clicked");
+    // console.log("The map was clicked");
   };
 
   handleReportSubmission = (event) => {
-    console.log("handling report submission");
+    // console.log("handling report submission");
     event.preventDefault();
   };
 
@@ -62,7 +63,7 @@ class Map extends Component {
     const MyMapComponent = withScriptjs(
       withGoogleMap((props) => (
         <GoogleMap
-          defaultZoom={8}
+          defaultZoom={10}
           // defaultCenter={{ lat: 40.73061, lng: -73.935242 }}
           defaultCenter={{ lat: 45.421532, lng: -75.697189 }}
           onClick={this.onMapClick}
@@ -86,12 +87,12 @@ class Map extends Component {
             </InfoWindow>
           )}
 
-          {reportsData.reports.map((report) => (
+          {dbData.reports.map((report) => (
             <Marker
-              key={report.properties.placeId}
+              key={report._id}
               position={{
-                lat: report.properties.coordinates[1],
-                lng: report.properties.coordinates[0],
+                lat: report.lat,
+                lng: report.lng,
               }}
               onClick={() => {
                 this.setState({
@@ -108,13 +109,13 @@ class Map extends Component {
           {this.state.selectedReport && (
             <InfoWindow
               position={{
-                lat: this.state.selectedReport.properties.coordinates[1],
-                lng: this.state.selectedReport.properties.coordinates[0],
+                lat: this.state.selectedReport.lat,
+                lng: this.state.selectedReport.lng,
               }}
             >
               <div>
-                <h2>{this.state.selectedReport.properties.NAME}</h2>
-                <h2>{this.state.selectedReport.properties.DESCRIPTIO}</h2>
+                <h2>{this.state.selectedReport.name}</h2>
+                <h2>{this.state.selectedReport.description}</h2>
               </div>
             </InfoWindow>
           )}

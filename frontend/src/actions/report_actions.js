@@ -14,16 +14,25 @@ export const receiveReport = report => ({
 });
 
 export const fetchReports = () => dispatch => (
-    APIUtil.getReports().then(reports => dispatch(receiveReports(reports))).catch(err => console.log(err))
+    APIUtil.getReports()
+        .then(reports => dispatch(receiveReports(reports)))
+        // .catch(err => console.log(err))
 );
 
-export const fetchPlaceReports = placeId => dispatch => (APIUtil.getPlaceReports(placeId).then(reports => dispatch(receiveReports(reports))).catch(err => console.log(err))
+export const fetchPlaceReports = placeId => dispatch => (
+    APIUtil.getPlaceReports(placeId)
+        .then(reports => dispatch(receiveReports(reports)))
+        // .catch(err => console.log(err))
 );
 
 export const fetchReport = report => dispatch => (
-    APIUtil.getReport(report).then(report => dispatch(receiveReport(report))).catch(err => console.log(err))
+    APIUtil.getReport(report)
+        .then(report => dispatch(receiveReport(report)))
+        // .catch(err => console.log(err))
 );
 
 export const composeReport = report => dispatch => (
-    APIUtil.postReport(report).then(report => dispatch(receiveReport(report))).catch(err => console.log(err))
+    APIUtil.postReport(report)
+        .then(report => dispatch(receiveReport(report)))
+        // .catch(err => console.log(err))
 );

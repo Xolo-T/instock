@@ -70,9 +70,8 @@ class LoginForm extends React.Component {
 
     const isValid = this.validate();
     if (isValid) {
-        this.props.login(user).then(this.props.closeModal);
+      this.props.login(user).then(this.props.closeModal);
     }
-
   }
 
   renderErrors() {
@@ -85,35 +84,39 @@ class LoginForm extends React.Component {
     );
   }
 
+  keyPress(e) {
+    if (e.key === "Escape") {
+      this.props.closeModal();
+    }
+  }
+
   renderForm() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          Please log in or {this.props.otherForm}
-          <div>
+      <div className="auth-form-container">
+        <span className="modal-closer-button" onClick={this.props.closeModal}>
+          <i className="fas fa-times"></i>
+        </span>
+        <form className="auth-form" onSubmit={this.handleSubmit}>
+          <span className="login-or-signup-message">log in</span>
             <input
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"
             />
-            <div className="frontEnd-session-errors">
-              {this.state.emailError}
-            </div>
-            <br />
+          <div className="frontEnd-session-errors">{this.state.emailError}</div>
             <input
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
             />
-            <div className="frontEnd-session-errors">
-              {this.state.passwordError}
-            </div>
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+          <div className="frontEnd-session-errors">
+            {this.state.passwordError}
           </div>
+          <input type="submit" value="Submit" />
+          {this.renderErrors()}
+          {this.props.otherForm}
         </form>
       </div>
     );

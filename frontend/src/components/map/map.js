@@ -9,9 +9,9 @@ import {
 } from "react-google-maps";
 import * as reportsData from "./skateboard-parks-copy.json";
 
-const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 
-const googleMap = require("../../google_keys_dev").REACT_APP_GOOGLE_KEY;
+const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
+const googleMap = require("../../config/keys.js").REACT_APP_GOOGLE_KEY;
 
 class Map extends Component {
   constructor() {

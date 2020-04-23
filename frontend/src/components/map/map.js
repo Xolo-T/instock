@@ -105,8 +105,8 @@ class Map extends React.PureComponent {
                 });
               }}
               icon={{
-                url: "./inventory.png",
-                scaledSize: new window.google.maps.Size(25, 25),
+                url: "./toilet-paper.svg",
+                scaledSize: new window.google.maps.Size(40, 40),
               }}
             />
           ))}
@@ -119,8 +119,8 @@ class Map extends React.PureComponent {
               }}
             >
               <div>
-                <h2>{this.state.selectedReport.name}</h2>
-                <h2>{this.state.selectedReport.description}</h2>
+                <h2 className="map-report-name">{this.state.selectedReport.name}</h2>
+                <p className="map-report-description">{this.state.selectedReport.description}</p>
               </div>
             </InfoWindow>
           )}
@@ -129,7 +129,7 @@ class Map extends React.PureComponent {
     );
 
     return (
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div style={{ width: "100vw", height: "50vh" }} className="map-component">
         <MyMapComponent
           isMarkerShown
           googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${googleMap}`}
@@ -138,7 +138,13 @@ class Map extends React.PureComponent {
           containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
-        ;
+        <header className="call-to-action">
+          <h1>Looking for toilet paper in your neighborhood?</h1>
+          <h2>Don't waste time traveling from one bodega to another only to come up empty-handed.</h2>
+          <h2>Click on one of the pins to find the stores where your neighbors have identified toilet paper is in stock.</h2>
+          <h1>Sign up to help notify your neighborhood about what is InStock!</h1>
+        </header>
+        <footer>Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.</footer>
       </div>
     );
   }

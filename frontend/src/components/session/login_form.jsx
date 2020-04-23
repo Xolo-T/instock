@@ -98,25 +98,19 @@ class LoginForm extends React.Component {
         </span>
         <form className="auth-form" onSubmit={this.handleSubmit}>
           <span className="login-or-signup-message">log in</span>
-          <label>
-            Email:
             <input
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"
             />
-          </label>
           <div className="frontEnd-session-errors">{this.state.emailError}</div>
-          <label>
-            Password:
             <input
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
             />
-          </label>
           <div className="frontEnd-session-errors">
             {this.state.passwordError}
           </div>

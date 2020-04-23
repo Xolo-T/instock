@@ -5,13 +5,14 @@ import {
 } from '../actions/report_actions';
 
 export default function (state = {}, action) {
+    
     Object.freeze(state);
 
     switch (action.type) {
         case RECEIVE_REPORTS:
-            return action.reports;
+            return action.reports.data;
         case RECEIVE_REPORT:
-            return Object.assign({}, state, action.report)
+            return Object.assign({}, state, action.report.data)
         default:
             return state;
     }

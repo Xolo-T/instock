@@ -7,11 +7,11 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-import * as reportsData from "./skateboard-parks-copy.json";
+// import * as reportsData from "./skateboard-parks-copy.json";
 import * as dbData from "./tp-parks.json";
 
 
-const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
+// const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 const googleMap = require("../../config/keys.js").REACT_APP_GOOGLE_KEY;
 
 class Map extends Component {
@@ -24,6 +24,12 @@ class Map extends Component {
       reportInputText: "",
     };
   }
+
+  componentDidMount(){
+    
+    this.props.fetchReports()
+  }
+
   onMapClick = (coord) => {
     let lat = coord.latLng.lat();
     let lng = coord.latLng.lng();

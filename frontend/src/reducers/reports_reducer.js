@@ -10,7 +10,6 @@ export default function (state = {}, action) {
 
     switch (action.type) {
         case RECEIVE_REPORTS:
-<<<<<<< HEAD
             debugger
             // return action.reports.data;
             const fetchedReports = {}
@@ -28,11 +27,6 @@ export default function (state = {}, action) {
             debugger
             return newState;
             // return [action.report.data]
-=======
-            return action.reports.data;
-        case RECEIVE_REPORT:
-            return [action.report.data]
->>>>>>> master
         default:
             return state;
     }

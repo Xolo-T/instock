@@ -9,10 +9,10 @@ export default function (state = {}, action) {
 
     switch (action.type) {
         case RECEIVE_REPORTS:
-            debugger
+            // debugger
             return action.reports.data;
         case RECEIVE_REPORT:
-            debugger
+            // debugger
             // return Object.assign({}, state, action.report)
             return [action.report.data]
         default:

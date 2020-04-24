@@ -9,7 +9,7 @@ import {
 } from "react-google-maps";
 // import * as reportsData from "./skateboard-parks-copy.json";
 import * as dbData from "./tp-parks.json";
-import MapFormContainer from './map_form_container'
+import ReportFormContainer from './report_form_container'
 
 
 // const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
@@ -72,9 +72,9 @@ class Map extends React.Component {
         
         return(
         <GoogleMap
-          defaultZoom={10}
+          defaultZoom={15}
           // defaultCenter={{ lat: 40.73061, lng: -73.935242 }}
-          defaultCenter={{ lat: 45.421532, lng: -75.697189 }}
+          defaultCenter={{ lat: 40.672482, lng: -73.968208 }}
           onClick={this.onMapClick}
         >
           {this.state.selectedCoords && (
@@ -84,7 +84,7 @@ class Map extends React.Component {
                 lng: this.state.selectedCoords.lng,
               }}
             >
-              <MapFormContainer
+              <ReportFormContainer
                 lat={this.state.selectedCoords.lat}
                 lng={this.state.selectedCoords.lng}
               />

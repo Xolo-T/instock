@@ -10,9 +10,23 @@ export default function (state = {}, action) {
 
     switch (action.type) {
         case RECEIVE_REPORTS:
-            return action.reports.data;
+            debugger
+            // return action.reports.data;
+            const fetchedReports = {}
+            action.reports.data.forEach(report => {
+                fetchedReports[report._id] = report 
+            });
+            return fetchedReports;
         case RECEIVE_REPORT:
-            return [action.report.data]
+            debugger
+            // return Object.assign({}, state, action.report)
+            const newReport = {}
+            newReport[action.report.data._id] = action.report.data
+            debugger
+            const newState = Object.assign({}, state, newReport)
+            debugger
+            return newState;
+            // return [action.report.data]
         default:
             return state;
     }

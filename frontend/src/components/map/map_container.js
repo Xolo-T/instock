@@ -4,7 +4,7 @@ import Map from './map';
 
 const mapState = state => {
     return({
-        reports: state.reports
+        reports: Object.values(state.reports)
     })
 }
 

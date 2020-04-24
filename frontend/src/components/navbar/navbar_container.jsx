@@ -4,7 +4,8 @@ import { openModal } from '../../actions/modal_actions';
 import Navbar from './navbar';
 
 const mapState = state => ({
-    loggedIn: state.session.isAuthenticated
+    loggedIn: state.session.isAuthenticated,
+    currentUser: state.session.user
 });
 
 const mapDispatch = dispatch => ({

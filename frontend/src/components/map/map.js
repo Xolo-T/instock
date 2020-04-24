@@ -96,9 +96,6 @@ class Map extends Component {
         return (
           <GoogleMap
             defaultZoom={15}
-            // 40.672482, lng: -73.968208
-            // defaultCenter={{ lat: 40.672482, lng: -73.968208 }}
-            //defaultCenter={{ lat: 45.421532, lng: -75.697189 }}
             onClick={this.onMapClick}
             ref={this.onMapMounted}
             center={this.state.center}
@@ -163,18 +160,19 @@ class Map extends Component {
               <input
                 type="text"
                 placeholder="Find me the TP"
+                className="address-searchbar"
                 style={{
                   boxSizing: `border-box`,
                   border: `1px solid transparent`,
                   width: `240px`,
-                  height: `32px`,
-                  marginTop: `27px`,
+                  height: `40px`,
+                  marginTop: `10px`,
                   padding: `0 12px`,
-                  borderRadius: `3px`,
+                  borderRadius: `4px`,
                   boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
                   fontSize: `14px`,
                   outline: `none`,
-                  textOverflow: `ellipses`,
+                  textOverflow: `ellipses`
                 }}
               />
             </SearchBox>

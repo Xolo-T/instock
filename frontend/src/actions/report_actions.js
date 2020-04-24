@@ -32,7 +32,6 @@ export const fetchReport = report => dispatch => (
 );
 
 export const composeReport = report => dispatch => {
-    debugger
     return(
     APIUtil.postReport(report)
         // .then(reports => dispatch(receiveReports(reports)))

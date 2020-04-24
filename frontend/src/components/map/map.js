@@ -210,6 +210,7 @@ class Map extends Component {
             Sign up to help notify your neighborhood about what is InStock!
           </h1>
         </header>
+
         <footer>
           Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.
         </footer>

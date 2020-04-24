@@ -18,7 +18,7 @@ export default function (state = {}, action) {
             });
             return fetchedReports;
         case RECEIVE_REPORT:
-            debugger
+            // debugger
             // return Object.assign({}, state, action.report)
             const newReport = {}
             newReport[action.report.data._id] = action.report.data

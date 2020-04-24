@@ -29,7 +29,7 @@ class Map extends Component {
       selectedCoords: null,
       reportInputText: "",
       bounds: null,
-      center: { lat: 45.421532, lng: -75.697189 },
+      center: { lat: 40.672482, lng: -73.968208 },
       markers: [],
     };
   }
@@ -37,10 +37,6 @@ class Map extends Component {
   componentDidMount() {
     this.props.fetchReports();
   }
-
-  // componentDidUpdate(){
-  //   this.props.fetchReports()
-  // }
 
   onMapMounted = (ref) => {
     refs.map = ref;
@@ -65,18 +61,6 @@ class Map extends Component {
         window.alert("Geocoder failed due to: " + status);
       }
     });
-
-    // console.log("The map was clicked");
-  };
-
-  handleReportSubmission = (event) => {
-    // console.log("handling report submission");
-    event.preventDefault();
-  };
-
-  handleReportInputChange = (event) => {
-    // event.preventDefault();
-    this.setState({ reportInputText: event.target.value });
   };
 
 
@@ -113,7 +97,7 @@ class Map extends Component {
           <GoogleMap
             defaultZoom={15}
             // 40.672482, lng: -73.968208
-            defaultCenter={{ lat: 40.672482, lng: -73.968208 }}
+            // defaultCenter={{ lat: 40.672482, lng: -73.968208 }}
             //defaultCenter={{ lat: 45.421532, lng: -75.697189 }}
             onClick={this.onMapClick}
             ref={this.onMapMounted}
@@ -126,7 +110,7 @@ class Map extends Component {
                   lng: this.state.selectedCoords.lng,
                 }}
               >
-                <MapFormContainer
+                <ReportFormContainer
                   lat={this.state.selectedCoords.lat}
                   lng={this.state.selectedCoords.lng}
                 />

@@ -10,10 +10,6 @@ export default function (state = {}, action) {
 
     switch (action.type) {
         case RECEIVE_REPORTS:
-<<<<<<< HEAD
-            // debugger
-            return action.reports.data;
-=======
             debugger
             // return action.reports.data;
             const fetchedReports = {}
@@ -21,7 +17,6 @@ export default function (state = {}, action) {
                 fetchedReports[report._id] = report 
             });
             return fetchedReports;
->>>>>>> master
         case RECEIVE_REPORT:
             // debugger
             // return Object.assign({}, state, action.report)

@@ -4,10 +4,10 @@ class Splash extends React.Component {
 
     render(){
         return (
-          <div>
-            <h1>This is the InStock splash page</h1>
-            <footer>Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.</footer>
-          </div>
+          <>
+          {/* <footer>Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.</footer> */}
+          </>
+
         );
     }
 }

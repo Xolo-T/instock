@@ -12,7 +12,7 @@ export default function (state = {}, action) {
         case RECEIVE_REPORTS:
             return action.reports.data;
         case RECEIVE_REPORT:
-            return Object.assign({}, state, action.report.data)
+            return [action.report.data]
         default:
             return state;
     }

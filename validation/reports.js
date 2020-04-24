@@ -6,15 +6,15 @@ module.exports = function validateReportInput(data) {
 
     data.placeId = validText(data.placeId) ? data.placeId : '';
 
-    if (Validator.isEmpty(data.placeId)) {
-        errors.placeId = 'placeId field is required';
-    }
+    // if (Validator.isEmpty(data.placeId)) {
+    //     errors.placeId = 'placeId field is required';
+    // }
 
     data.productType = validText(data.productType) ? data.productType : '';
 
-    if (Validator.isEmpty(data.productType)) {
-        errors.productType = 'Product type field is required';
-    }
+    // if (Validator.isEmpty(data.productType)) {
+    //     errors.productType = 'Product type field is required';
+    // }
 
     return {
         errors,

@@ -162,7 +162,7 @@ class Map extends Component {
             >
               <input
                 type="text"
-                placeholder="Customized your placeholder"
+                placeholder="Find me the TP"
                 style={{
                   boxSizing: `border-box`,
                   border: `1px solid transparent`,

@@ -144,7 +144,7 @@ class Map extends Component {
                     });
                   }}
                   icon={{
-                    url: "./inventory.png",
+                    url: "./toilet-paper.svg",
                     scaledSize: new window.google.maps.Size(40, 40),
                   }}
                 />

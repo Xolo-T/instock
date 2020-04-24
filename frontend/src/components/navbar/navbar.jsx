@@ -15,11 +15,14 @@ class Navbar extends React.Component{
     populateNavbar() {
         if (this.props.loggedIn) {
             return (
-              <div className="navbar-buttons">
-                <button className="navbar-button-1">profile</button>
-                <button className="navbar-button-2" onClick={this.logoutUser}>
-                  log out
-                </button>
+              <div className="navbar">
+                <span className="welcome-header">welcome {this.props.currentUser.name}</span>
+                <div className="navbar-buttons">
+                  <button className="navbar-button-1">profile</button>
+                  <button className="navbar-button-2" onClick={this.logoutUser}>
+                    log out
+                  </button>
+                </div>
               </div>
             );
         } else {

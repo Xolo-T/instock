@@ -26,12 +26,21 @@ span, article, footer, time, small {
   align-items: center;
   margin-bottom: 0px;
   background-color: #793AFC;
+  text-transform: lowercase;
 }
 
 .logo{
   height: 50%;
   size: 50%;
   margin-left: 20px;
+}
+
+.welcome-header {
+  font-size: 2rem;
+  color: #FBFAFB;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  margin-right: 20px;
 }
 
 .navbar-buttons {
@@ -42,7 +51,6 @@ span, article, footer, time, small {
 
 .navbar-button-1 {
   background-color: #6B6AAA;
-  width: 140px;
   font-size: 2rem;
   color: #FBFAFB;
   font-family: 'Nunito', sans-serif;
@@ -51,6 +59,7 @@ span, article, footer, time, small {
   box-shadow: 5px 5px black;
   cursor: pointer;
   transition: 0.2s;
+  border-radius: .5rem;
 }
 
 .navbar-button-2 {
@@ -63,6 +72,7 @@ span, article, footer, time, small {
   box-shadow: 5px 5px black;
   cursor: pointer;
   transition: 0.2s;
+  border-radius: .5rem;
 }
 
 .navbar-button-1:hover {
@@ -167,6 +177,7 @@ span, article, footer, time, small {
   font-weight: 900;
   margin: 0px 20px;
   box-shadow: 5px 5px black;
+  border-radius: .5rem;
 }
 
 /*FOOTER STYLING */

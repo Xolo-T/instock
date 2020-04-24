@@ -7,13 +7,15 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-import MapFormContainer from "./map_form_container";
-// import * as reportsData from "./skateboard-parks-copy.json";
 // import * as dbData from "./tp-parks.json";
+import ReportFormContainer from './report_form_container'
+
 const {
   SearchBox,
 } = require("react-google-maps/lib/components/places/SearchBox");
 const _ = require("lodash");
+
+
 // const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 const googleMap = require("../../config/keys.js").REACT_APP_GOOGLE_KEY;
 const refs = {};
@@ -109,8 +111,9 @@ class Map extends Component {
       withGoogleMap((props) => {
         return (
           <GoogleMap
-            defaultZoom={10}
-            // defaultCenter={{ lat: 40.73061, lng: -73.935242 }}
+            defaultZoom={15}
+            // 40.672482, lng: -73.968208
+            defaultCenter={{ lat: 40.672482, lng: -73.968208 }}
             //defaultCenter={{ lat: 45.421532, lng: -75.697189 }}
             onClick={this.onMapClick}
             ref={this.onMapMounted}

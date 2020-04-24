@@ -5,7 +5,7 @@ import Map from './map';
 const mapState = state => {
     // debugger
     return({
-        reports: state.reports
+        reports: Object.values(state.reports)
     })
 }
 

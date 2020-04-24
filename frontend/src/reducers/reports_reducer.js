@@ -5,16 +5,33 @@ import {
 } from '../actions/report_actions';
 
 export default function (state = {}, action) {
+    
     Object.freeze(state);
 
     switch (action.type) {
         case RECEIVE_REPORTS:
+<<<<<<< HEAD
             // debugger
             return action.reports.data;
+=======
+            debugger
+            // return action.reports.data;
+            const fetchedReports = {}
+            action.reports.data.forEach(report => {
+                fetchedReports[report._id] = report 
+            });
+            return fetchedReports;
+>>>>>>> master
         case RECEIVE_REPORT:
             // debugger
             // return Object.assign({}, state, action.report)
-            return [action.report.data]
+            const newReport = {}
+            newReport[action.report.data._id] = action.report.data
+            debugger
+            const newState = Object.assign({}, state, newReport)
+            debugger
+            return newState;
+            // return [action.report.data]
         default:
             return state;
     }

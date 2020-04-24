@@ -34,13 +34,13 @@ router.post('/',
         });
 
         newReport.save()
-            // .then(report => res.json(report));
-            .then(
-                Report.find()
-                    .sort({ date: -1 })
-                    .then(reports => res.json(reports))
-                    .catch(err => res.status(404).json({ noReportsFound: 'No reports found' }))
-            );
+            .then(report => res.json(report));
+            // .then(
+            //     Report.find()
+            //         .sort({ date: -1 })
+            //         .then(reports => res.json(reports))
+            //         .catch(err => res.status(404).json({ noReportsFound: 'No reports found' }))
+            // );
     }
 );
 

@@ -27,7 +27,7 @@ class Map extends React.Component {
   }
 
   componentDidMount(){
-    debugger
+    // debugger
     this.props.fetchReports()
   }
 

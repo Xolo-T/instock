@@ -35,7 +35,7 @@ class Map extends Component {
     geocoder.geocode({ location: coord.latLng }, function (results, status) {
       if (status === "OK") {
         if (results[0]) {
-          // console.log(results[0]);
+          console.log(results[0]);
         } else {
           window.alert("No results found");
         }

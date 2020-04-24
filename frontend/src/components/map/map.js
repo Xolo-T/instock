@@ -156,7 +156,7 @@ class Map extends React.Component {
           <h2>Click on one of the pins to find the stores where your neighbors have identified toilet paper is in stock.</h2>
           <h1>Sign up to help notify your neighborhood about what is InStock!</h1>
         </header>
-        <footer>Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.</footer>
+        <footer className='footer'>Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.</footer>
       </div>
     );
   }

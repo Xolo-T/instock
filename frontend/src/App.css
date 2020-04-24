@@ -17,7 +17,7 @@ span, article, footer, time, small {
 } */
 
 
-/*NAVBAR*/
+/* NAVBAR STYLING */
 
 .navbar {
   height: 6rem;
@@ -26,6 +26,12 @@ span, article, footer, time, small {
   align-items: center;
   margin-bottom: 0px;
   background-color: #793AFC;
+}
+
+.logo{
+  height: 50%;
+  size: 50%;
+  margin-left: 20px;
 }
 
 .navbar-buttons {
@@ -39,7 +45,7 @@ span, article, footer, time, small {
   width: 140px;
   font-size: 2rem;
   color: #FBFAFB;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 900;
   margin-right: 20px;
   box-shadow: 5px 5px black;
@@ -52,7 +58,7 @@ span, article, footer, time, small {
   width: 140px;
   font-size: 2rem;
   color: #FBFAFB;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 900;
   box-shadow: 5px 5px black;
   cursor: pointer;
@@ -65,6 +71,13 @@ span, article, footer, time, small {
 
 .navbar-button-2:hover {
   background-color: #B5B4D4
+}
+
+/* AUTH FORM STYLING */
+
+.icon{
+  height: 25%;
+  width: 25%;
 }
 
 .modal-background {
@@ -128,7 +141,7 @@ span, article, footer, time, small {
 }
 
 .login-or-signup-message{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 28px;
   color: #793AFC;
@@ -136,6 +149,7 @@ span, article, footer, time, small {
 }
 
 /* HEADER STYLING */
+
 .call-to-action {
   background-color: #793AFC;
   margin: 0px;
@@ -149,19 +163,24 @@ span, article, footer, time, small {
   font-size: 2rem;
   color: #793AFC;
   background-color: #F6F2ED;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 900;
   margin: 0px 20px;
   box-shadow: 5px 5px black;
 }
 
 /*FOOTER STYLING */
+
   footer {
     padding: 5px;
     margin: 5px;
+    font-family: 'Karma', serif;
+    font-weight: bold;;
+    text-align: center;
   }
 
 /*MAP STYLING */
+
 .map-component {
   margin: 0px;
   padding: 0px;

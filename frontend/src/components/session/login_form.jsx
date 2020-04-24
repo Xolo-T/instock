@@ -23,11 +23,11 @@ class LoginForm extends React.Component {
     let passwordError = "";
 
     if (this.state.email.length === 0) {
-      emailError = "Email can't be empty";
+      emailError = "Email can't be blank";
     }
 
     if (this.state.password.length === 0) {
-      passwordError = "Password can't be empty";
+      passwordError = "Password can't be blank";
     }
 
     if (emailError) {
@@ -98,6 +98,7 @@ class LoginForm extends React.Component {
         </span>
         <form className="auth-form" onSubmit={this.handleSubmit}>
           <span className="login-or-signup-message">log in</span>
+          <img class="icon" src="http://localhost:3000/icon.png" alt="InStock Toilet Paper Icon" />
             <input
               type="text"
               value={this.state.email}

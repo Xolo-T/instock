@@ -150,6 +150,7 @@ class SignupForm extends React.Component {
         </span>
         <form className="auth-form" onSubmit={this.handleSubmit}>
           <span className="login-or-signup-message">sign up</span>
+          <img class="icon" src="http://localhost:3000/icon.png" alt="InStock Toilet Paper Icon" />
           <input
             type="text"
             value={this.state.email}

@@ -3,7 +3,6 @@ import { fetchReports, fetchPlaceReports, fetchReport, composeReport } from '../
 import Map from './map';
 
 const mapState = state => {
-    debugger
     return({
         reports: state.reports
     })

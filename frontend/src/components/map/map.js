@@ -9,14 +9,15 @@ import {
 } from "react-google-maps";
 import * as reportsData from "./skateboard-parks-copy.json";
 import * as dbData from "./tp-parks.json";
+import MapFormContainer from './map_form_container'
 
 
 const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 const googleMap = require("../../config/keys.js").REACT_APP_GOOGLE_KEY;
 
-class Map extends Component {
-  constructor() {
-    super();
+class Map extends React.Component {
+  constructor(props) {
+    super(props);
 
     this.state = {
       selectedReport: null,
@@ -24,6 +25,17 @@ class Map extends Component {
       reportInputText: "",
     };
   }
+
+  componentDidMount(){
+    // debugger
+    this.props.fetchReports()
+  }
+
+  // componentDidUpdate(){
+  //   this.props.fetchReports()
+  // }
+
+
   onMapClick = (coord) => {
     let lat = coord.latLng.lat();
     let lng = coord.latLng.lng();
@@ -53,15 +65,18 @@ class Map extends Component {
   };
 
   handleReportInputChange = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({ reportInputText: event.target.value });
   };
 
 
 
   render() {
+    
     const MyMapComponent = withScriptjs(
-      withGoogleMap((props) => (
+      withGoogleMap((props) => {
+        
+        return(
         <GoogleMap
           defaultZoom={10}
           // defaultCenter={{ lat: 40.73061, lng: -73.935242 }}
@@ -75,19 +90,27 @@ class Map extends Component {
                 lng: this.state.selectedCoords.lng,
               }}
             >
-              <div>
-                <h2>Report Info</h2>
-                <input
-                  id="report-text-input"
-                  value={this.state.reportInputText}
-                  onChange={this.handleReportInputChange}
-                ></input>
-                <button onClick={this.handleReportSubmission}>Submit</button>
-              </div>
+              <MapFormContainer
+                lat={this.state.selectedCoords.lat}
+                lng={this.state.selectedCoords.lng}
+              />
             </InfoWindow>
           )}
 
-          {dbData.reports.map((report) => (
+          {/* {
+              useEffect(() => {
+                if (news.length < 1) {
+                  search();
+                  $.ajax('/api/news/new').done(res => {
+                    setNews(news.concat(res.articles));
+                  });
+                }
+              });
+          } */}
+
+          {this.props.reports.map((report) => {
+            debugger
+            return(
             <Marker
               key={report._id}
               position={{
@@ -103,8 +126,8 @@ class Map extends Component {
                 url: "./toilet-paper.svg",
                 scaledSize: new window.google.maps.Size(40, 40),
               }}
-            />
-          ))}
+            />)
+            })}
 
           {this.state.selectedReport && (
             <InfoWindow
@@ -120,7 +143,7 @@ class Map extends Component {
             </InfoWindow>
           )}
         </GoogleMap>
-      ))
+      )})
     );
 
     return (

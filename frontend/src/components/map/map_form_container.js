@@ -3,7 +3,6 @@ import ReportForm from './report_form'
 import { composeReport } from '../../actions/report_actions'
 
 const mdp = (dispatch) => {
-    debugger
     return({
     composeReport: (report) => dispatch(composeReport(report))
     })

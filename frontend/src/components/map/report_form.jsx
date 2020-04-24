@@ -20,7 +20,6 @@ class ReportForm extends Component{
     }
 
     handleReportSubmission = (event) => {
-        debugger
         event.preventDefault();
         this.props.composeReport(this.state)
     };

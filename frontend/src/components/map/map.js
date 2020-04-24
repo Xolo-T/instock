@@ -15,9 +15,9 @@ import MapFormContainer from './map_form_container'
 const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 const googleMap = require("../../config/keys.js").REACT_APP_GOOGLE_KEY;
 
-class Map extends React.PureComponent {
-  constructor() {
-    super();
+class Map extends React.Component {
+  constructor(props) {
+    super(props);
 
     this.state = {
       selectedReport: null,
@@ -25,6 +25,17 @@ class Map extends React.PureComponent {
       reportInputText: "",
     };
   }
+
+  componentDidMount(){
+    debugger
+    this.props.fetchReports()
+  }
+
+  // componentDidUpdate(){
+  //   this.props.fetchReports()
+  // }
+
+
   onMapClick = (coord) => {
     let lat = coord.latLng.lat();
     let lng = coord.latLng.lng();
@@ -61,9 +72,10 @@ class Map extends React.PureComponent {
 
 
   render() {
+    
     const MyMapComponent = withScriptjs(
       withGoogleMap((props) => {
-        debugger
+        
         return(
         <GoogleMap
           defaultZoom={10}
@@ -85,7 +97,20 @@ class Map extends React.PureComponent {
             </InfoWindow>
           )}
 
-          {dbData.reports.map((report) => (
+          {/* {
+              useEffect(() => {
+                if (news.length < 1) {
+                  search();
+                  $.ajax('/api/news/new').done(res => {
+                    setNews(news.concat(res.articles));
+                  });
+                }
+              });
+          } */}
+
+          {this.props.reports.map((report) => {
+            debugger
+            return(
             <Marker
               key={report._id}
               position={{
@@ -101,8 +126,8 @@ class Map extends React.PureComponent {
                 url: "./toilet-paper.svg",
                 scaledSize: new window.google.maps.Size(40, 40),
               }}
-            />
-          ))}
+            />)
+            })}
 
           {this.state.selectedReport && (
             <InfoWindow

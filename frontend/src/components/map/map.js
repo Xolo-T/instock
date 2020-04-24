@@ -9,14 +9,15 @@ import {
 } from "react-google-maps";
 import * as reportsData from "./skateboard-parks-copy.json";
 import * as dbData from "./tp-parks.json";
+import MapFormContainer from './map_form_container'
 
 
 // const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 const googleMap = require("../../config/keys.js").REACT_APP_GOOGLE_KEY;
 
-class Map extends Component {
-  constructor() {
-    super();
+class Map extends React.Component {
+  constructor(props) {
+    super(props);
 
     this.state = {
       selectedReport: null,
@@ -24,6 +25,17 @@ class Map extends Component {
       reportInputText: "",
     };
   }
+
+  componentDidMount(){
+    // debugger
+    this.props.fetchReports()
+  }
+
+  // componentDidUpdate(){
+  //   this.props.fetchReports()
+  // }
+
+
   onMapClick = (coord) => {
     let lat = coord.latLng.lat();
     let lng = coord.latLng.lng();
@@ -53,15 +65,18 @@ class Map extends Component {
   };
 
   handleReportInputChange = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({ reportInputText: event.target.value });
   };
 
 
 
   render() {
+    
     const MyMapComponent = withScriptjs(
-      withGoogleMap((props) => (
+      withGoogleMap((props) => {
+        
+        return(
         <GoogleMap
           defaultZoom={10}
           // defaultCenter={{ lat: 40.73061, lng: -73.935242 }}
@@ -75,19 +90,27 @@ class Map extends Component {
                 lng: this.state.selectedCoords.lng,
               }}
             >
-              <div>
-                <h2>Report Info</h2>
-                <input
-                  id="report-text-input"
-                  value={this.state.reportInputText}
-                  onChange={this.handleReportInputChange}
-                ></input>
-                <button onClick={this.handleReportSubmission}>Submit</button>
-              </div>
+              <MapFormContainer
+                lat={this.state.selectedCoords.lat}
+                lng={this.state.selectedCoords.lng}
+              />
             </InfoWindow>
           )}
 
-          {dbData.reports.map((report) => (
+          {/* {
+              useEffect(() => {
+                if (news.length < 1) {
+                  search();
+                  $.ajax('/api/news/new').done(res => {
+                    setNews(news.concat(res.articles));
+                  });
+                }
+              });
+          } */}
+
+          {this.props.reports.map((report) => {
+            debugger
+            return(
             <Marker
               key={report._id}
               position={{
@@ -100,11 +123,11 @@ class Map extends Component {
                 });
               }}
               icon={{
-                url: "./inventory.png",
-                scaledSize: new window.google.maps.Size(25, 25),
+                url: "./toilet-paper.svg",
+                scaledSize: new window.google.maps.Size(40, 40),
               }}
-            />
-          ))}
+            />)
+            })}
 
           {this.state.selectedReport && (
             <InfoWindow
@@ -114,17 +137,17 @@ class Map extends Component {
               }}
             >
               <div>
-                <h2>{this.state.selectedReport.name}</h2>
-                <h2>{this.state.selectedReport.description}</h2>
+                <h2 className="map-report-name">{this.state.selectedReport.name}</h2>
+                <p className="map-report-description">{this.state.selectedReport.description}</p>
               </div>
             </InfoWindow>
           )}
         </GoogleMap>
-      ))
+      )})
     );
 
     return (
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div style={{ width: "100vw", height: "50vh" }} className="map-component">
         <MyMapComponent
           isMarkerShown
           googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${googleMap}`}
@@ -133,7 +156,13 @@ class Map extends Component {
           containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
-        ;
+        <header className="call-to-action">
+          <h1>Looking for toilet paper in your neighborhood?</h1>
+          <h2>Don't waste time traveling from one bodega to another only to come up empty-handed.</h2>
+          <h2>Click on one of the pins to find the stores where your neighbors have identified toilet paper is in stock.</h2>
+          <h1>Sign up to help notify your neighborhood about what is InStock!</h1>
+        </header>
+        <footer>Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.</footer>
       </div>
     );
   }

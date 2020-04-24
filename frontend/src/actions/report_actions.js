@@ -31,8 +31,10 @@ export const fetchReport = report => dispatch => (
         // .catch(err => console.log(err))
 );
 
-export const composeReport = report => dispatch => (
+export const composeReport = report => dispatch => {
+    return(
     APIUtil.postReport(report)
-        .then(report => dispatch(receiveReport(report)))
+        .then(reports => dispatch(receiveReports(reports)))
+        // .then(report => dispatch(receiveReport(report)))
         // .catch(err => console.log(err))
-);
+)};

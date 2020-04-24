@@ -6,19 +6,19 @@ import "../index.css";
 
 import SplashContainer from './splash/splash';
 import NavbarContainer from './navbar/navbar_container';
-import Map from './map/map';
+import MapContainer from './map/map_container';
 import Modal from './modal/modal';
 
 
 const App = () => (
-    <div>
-    <Modal />
-    <NavbarContainer/>
-    <Map/>
-    <Switch>
-        <AuthRoute exapct path="/" component={SplashContainer} />
-    </Switch>
-    </div>
+    <>
+        <Modal />
+        <NavbarContainer/>
+        <MapContainer/>
+        <Switch>
+            <AuthRoute exapct path="/" component={SplashContainer} />
+        </Switch>
+    </>
 );
 
 export default App;

@@ -15,7 +15,6 @@ const ReportSchema = new Schema({
     },
     description: {
         type: String,
-        required: true,
     },
     lng: {
         type: Number,

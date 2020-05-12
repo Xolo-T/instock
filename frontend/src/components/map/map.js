@@ -68,6 +68,7 @@ class Map extends Component {
   };
 
   onPlacesChanged = () => {
+
     const places = refs.searchBox.getPlaces();
     const bounds = new google.maps.LatLngBounds();
 
@@ -105,6 +106,12 @@ class Map extends Component {
                   lat: this.state.selectedCoords.lat,
                   lng: this.state.selectedCoords.lng,
                 }}
+                onCloseClick={() => {
+                  this.setState({
+                    selectedCoords: null,
+                    reportInputText: ""
+                  });
+                }}
               >
                 <ReportFormContainer
                   lat={this.state.selectedCoords.lat}
@@ -137,6 +144,12 @@ class Map extends Component {
                 position={{
                   lat: this.state.selectedReport.lat,
                   lng: this.state.selectedReport.lng,
+                }}
+                onCloseClick={() => {
+                  this.setState({
+                    selectedReport: null,
+                    selectedCoords: null
+                  });
                 }}
               >
                 <div>

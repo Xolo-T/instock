@@ -17,7 +17,7 @@ class ReportForm extends Component{
 
     handleReportSubmission = (event) => {
         event.preventDefault();
-        this.props.composeReport(this.state)
+        this.props.composeReport(this.state);
     };
 
     handleReportInputChange = (event) => {

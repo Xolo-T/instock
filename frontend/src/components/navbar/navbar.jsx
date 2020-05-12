@@ -38,7 +38,7 @@ class Navbar extends React.Component{
     render() {
         return (
             <div className='navbar'>
-              <img class="logo" src="http://localhost:3000/logo.png" alt="My_Logo"/>
+              <img class="logo" src="./logo.png" alt="My_Logo"/>
               {this.populateNavbar()}
             </div>
         );

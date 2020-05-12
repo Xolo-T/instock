@@ -113,7 +113,6 @@ class Map extends Component {
               </InfoWindow>
             )}
             {this.props.reports.map((report) => {
-              // debugger
               return (
                 <Marker
                   key={report._id}

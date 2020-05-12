@@ -7,8 +7,7 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-// import * as dbData from "./tp-parks.json";
-import ReportFormContainer from './report_form_container'
+import ReportFormContainer from './report_form_container';
 
 const {
   SearchBox,
@@ -188,8 +187,7 @@ class Map extends Component {
       <div style={{ width: "100vw", height: "50vh" }} className="map-component">
         <MyMapComponent
           isMarkerShown
-          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCUNKem-jcqZVBXC9tj4J4B8qAz5nbwWr0`}
-          // googleMapURL={`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=${googleMap}`}
+          googleMapURL={"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=" + googleMap}
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
@@ -216,11 +214,5 @@ class Map extends Component {
     );
   }
 }
-
-//  {
-//    props.isMarkerShown && (
-//      <Marker position={{ lat: 40.73061, lng: -73.935242 }} />
-//    );
-//  }
 
 export default Map;

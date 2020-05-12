@@ -68,6 +68,7 @@ class Map extends Component {
   };
 
   onPlacesChanged = () => {
+
     const places = refs.searchBox.getPlaces();
     const bounds = new google.maps.LatLngBounds();
 

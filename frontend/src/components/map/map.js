@@ -15,7 +15,6 @@ const {
 const _ = require("lodash");
 
 
-// const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 const googleMap = require("../../config/keys.js").REACT_APP_GOOGLE_KEY;
 const refs = {};
 
@@ -39,6 +38,12 @@ class Map extends Component {
 
   onMapMounted = (ref) => {
     refs.map = ref;
+  };
+
+  //Setting selectedCoords to null closes the report form on submission
+  handleReportSubmission = (event) => {
+    event.preventDefault();
+    this.setState({ selectedCoords: null });
   };
 
   onMapClick = (coord) => {
@@ -116,6 +121,7 @@ class Map extends Component {
                 <ReportFormContainer
                   lat={this.state.selectedCoords.lat}
                   lng={this.state.selectedCoords.lng}
+                  handleReportSubmission={this.handleReportSubmission}
                 />
               </InfoWindow>
             )}

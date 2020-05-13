@@ -12,12 +12,13 @@ class ReportForm extends Component{
         };
 
         this.handleReportInputChange = this.handleReportInputChange.bind(this);
-        this.handleReportSubmission = this.handleReportSubmission.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleReportSubmission = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         this.props.composeReport(this.state);
+        this.props.handleReportSubmission(event);
     };
 
     handleReportInputChange = (event) => {
@@ -35,7 +36,7 @@ class ReportForm extends Component{
                     value={this.state.name}
                     onChange={this.handleReportInputChange}
                 ></input>
-                <button onClick={this.handleReportSubmission}>Submit</button>
+                <button onClick={this.handleSubmit}>Submit</button>
             </div> 
         )
     }

@@ -85,7 +85,7 @@ span, article, footer, time, small {
 
 /* AUTH FORM STYLING */
 
-.icon{
+.icon {
   height: 25%;
   width: 25%;
 }
@@ -114,7 +114,7 @@ span, article, footer, time, small {
   box-shadow: 10px 10px #1D3B97
 }
 
-.auth-form-container{
+.auth-form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,7 +125,7 @@ span, article, footer, time, small {
 
 }
 
-.auth-form{
+.auth-form {
   height: inherit;
   width: inherit;
   display: flex;
@@ -134,14 +134,14 @@ span, article, footer, time, small {
   justify-content: space-evenly;
 }
 
-.modal-closer-button{
+.modal-closer-button {
   position: absolute;
   top: 10px;
   right: 10px;
   color: #793AFC
 }
 
-.modal-closer-button:hover{
+.modal-closer-button:hover {
   cursor: pointer;
   color: black;
 }
@@ -150,7 +150,7 @@ span, article, footer, time, small {
   font-size: 28px;
 }
 
-.login-or-signup-message{
+.login-or-signup-message {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 28px;
@@ -158,6 +158,41 @@ span, article, footer, time, small {
   text-decoration: underline;
 }
 
+.input {
+  width: 75%;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input-button-1, .input-button-2 {
+  background-color: #6B6AAA;
+  font-size: 1.5rem;
+  color: #FBFAFB;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  box-shadow: 5px 5px black;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: .5rem;
+}
+
+.input-button-1 {
+  width: 50%
+}
+
+.input-button-2 {
+  width: 40%;
+  position: relative;
+  bottom: 20px;
+}
+
+.input-button-1:hover, .input-button-2:hover {
+  background-color: #B5B4D4;
+}
 /* HEADER STYLING */
 
 .call-to-action {

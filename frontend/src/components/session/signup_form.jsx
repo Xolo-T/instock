@@ -150,15 +150,15 @@ class SignupForm extends React.Component {
         </span>
         <form className="auth-form" onSubmit={this.handleSubmit}>
           <span className="login-or-signup-message">sign up</span>
-          <img class="icon" src="http://localhost:3000/icon.png" alt="InStock Toilet Paper Icon" />
-          <input
+          <img class="icon" src="./icon.png" alt="InStock Toilet Paper Icon" />
+          <input className="input"
             type="text"
             value={this.state.email}
             onChange={this.update("email")}
             placeholder="Email"
           />
           <div className="frontEnd-session-errors">{this.state.emailError}</div>
-          <input
+          <input className="input"
             type="text"
             value={this.state.userName}
             onChange={this.update("userName")}
@@ -167,7 +167,7 @@ class SignupForm extends React.Component {
           <div className="frontEnd-session-errors">
             {this.state.usernameError}
           </div>
-          <input
+          <input className="input"
             type="password"
             value={this.state.password}
             onChange={this.update("password")}
@@ -176,7 +176,7 @@ class SignupForm extends React.Component {
           <div className="frontEnd-session-errors">
             {this.state.passwordError}
           </div>
-          <input
+          <input className="input"
             type="password"
             value={this.state.password2}
             onChange={this.update("password2")}
@@ -185,7 +185,7 @@ class SignupForm extends React.Component {
           <div className="frontEnd-session-errors">
             {this.state.password2Error}
           </div>
-          <input type="submit" value="Submit" />
+          <input className="input-button-1" type="submit" value="Submit" />
           {this.renderErrors()}
 
           {this.props.otherForm}

@@ -105,7 +105,7 @@ class Map extends Component {
             ref={this.onMapMounted}
             center={this.state.center}
           >
-            {this.state.selectedCoords && (
+            {this.props.currentUser && this.state.selectedCoords && (
               <InfoWindow
                 position={{
                   lat: this.state.selectedCoords.lat,

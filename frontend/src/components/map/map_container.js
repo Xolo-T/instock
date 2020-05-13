@@ -3,11 +3,11 @@ import { fetchReports, fetchPlaceReports, fetchReport, composeReport } from '../
 import Map from './map';
 
 const mapState = state => {
-    // debugger
     return({
-        reports: Object.values(state.reports)
-    })
-}
+        reports: Object.values(state.reports),
+        currentUser: state.session.user
+    });
+};
 
 const mapDispatch = dispatch => {
     return({
@@ -15,7 +15,7 @@ const mapDispatch = dispatch => {
         fetchPlaceReports: placeId => dispatch(fetchPlaceReports(placeId)),
         fetchReport: report => dispatch(fetchReport(report)),
         composeReport: report => dispatch(composeReport(report))
-    })
-}
+    });
+};
 
 export default connect(mapState, mapDispatch)(Map);

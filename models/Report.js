@@ -30,6 +30,9 @@ const ReportSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    approvals: {
+        type: Number
     }
 });
 

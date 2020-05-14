@@ -16,6 +16,11 @@ span, article, footer, time, small {
   background: transparent;
 } */
 
+/* LIMIT MIN WIDTH, REMOVE AS APP BECOMES MORE MOBILE READY*/
+body {
+  min-width: 1000px;
+}
+
 
 /* NAVBAR STYLING */
 

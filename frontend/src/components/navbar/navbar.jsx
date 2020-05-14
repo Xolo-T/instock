@@ -24,9 +24,9 @@ class Navbar extends React.Component{
             return (
               <div className="navbar">
                 <span className="welcome-header">welcome {this.props.currentUser.name}</span>
-                <div className="navbar-buttons">
-                  <button className="navbar-button-1">profile</button>
-                  <button className="navbar-button-2" onClick={this.logoutUser}>
+                <div className="navbar-buttons-wrappper">
+                  <button className="navbar-button">profile</button>
+                  <button className="navbar-button" onClick={this.logoutUser}>
                     log out
                   </button>
                 </div>
@@ -34,10 +34,10 @@ class Navbar extends React.Component{
             );
         } else {
             return (
-              <div className='navbar-buttons'>
-                <button className='navbar-button-2' onClick={this.demoLogin}>demo login</button>
-                <button className='navbar-button-1' onClick={() => this.props.openModal("login")}>log in</button>
-                <button className='navbar-button-2' onClick={() => this.props.openModal("signup")}>sign up</button>
+              <div className='navbar-buttons-wrapper'>
+                <button className='navbar-button demo-button' onClick={this.demoLogin}>demo login</button>
+                <button className='navbar-button' onClick={() => this.props.openModal("login")}>log in</button>
+                <button className='navbar-button' onClick={() => this.props.openModal("signup")}>sign up</button>
               </div>
             );
         }

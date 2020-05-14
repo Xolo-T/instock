@@ -5,6 +5,13 @@ class Navbar extends React.Component{
         super(props);
         this.logoutUser = this.logoutUser.bind(this);
         this.populateNavbar = this.populateNavbar.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
+    }
+
+    demoLogin(e) {
+      e.preventDefault();
+      const user = { email: "demo-user@mailinator.com", password: "password" };
+      this.props.login(user);
     }
 
     logoutUser(e) {
@@ -28,6 +35,7 @@ class Navbar extends React.Component{
         } else {
             return (
               <div className='navbar-buttons'>
+                <button className='navbar-button-2' onClick={this.demoLogin}>demo login</button>
                 <button className='navbar-button-1' onClick={() => this.props.openModal("login")}>log in</button>
                 <button className='navbar-button-2' onClick={() => this.props.openModal("signup")}>sign up</button>
               </div>

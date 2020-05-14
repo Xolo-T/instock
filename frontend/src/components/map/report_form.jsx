@@ -18,7 +18,6 @@ class ReportForm extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault();
-        debugger
         this.props.composeReport(this.state);
         this.props.handleReportSubmission(event);
     };
@@ -37,6 +36,7 @@ class ReportForm extends Component{
                     id="report-text-input"
                     value={this.state.storeName}
                     onChange={this.handleReportInputChange}
+                    placeholder="Enter store name"
                 ></input>
                 <button onClick={this.handleSubmit}>Submit</button>
             </div> 

@@ -239,3 +239,8 @@ span, article, footer, time, small {
 .gm-style .gm-style-iw-t::after {
   top: -40px;
 }
+
+/*REPORT INFOWINDOW STYLING */
+.approvals-count {
+  margin-left: 10px;
+}

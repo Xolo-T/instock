@@ -133,7 +133,6 @@ class Map extends Component {
             )}
             {/* Maps existing reports */}
             {this.props.reports.map((report) => {
-              debugger
               return (
                 <Marker
                   key={report._id}
@@ -177,7 +176,7 @@ class Map extends Component {
                     Reported by: <strong>{this.state.selectedReport.reporterName}</strong>
                   </p>
                   <p>
-                    <i class="far fa-thumbs-up"></i><strong>{this.state.selectedReport.approvals}</strong>
+                    <i class="far fa-thumbs-up"></i><span class="approvals-count"><strong>{this.state.selectedReport.approvals}</strong></span>
                   </p>
                 </div>
               </InfoWindow>

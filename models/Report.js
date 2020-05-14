@@ -6,10 +6,13 @@ const ReportSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
+    reporterName: {
+        type: String,
+    },
     placeId: {
         type: String,
     },
-    name: {
+    storeName: {
         type: String,
         required: true,
     },

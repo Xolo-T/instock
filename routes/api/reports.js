@@ -26,8 +26,9 @@ router.post('/',
 
         const newReport = new Report({
             reporterId: req.body.reporterId,
+            reporterName: req.body.reporterName,
             placeId: req.body.placeId,
-            name: req.body.name,
+            storeName: req.body.storeName,
             description: req.body.description,
             lng: req.body.lng,
             lat: req.body.lat,

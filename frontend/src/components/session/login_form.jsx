@@ -67,7 +67,6 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password,
     };
-
     const isValid = this.validate();
     if (isValid) {
       this.props.login(user).then(this.props.closeModal);

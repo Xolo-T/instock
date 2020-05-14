@@ -16,6 +16,11 @@ span, article, footer, time, small {
   background: transparent;
 } */
 
+/* LIMIT MIN WIDTH, REMOVE AS APP BECOMES MORE MOBILE READY*/
+body {
+  min-width: 1000px;
+}
+
 
 /* NAVBAR STYLING */
 
@@ -43,13 +48,13 @@ span, article, footer, time, small {
   margin-right: 20px;
 }
 
-.navbar-buttons {
+.navbar-buttons-wrapper {
   margin-top: auto;
   margin-bottom: auto;
   margin-right: 20px;
 }
 
-.navbar-button-1 {
+.navbar-button {
   background-color: #6B6AAA;
   font-size: 2rem;
   color: #FBFAFB;
@@ -62,25 +67,12 @@ span, article, footer, time, small {
   border-radius: .5rem;
 }
 
-.navbar-button-2 {
-  background-color: #6B6AAA;
-  width: 140px;
-  font-size: 2rem;
-  color: #FBFAFB;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 900;
-  box-shadow: 5px 5px black;
-  cursor: pointer;
-  transition: 0.2s;
-  border-radius: .5rem;
-}
-
-.navbar-button-1:hover {
+.navbar-button:hover {
   background-color: #B5B4D4;
 }
 
-.navbar-button-2:hover {
-  background-color: #B5B4D4
+.demo-button {
+  background-color: coral;
 }
 
 /* AUTH FORM STYLING */

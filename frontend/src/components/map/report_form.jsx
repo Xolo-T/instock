@@ -5,8 +5,9 @@ class ReportForm extends Component{
         super(props);
 
         this.state = {
-            reporterId: this.props.currentUser,
-            name: "",
+            reporterId: this.props.currentUser.id,
+            reporterName: this.props.currentUser.name,
+            storeName: "",
             lng: this.props.lng,
             lat: this.props.lat,
         };
@@ -17,13 +18,14 @@ class ReportForm extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault();
+        debugger
         this.props.composeReport(this.state);
         this.props.handleReportSubmission(event);
     };
 
     handleReportInputChange = (event) => {
         event.preventDefault();
-        this.setState({ name: event.target.value });
+        this.setState({ storeName: event.target.value });
     };
 
     render(){
@@ -33,7 +35,7 @@ class ReportForm extends Component{
                 <h2>Tell us who's got the TP</h2>
                 <input
                     id="report-text-input"
-                    value={this.state.name}
+                    value={this.state.storeName}
                     onChange={this.handleReportInputChange}
                 ></input>
                 <button onClick={this.handleSubmit}>Submit</button>

@@ -5,6 +5,7 @@ import Map from './map';
 const mapState = state => {
     return({
         reports: Object.values(state.reports),
+        isAuthenticated: state.session.isAuthenticated,
         currentUser: state.session.user
     });
 };

@@ -112,6 +112,7 @@ class Map extends Component {
           >
             {this.props.isAuthenticated && this.state.selectedCoords && (
               <InfoWindow
+                
                 position={{
                   lat: this.state.selectedCoords.lat,
                   lng: this.state.selectedCoords.lng,
@@ -132,6 +133,7 @@ class Map extends Component {
             )}
             {/* Maps existing reports */}
             {this.props.reports.map((report) => {
+              debugger
               return (
                 <Marker
                   key={report._id}

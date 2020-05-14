@@ -46,7 +46,12 @@ class Map extends Component {
     this.setState({ selectedCoords: null });
   };
 
+  //Set selected coords when user clicks on open space of map
   onMapClick = (coord) => {
+    if (!this.props.isAuthenticated) {
+      return;
+    }
+
     let lat = coord.latLng.lat();
     let lng = coord.latLng.lng();
 
@@ -105,8 +110,9 @@ class Map extends Component {
             ref={this.onMapMounted}
             center={this.state.center}
           >
-            {this.props.currentUser && this.state.selectedCoords && (
+            {this.props.isAuthenticated && this.state.selectedCoords && (
               <InfoWindow
+                
                 position={{
                   lat: this.state.selectedCoords.lat,
                   lng: this.state.selectedCoords.lng,
@@ -125,6 +131,7 @@ class Map extends Component {
                 />
               </InfoWindow>
             )}
+            {/* Maps existing reports */}
             {this.props.reports.map((report) => {
               return (
                 <Marker
@@ -160,10 +167,16 @@ class Map extends Component {
               >
                 <div>
                   <h2 className="map-report-name">
-                    {this.state.selectedReport.name}
+                    {this.state.selectedReport.storeName}
                   </h2>
                   <p className="map-report-description">
                     {this.state.selectedReport.description}
+                  </p>
+                  <p>
+                    Reported by: <strong>{this.state.selectedReport.reporterName}</strong>
+                  </p>
+                  <p>
+                    <i class="far fa-thumbs-up"></i><span class="approvals-count"><strong>{this.state.selectedReport.approvals}</strong></span>
                   </p>
                 </div>
               </InfoWindow>

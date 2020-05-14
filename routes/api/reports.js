@@ -26,11 +26,13 @@ router.post('/',
 
         const newReport = new Report({
             reporterId: req.body.reporterId,
+            reporterName: req.body.reporterName,
             placeId: req.body.placeId,
-            name: req.body.name,
+            storeName: req.body.storeName,
             description: req.body.description,
             lng: req.body.lng,
             lat: req.body.lat,
+            approvals: 0,
         });
 
         newReport.save()
@@ -44,6 +46,22 @@ router.post('/',
     }
 );
 
+router.patch('/update', (req, res) => {
+    Report.findById(req.body.id, function (err, reportToUpvote) {
+        if (!reportToUpvote)
+            return next(new Error('Could not find report'));
+        else {
+            // updating
+            reportToUpvote.approval += 1;
+            reportToUpvote.save(function (err) {
+                if (err)
+                    console.log('error')
+                else
+                    console.log('success')
+            });
+        }
+    });
+});
 
 router.get("/:placeId", (req, res) => {
 

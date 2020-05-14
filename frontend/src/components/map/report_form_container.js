@@ -9,7 +9,8 @@ const mdp = (dispatch) => {
 };
 
 const msp = (state) => ({
-    currentUser: "5ea189ef5fab3706d30028bc",
+    currentUser: state.session.user
+    // currentUser: "5ea189ef5fab3706d30028bc",
     // lng: this.props.lng,
     // lat: this.props.lat
 });

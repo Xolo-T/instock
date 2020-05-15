@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './navbar.css';
+
 class Navbar extends React.Component{
     constructor(props){
         super(props);
@@ -34,11 +36,33 @@ class Navbar extends React.Component{
             );
         } else {
             return (
-              <div className='navbar-buttons-wrapper'>
-                <button className='navbar-button demo-button' onClick={this.demoLogin}>demo login</button>
-                <button className='navbar-button' onClick={() => this.props.openModal("login")}>log in</button>
-                <button className='navbar-button' onClick={() => this.props.openModal("signup")}>sign up</button>
-              </div>
+              <nav className="navbar-buttons-wrapper">
+                <label for="hamburger">
+                  <i class="fas fa-hamburger"></i>
+                </label>
+                <input type="checkbox" id="hamburger"></input>
+
+                <div id="hamitems"> 
+                  <button
+                    className="navbar-button demo-button"
+                    onClick={this.demoLogin}
+                  >
+                    demo login
+                  </button>
+                  <button
+                    className="navbar-button"
+                    onClick={() => this.props.openModal("login")}
+                  >
+                    log in
+                  </button>
+                  <button
+                    className="navbar-button"
+                    onClick={() => this.props.openModal("signup")}
+                  >
+                    sign up
+                  </button>
+                </div>
+              </nav>
             );
         }
     }

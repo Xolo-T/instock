@@ -1,0 +1,50 @@
+.navbar-buttons-wrapper {
+  /* margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px; */
+  width: 100%;
+  background: #000;
+  position: sticky;
+  top: 0;
+} 
+
+.navbar-buttons-wrapper label, #hamburger { display: none; }
+
+#hamitems { 
+    display: flex; 
+}
+
+#hamitems button {
+    width: 20%;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-buttons-wrapper label {
+        display: inline-block;
+        color: white;
+        background: #a02620;
+        font-style: normal;
+        font-size: 1.2em;
+        padding: 10px;
+    }
+
+    .navbar-buttons-wrapper {
+        right: 100px;
+    }
+
+    #hamitems button {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-top: 1px solid #333;
+    }
+
+    #hamitems { display: none;}
+    .navbar-buttons-wrapper input:checked ~ #hamitems { display: block; }
+}
+
+
+

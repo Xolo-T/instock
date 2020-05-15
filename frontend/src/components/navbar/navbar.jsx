@@ -34,7 +34,7 @@ class Navbar extends React.Component{
                   <span className="welcome-header">
                     welcome {this.props.currentUser.name}
                   </span>
-                  <div className="button-wrapper">
+                  <div className="navbar-buttons-wrapper">
                     <button className="navbar-button">profile</button>
                     <button className="navbar-button" onClick={this.logoutUser}>
                       log out
@@ -45,31 +45,33 @@ class Navbar extends React.Component{
             );
         } else {
             return (
-              <nav className="navbar-buttons-wrapper">
+              <nav className="navbar">
                 <label for="hamburger">
                   <i class="fas fa-hamburger"></i>
                 </label>
                 <input type="checkbox" id="hamburger"></input>
 
-                <div id="hamitems"> 
-                  <button
-                    className="navbar-button demo-button"
-                    onClick={this.demoLogin}
-                  >
-                    demo login
-                  </button>
-                  <button
-                    className="navbar-button"
-                    onClick={() => this.props.openModal("login")}
-                  >
-                    log in
-                  </button>
-                  <button
-                    className="navbar-button"
-                    onClick={() => this.props.openModal("signup")}
-                  >
-                    sign up
-                  </button>
+                <div id="hamitems">
+                  <div className="navbar-buttons-wrapper ">
+                    <button
+                      className="navbar-button demo-button"
+                      onClick={this.demoLogin}
+                    >
+                      demo login
+                    </button>
+                    <button
+                      className="navbar-button"
+                      onClick={() => this.props.openModal("login")}
+                    >
+                      log in
+                    </button>
+                    <button
+                      className="navbar-button"
+                      onClick={() => this.props.openModal("signup")}
+                    >
+                      sign up
+                    </button>
+                  </div>
                 </div>
               </nav>
             );

@@ -73,11 +73,12 @@
     #hamitem { 
         display: none;
     }
+
     .navbar input:checked ~ #hamitem {
          display: block;
         }
 
-    .button-wrapper {
+    .navbar-buttons-wrapper {
         position: absolute;
         top: 25px;
         right: 1px; 
@@ -87,19 +88,18 @@
 
 /* Navbar when user is not logged in */ 
 
-.navbar-buttons-wrapper {
+/* .navbar-buttons-wrapper {
   margin-top: auto;
   margin-bottom: auto;
   margin-right: 20px;
-} 
+}  */
 
-.navbar-buttons-wrapper label, #hamburger { display: none; }
+.navbar label, #hamburger { display: none; }
 
 #hamitems { 
     display: flex; 
     position: relative;
     z-index: 100;
-    right: 50px;
 }
 
 .navbar-button {
@@ -125,18 +125,17 @@
 
 
 @media screen and (max-width: 768px) {
-    .navbar-buttons-wrapper label {
+    .navbar label {
         display: inline-block;
         color: white;
-        background: #a02620;
         font-style: normal;
         font-size: 1.2em;
         padding: 10px;
         cursor: pointer;
     }
 
-    .navbar-buttons-wrapper {
-        right: 100px;
+    #hamitems { 
+        display: none;
     }
 
     #hamitems button {
@@ -146,10 +145,12 @@
     border-top: 1px solid #333;
     }
 
-    #hamitems { 
-        display: none;
-    }
-    .navbar-buttons-wrapper input:checked ~ #hamitems { display: block; }
+   
+    .navbar input:checked ~ #hamitems { display: block; }
+
+    .navbar-buttons-wrapper {
+    position: absolute;
+}
 }
 
 

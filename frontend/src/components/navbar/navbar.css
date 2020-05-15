@@ -1,25 +1,119 @@
-.navbar-buttons-wrapper {
+
+.logo{
+  height: 50%;
+  size: 50%;
+  margin-left: 20px;
+}
+
+.navbar-button:hover {
+  background-color: #B5B4D4;
+}
+
+
+/* Navbar when user is logged in */ 
+
+.welcome-header {
+  font-size: 2rem;
+  color: coral;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  margin-right: 20px;
+}
+
+.navbar {
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+  background-color: #793AFC;
+  text-transform: lowercase;
+
   /* margin-top: auto;
+  margin-bottom: auto; */
+}
+
+
+.navbar label, #hamburger { display: none; }
+
+#hamitem { 
+    display: flex; 
+    position: relative;
+    z-index: 100;
+    /* top: 100px;  */
+    right: 175px;
+}
+
+.navbar-button {
+    background-color: #6B6AAA;
+    font-size: 2rem;
+    color: #FBFAFB;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    margin-right: 20px;
+    box-shadow: 5px 5px black;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: .5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar label {
+        display: inline-block;
+        color: white;
+        background: #a02620;
+        font-style: normal;
+        font-size: 1.2em;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+
+    #hamitem { 
+        display: none;
+    }
+    .navbar input:checked ~ #hamitem { display: block; }
+}
+
+
+/* Navbar when user is not logged in */ 
+
+.navbar-buttons-wrapper {
+  margin-top: auto;
   margin-bottom: auto;
-  margin-right: 20px; */
-  width: 100%;
-  background: #000;
-  position: sticky;
-  top: 0;
+  margin-right: 20px;
 } 
 
 .navbar-buttons-wrapper label, #hamburger { display: none; }
 
 #hamitems { 
     display: flex; 
+    position: relative;
+    z-index: 100;
+    right: 50px;
 }
 
-#hamitems button {
-    width: 20%;
-    padding: 10px;
-    color: white;
-    text-align: center;
+.navbar-button {
+    background-color: #6B6AAA;
+    font-size: 2rem;
+    color: #FBFAFB;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    margin-right: 20px;
+    box-shadow: 5px 5px black;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: .5rem;
 }
+
+.navbar-button:hover {
+  background-color: #B5B4D4;
+}
+
+.demo-button {
+  background-color: coral;
+}
+
 
 @media screen and (max-width: 768px) {
     .navbar-buttons-wrapper label {
@@ -29,6 +123,7 @@
         font-style: normal;
         font-size: 1.2em;
         padding: 10px;
+        cursor: pointer;
     }
 
     .navbar-buttons-wrapper {
@@ -42,7 +137,9 @@
     border-top: 1px solid #333;
     }
 
-    #hamitems { display: none;}
+    #hamitems { 
+        display: none;
+    }
     .navbar-buttons-wrapper input:checked ~ #hamitems { display: block; }
 }
 

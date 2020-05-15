@@ -24,15 +24,22 @@ class Navbar extends React.Component{
     populateNavbar() {
         if (this.props.loggedIn) {
             return (
-              <div className="navbar">
-                <span className="welcome-header">welcome {this.props.currentUser.name}</span>
-                <div className="navbar-buttons-wrappper">
+              <nav className="navbar">
+                <label for="hamburger">
+                  <i class="fas fa-hamburger"></i>
+                </label>
+                <input type="checkbox" id="hamburger"></input>
+
+                <div id="hamitem">
+                  <span className="welcome-header">
+                    welcome {this.props.currentUser.name}
+                  </span>
                   <button className="navbar-button">profile</button>
                   <button className="navbar-button" onClick={this.logoutUser}>
                     log out
                   </button>
                 </div>
-              </div>
+              </nav>
             );
         } else {
             return (

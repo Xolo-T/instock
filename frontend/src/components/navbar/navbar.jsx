@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './navbar.css';
+
 class Navbar extends React.Component{
     constructor(props){
         super(props);
@@ -22,23 +24,56 @@ class Navbar extends React.Component{
     populateNavbar() {
         if (this.props.loggedIn) {
             return (
-              <div className="navbar">
-                <span className="welcome-header">welcome {this.props.currentUser.name}</span>
-                <div className="navbar-buttons-wrappper">
-                  <button className="navbar-button">profile</button>
-                  <button className="navbar-button" onClick={this.logoutUser}>
-                    log out
-                  </button>
+              <nav className="navbar">
+                <label for="hamburger">
+                  <i className="fa fa-2x">&#9776;</i>
+                </label>
+                <input type="checkbox" id="hamburger"></input>
+
+                <div id="hamitems">
+                  <span className="welcome-header">
+                    welcome {this.props.currentUser.name}
+                  </span>
+                  <div className="navbar-buttons-wrapper">
+                    <button className="navbar-button">profile</button>
+                    <button className="navbar-button" onClick={this.logoutUser}>
+                      log out
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </nav>
             );
         } else {
             return (
-              <div className='navbar-buttons-wrapper'>
-                <button className='navbar-button demo-button' onClick={this.demoLogin}>demo login</button>
-                <button className='navbar-button' onClick={() => this.props.openModal("login")}>log in</button>
-                <button className='navbar-button' onClick={() => this.props.openModal("signup")}>sign up</button>
-              </div>
+              <nav className="navbar">
+                <label for="hamburger">
+                  <i className="fa fa-2x">&#9776;</i>
+                </label>
+                <input type="checkbox" id="hamburger"></input>
+
+                <div id="hamitems">
+                  <div className="navbar-buttons-wrapper ">
+                    <button
+                      className="navbar-button demo-button"
+                      onClick={this.demoLogin}
+                    >
+                      demo login
+                    </button>
+                    <button
+                      className="navbar-button"
+                      onClick={() => this.props.openModal("login")}
+                    >
+                      log in
+                    </button>
+                    <button
+                      className="navbar-button"
+                      onClick={() => this.props.openModal("signup")}
+                    >
+                      sign up
+                    </button>
+                  </div>
+                </div>
+              </nav>
             );
         }
     }
@@ -54,3 +89,5 @@ class Navbar extends React.Component{
 }
 
 export default Navbar;
+
+    // <i class="fas fa-hamburger"></i>;

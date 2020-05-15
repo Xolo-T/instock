@@ -77,7 +77,19 @@
     .navbar-buttons-wrapper {
         position: absolute;
         top: 25px;
-        right: 1px; 
+        right: 12px; 
+    }
+
+    .navbar-button {
+        font-size: 1.5rem;
+        color: #FBFAFB;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        margin-right: 20px;
+        box-shadow: none;
+        transition: 0.2s;
+        border: black 1px;
+        border-radius: 0rem;
     }
 }
 

@@ -5,9 +5,10 @@
   margin-left: 20px;
 }
 
-/* .navbar-button:hover {
+.navbar-button:hover {
   background-color: #B5B4D4;
-} */
+  cursor: pointer;
+}
 
 .navbar {
   height: 6rem;
@@ -27,7 +28,6 @@
     font-weight: 900;
     margin-right: 20px;
     box-shadow: 5px 5px black;
-    /* cursor: pointer; */
     transition: 0.2s;
     border-radius: .5rem;
 }
@@ -52,7 +52,6 @@
         font-style: normal;
         font-size: 1.2em;
         padding: 10px;
-        /* cursor: pointer; */
     }
 
 
@@ -105,27 +104,12 @@
         font-style: normal;
         font-size: 1.2em;
         padding: 10px;
-        /* cursor: pointer; */
     }
 
     #hamitems { 
         display: none;
     }
 
-    /* #hamitems button {
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    border-top: 1px solid #333;
-    } */
-
-    /* .navbar input:checked ~ #hamitems { display: block; } */
-
-    /* .navbar-buttons-wrapper {
-    position: absolute;
-    top: 25px;
-    right: 1px; 
-    } */
 }
 
 

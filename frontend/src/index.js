@@ -32,18 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   }
-  //TESTING//
-  window.updateReport = updateReport;
-  window.getState = store.getState
-  window.dispatch = store.dispatch;
-  window.logout = logout;
-  window.signup = signup;
-  window.login = login;
-  window.getReports = getReports;
-  window.getReport = getReport;
-  window.postReport = postReport;
-  window.getPlaceReports = getPlaceReports;
-  //
+  
   const root = document.getElementById('root');
   
   ReactDOM.render(<Root store={store} />, root);

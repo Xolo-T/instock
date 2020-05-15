@@ -51,14 +51,11 @@ class Map extends Component {
   updateReport = (event) => {
     
     event.preventDefault();
-    // const currentReport = this.state.selectedReport;
     this.props.updateReport({"id": this.state.selectedReport._id});
     this.setState({
       selectedReport: null
     })
-    // this.setState({
-    //   selectedReport: currentReport
-    // })
+
   }
 
   //Set selected coords when user clicks on open space of map
@@ -181,7 +178,6 @@ class Map extends Component {
                 onCloseClick={() => {
                   this.setState({
                     selectedReport: null
-                    // selectedCoords: null
                   });
                 }}
               >

@@ -20,6 +20,7 @@ class SignupForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
     this.renderForm = this.renderForm.bind(this);
     this.clearedErrors = false;
+    this.closeModalOnSubmit = this.closeModalOnSubmit.bind(this);
   }
 
   validate() {
@@ -108,6 +109,12 @@ class SignupForm extends React.Component {
       });
   }
 
+  closeModalOnSubmit() {
+    if (Object.values(this.props.errors).length === 0) {
+      this.props.closeModal();
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
 
@@ -121,10 +128,9 @@ class SignupForm extends React.Component {
     const isValid = this.validate();
     
     if (isValid) {
-      this.props.signup(user, this.props.history);
-      this.props.closeModal();
-      // this.props.login(user).then(this.props.closeModal);
-  
+      this.props.signup(user, this.props.history).then(this.closeModalOnSubmit);
+      debugger
+
     }
 
   }
@@ -149,11 +155,12 @@ class SignupForm extends React.Component {
     return (
       <div className="auth-form-container">
         <span className="modal-closer-button" onClick={this.props.closeModal}>
-          <i class="fas fa-times"></i>
+          <i className="fas fa-times"></i>
         </span>
         <form className="auth-form" onSubmit={this.handleSubmit}>
           <span className="login-or-signup-message">sign up</span>
-          <img class="icon" src="./icon.png" alt="InStock Toilet Paper Icon" />
+          <img className="icon" src="./icon.png" alt="InStock Toilet Paper Icon" />
+          {this.renderErrors()}
           <input className="input"
             type="text"
             value={this.state.email}
@@ -189,8 +196,6 @@ class SignupForm extends React.Component {
             {this.state.password2Error}
           </div>
           <input className="input-button-1" type="submit" value="Submit" />
-          {this.renderErrors()}
-
           {this.props.otherForm}
         </form>
       </div>

@@ -30,6 +30,8 @@ class Map extends Component {
       center: { lat: 40.672482, lng: -73.968208 },
       markers: [],
     };
+
+    this.updateReport = this.updateReport.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +48,16 @@ class Map extends Component {
     this.setState({ selectedCoords: null });
   };
 
+  updateReport = (event) => {
+    
+    event.preventDefault();
+    this.props.updateReport({"id": this.state.selectedReport._id});
+    this.setState({
+      selectedReport: null
+    })
+
+  }
+
   //Set selected coords when user clicks on open space of map
   onMapClick = (coord) => {
     if (!this.props.isAuthenticated) {
@@ -55,14 +67,16 @@ class Map extends Component {
     let lat = coord.latLng.lat();
     let lng = coord.latLng.lng();
 
-    this.setState({ selectedCoords: { lat: lat, lng: lng } });
+    this.setState({ 
+      selectedCoords: { lat: lat, lng: lng },
+      selectedReport: null
+    });
 
     var geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({ location: coord.latLng }, function (results, status) {
       if (status === "OK") {
         if (results[0]) {
-          console.log(results[0].place_id);
         } else {
           window.alert("No results found");
         }
@@ -95,6 +109,8 @@ class Map extends Component {
     const nextCenter = _.get(nextMarkers, "0.position", this.state.center);
 
     this.setState({
+      selectedReport: null,
+      selectedCoords: null,
       center: nextCenter,
       markers: nextMarkers,
     });
@@ -131,7 +147,7 @@ class Map extends Component {
                 />
               </InfoWindow>
             )}
-            {/* Maps existing reports */}
+            {/* Plots existing reports onto the map */}
             {this.props.reports.map((report) => {
               return (
                 <Marker
@@ -143,6 +159,7 @@ class Map extends Component {
                   onClick={() => {
                     this.setState({
                       selectedReport: report,
+                      selectedCoords: null
                     });
                   }}
                   icon={{
@@ -160,8 +177,7 @@ class Map extends Component {
                 }}
                 onCloseClick={() => {
                   this.setState({
-                    selectedReport: null,
-                    selectedCoords: null
+                    selectedReport: null
                   });
                 }}
               >
@@ -176,7 +192,8 @@ class Map extends Component {
                     Reported by: <strong>{this.state.selectedReport.reporterName}</strong>
                   </p>
                   <p>
-                    <i class="far fa-thumbs-up"></i><span class="approvals-count"><strong>{this.state.selectedReport.approvals}</strong></span>
+                    
+                    <button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button><span class="approvals-count"><strong>{this.state.selectedReport.approvals}</strong></span>
                   </p>
                 </div>
               </InfoWindow>

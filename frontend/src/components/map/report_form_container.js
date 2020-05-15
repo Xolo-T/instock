@@ -10,9 +10,6 @@ const mdp = (dispatch) => {
 
 const msp = (state) => ({
     currentUser: state.session.user
-    // currentUser: "5ea189ef5fab3706d30028bc",
-    // lng: this.props.lng,
-    // lat: this.props.lat
 });
 
 export default connect(msp, mdp)(ReportForm)

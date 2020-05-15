@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.renderForm = this.renderForm.bind(this);
-    this.validUserCreds = this.validUserCreds.bind(this);
+    this.closeModalOnSubmit = this.closeModalOnSubmit.bind(this);
   }
 
   validate() {
@@ -61,7 +61,7 @@ class LoginForm extends React.Component {
       });
   }
 
-  validUserCreds() {
+  closeModalOnSubmit() {
     if (Object.values(this.props.errors).length === 0) {
       this.props.closeModal();
     }
@@ -76,7 +76,7 @@ class LoginForm extends React.Component {
     };
     const isValid = this.validate();
     if (isValid) {
-      this.props.login(user).then(this.validUserCreds);
+      this.props.login(user).then(this.closeModalOnSubmit);
     }
   }
 
@@ -105,12 +105,13 @@ class LoginForm extends React.Component {
         <form className="auth-form" onSubmit={this.handleSubmit}>
           <span className="login-or-signup-message">log in</span>
           <img class="icon" src="/icon.png" alt="InStock Toilet Paper Icon" />
-            <input className="input"
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
+          {this.renderErrors()}
+          <input className="input"
+            type="text"
+            value={this.state.email}
+            onChange={this.update("email")}
+            placeholder="Email"
+          />
           <div className="frontEnd-session-errors">{this.state.emailError}</div>
             <input className="input"
               type="password"
@@ -122,7 +123,6 @@ class LoginForm extends React.Component {
             {this.state.passwordError}
           </div>
           <input className="input-button-1" type="submit" value="Submit" />
-          {this.renderErrors()}
           {this.props.otherForm}
         </form>
       </div>

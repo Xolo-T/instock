@@ -36,12 +36,6 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-    // const user = new User({
-    //     userName: 'dev',
-    //     email: 'dev@email.com',
-    //     password: 'password'
-    // })
-    // user.save();
     res.send("inStock coming very very Soon!");
 });
 
@@ -49,7 +43,6 @@ app.use("/api/users", users);
 app.use("/api/reports", reports);
 app.use("/api/approvals", approvals);
 
-// console.log(REACT_APP_GOOGLE_KEY) 
 
 const port = process.env.PORT || 5000;
 

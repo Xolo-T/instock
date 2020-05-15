@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchReports, fetchPlaceReports, fetchReport, composeReport } from '../../actions/report_actions';
+import { fetchReports, fetchPlaceReports, fetchReport, composeReport, updateReport } from '../../actions/report_actions';
 import { selectAllReports } from '../../reducers/selectors';
 import Map from './map';
 
@@ -16,7 +16,8 @@ const mapDispatch = dispatch => {
         fetchReports: () => dispatch(fetchReports()),
         fetchPlaceReports: placeId => dispatch(fetchPlaceReports(placeId)),
         fetchReport: report => dispatch(fetchReport(report)),
-        composeReport: report => dispatch(composeReport(report))
+        composeReport: report => dispatch(composeReport(report)),
+        updateReport: reportId => dispatch(updateReport(reportId))
     });
 };
 

@@ -34,10 +34,12 @@ class Navbar extends React.Component{
                   <span className="welcome-header">
                     welcome {this.props.currentUser.name}
                   </span>
-                  <button className="navbar-button">profile</button>
-                  <button className="navbar-button" onClick={this.logoutUser}>
-                    log out
-                  </button>
+                  <div className="button-wrapper">
+                    <button className="navbar-button">profile</button>
+                    <button className="navbar-button" onClick={this.logoutUser}>
+                      log out
+                    </button>
+                  </div>
                 </div>
               </nav>
             );

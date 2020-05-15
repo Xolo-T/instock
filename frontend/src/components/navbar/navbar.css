@@ -14,7 +14,7 @@
 
 .welcome-header {
   font-size: 2rem;
-  color: coral;
+  color: #fff; 
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
   margin-right: 20px;
@@ -40,8 +40,6 @@
     display: flex; 
     position: relative;
     z-index: 100;
-    /* top: 100px;  */
-    right: 175px;
 }
 
 .navbar-button {
@@ -61,7 +59,6 @@
     .navbar label {
         display: inline-block;
         color: white;
-        background: #a02620;
         font-style: normal;
         font-size: 1.2em;
         padding: 10px;
@@ -69,10 +66,22 @@
     }
 
 
+    .welcome-header {
+        display: none;
+    }
+
     #hamitem { 
         display: none;
     }
-    .navbar input:checked ~ #hamitem { display: block; }
+    .navbar input:checked ~ #hamitem {
+         display: block;
+        }
+
+    .button-wrapper {
+        position: absolute;
+        top: 25px;
+        right: 1px; 
+    }
 }
 
 

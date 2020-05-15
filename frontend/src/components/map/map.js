@@ -55,7 +55,10 @@ class Map extends Component {
     let lat = coord.latLng.lat();
     let lng = coord.latLng.lng();
 
-    this.setState({ selectedCoords: { lat: lat, lng: lng } });
+    this.setState({ 
+      selectedCoords: { lat: lat, lng: lng },
+      selectedReport: null
+    });
 
     var geocoder = new google.maps.Geocoder();
 
@@ -145,6 +148,7 @@ class Map extends Component {
                   onClick={() => {
                     this.setState({
                       selectedReport: report,
+                      selectedCoords: null
                     });
                   }}
                   icon={{

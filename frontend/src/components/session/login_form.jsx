@@ -16,6 +16,7 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.renderForm = this.renderForm.bind(this);
+    this.validUserCreds = this.validUserCreds.bind(this);
   }
 
   validate() {
@@ -60,6 +61,12 @@ class LoginForm extends React.Component {
       });
   }
 
+  validUserCreds() {
+    if (Object.values(this.props.errors).length === 0) {
+      this.props.closeModal();
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
 
@@ -69,7 +76,7 @@ class LoginForm extends React.Component {
     };
     const isValid = this.validate();
     if (isValid) {
-      this.props.login(user).then(this.props.closeModal);
+      this.props.login(user).then(this.validUserCreds);
     }
   }
 

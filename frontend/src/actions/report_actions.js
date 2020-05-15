@@ -8,33 +8,37 @@ export const receiveReports = reports => ({
     reports
 });
 
-export const receiveReport = report => ({
+export const receiveReport = report => {
+    
+    return {
     type: RECEIVE_REPORT,
     report
-});
+}};
 
 export const fetchReports = () => dispatch => (
     APIUtil.getReports()
         .then(reports => dispatch(receiveReports(reports)))
-        // .catch(err => console.log(err))
 );
 
 export const fetchPlaceReports = placeId => dispatch => (
     APIUtil.getPlaceReports(placeId)
         .then(reports => dispatch(receiveReports(reports)))
-        // .catch(err => console.log(err))
 );
 
 export const fetchReport = report => dispatch => (
     APIUtil.getReport(report)
         .then(report => dispatch(receiveReport(report)))
-        // .catch(err => console.log(err))
 );
 
 export const composeReport = report => dispatch => {
     return(
     APIUtil.postReport(report)
-        // .then(reports => dispatch(receiveReports(reports)))
         .then(report => dispatch(receiveReport(report)))
-        // .catch(err => console.log(err))
 )};
+
+export const updateReport = reportId => dispatch => {
+    
+    return (
+        APIUtil.updateApprovals(reportId).then(report => dispatch(receiveReport(report)))
+    )
+}

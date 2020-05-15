@@ -16,3 +16,7 @@ export const getPlaceReports = placeReports => {
     return axios.get(`api/reports/${placeReports}`, placeReports)
 };
 
+export const updateApprovals = reportId => {
+    return axios.patch('api/reports/update', reportId);
+}
+

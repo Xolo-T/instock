@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-// var jwt = require('jwt-simple');
-// const jwt = require("jsonwebtoken");
 const passport = require('passport');
-
-// require('../../config/passport')(passport)
 
 const Report = require('../../models/Report');
 const validateReportInput = require('../../validation/reports');
@@ -15,7 +11,7 @@ router.get('/test', (req, res) => {
 });
 
 router.post('/',
-    // passport.authenticate('jwt', { session: false }),
+    
     (req, res) => {
         const { errors, isValid } = validateReportInput(req.body);
         
@@ -36,36 +32,20 @@ router.post('/',
 
         newReport.save()
             .then(report => res.json(report));
-            // .then(
-            //     Report.find()
-            //         .sort({ date: -1 })
-            //         .then(reports => res.json(reports))
-            //         .catch(err => res.status(404).json({ noReportsFound: 'No reports found' }))
-            // );
     }
 );
 
 router.patch('/update', (req, res) => {
-    Report.findById(req.body.id, function (err, reportToUpvote) {
-        if (!reportToUpvote)
-            return next(new Error('Could not find report'));
-        else {
-            // updating
-            reportToUpvote.approval += 1;
-            reportToUpvote.save(function (err) {
-                if (err)
-                    console.log('error')
-                else
-                    console.log('success')
-            });
-        }
-    });
-});
+    Report.findById(req.body.id).then((report) => {
+        report.approvals += 1;
+        report.save();
+        res.json(report)
+    })
+})
 
 router.get("/:placeId", (req, res) => {
 
   Report.find({ placeId: req.params.placeId })
-    // Report.find({ placeId: 'New York' })
     .sort({ date: -1 })
     .then((reports) => res.json(reports))
     .catch((err) =>

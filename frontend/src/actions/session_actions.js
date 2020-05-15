@@ -25,16 +25,19 @@ export const logoutUser = () => ({
 
 export const signup = (user) => (dispatch) => {
   return (
-  APIUtil.signup(user)
-    .then(
-      (currentUser) => dispatch(receiveUserSignIn(currentUser)))
-    .catch((err) => {
-      dispatch(receiveErrors(err.response.data));
-    })
-  );};
 
-export const login = (user) => (dispatch) =>
-  APIUtil.login(user)
+  APIUtil.signup(user).then(
+    (currentUser) => APIUtil.login({password: user.password, email: user.email})
+      .then((res) => {
+        const { token } = res.data;
+        localStorage.setItem("jwtToken", token);
+        APIUtil.setAuthToken(token);
+        const decoded = jwt_decode(token);
+        dispatch(receiveCurrentUser(decoded));
+      })
+  ))};
+
+export const login = (user) => (dispatch) => (APIUtil.login(user)
     .then((res) => {
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
@@ -44,7 +47,7 @@ export const login = (user) => (dispatch) =>
     })
     .catch((err) => {
       dispatch(receiveErrors(err.response.data));
-    });
+    }));
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem("jwtToken");

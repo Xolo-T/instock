@@ -149,11 +149,11 @@ class SignupForm extends React.Component {
     return (
       <div className="auth-form-container">
         <span className="modal-closer-button" onClick={this.props.closeModal}>
-          <i class="fas fa-times"></i>
+          <i className="fas fa-times"></i>
         </span>
         <form className="auth-form" onSubmit={this.handleSubmit}>
           <span className="login-or-signup-message">sign up</span>
-          <img class="icon" src="./icon.png" alt="InStock Toilet Paper Icon" />
+          <img className="icon" src="./icon.png" alt="InStock Toilet Paper Icon" />
           <input className="input"
             type="text"
             value={this.state.email}

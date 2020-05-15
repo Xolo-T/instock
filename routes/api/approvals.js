@@ -8,15 +8,13 @@ const ReportApproval = require("../../models/Report_approval");
 const validateReportApprovalInput = require("../../validation/report-approvals");
 
 router.get("/test", (req, res) => {
-    // debugger
     res.json({ msg: "Welcome to reportsApprovals" });
 });
 
 router.post("/",
     (req, res) => {
         const { errors, isValid } = validateReportApprovalInput(req.body);
-        // debugger
-        if (!isValid) {
+            if (!isValid) {
             return res.status(400).json(errors);
         }
 
@@ -30,7 +28,6 @@ router.post("/",
 );
 
 router.get("/report", (req, res) => {
-  //   debugger;
     ReportApproval.find({ reportId: req.body.reportId })
     .sort({ date: -1 })
     .then((reportsApprovals) => res.json(reportsApprovals))
@@ -42,7 +39,6 @@ router.get("/report", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-    // debugger
     ReportApproval.find()
         .sort({ date: -1 })
         .then((reportsApprovals) => res.json(reportsApprovals))
@@ -52,7 +48,6 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  // debugger
     ReportApproval.findById(req.params.id)
         .then((reportApproval) => res.json(reportApproval))
         .catch((err) =>

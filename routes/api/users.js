@@ -18,6 +18,7 @@ router.get("/test", (req, res) => {
 
 router.post("/register", (req, res) => {
 
+
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
@@ -42,7 +43,7 @@ router.post("/register", (req, res) => {
                 if (err) throw err;
                 newUser.password = hash;
                 newUser.save()
-                    .then((user) => (res.json(user));
+                    .then((user) => res.json(user))
                     // .catch((err) => res.json(err));
             });
         });

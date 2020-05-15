@@ -25,6 +25,11 @@ class Navbar extends React.Component{
         if (this.props.loggedIn) {
             return (
               <nav className="navbar">
+  
+                <span className="iphone-welcome-header">
+                  welcome {this.props.currentUser.name}
+                </span>
+
                 <label for="hamburger">
                   <i className="fa fa-2x">&#9776;</i>
                 </label>
@@ -39,9 +44,6 @@ class Navbar extends React.Component{
                     <button className="navbar-button" onClick={this.logoutUser}>
                       log out
                     </button>
-                    <span className="iphone-welcome-header">
-                      welcome {this.props.currentUser.name}
-                    </span>
                   </div>
                 </div>
               </nav>

@@ -30,6 +30,8 @@ class Map extends Component {
       center: { lat: 40.672482, lng: -73.968208 },
       markers: [],
     };
+
+    this.updateReport = this.updateReport.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +47,13 @@ class Map extends Component {
     event.preventDefault();
     this.setState({ selectedCoords: null });
   };
+
+  updateReport = (event) => {
+    debugger
+    event.preventDefault();
+    console.log("Banana");
+    // this.props.updateReport(this.state.selectedReport.id);
+  }
 
   //Set selected coords when user clicks on open space of map
   onMapClick = (coord) => {
@@ -181,7 +190,8 @@ class Map extends Component {
                     Reported by: <strong>{this.state.selectedReport.reporterName}</strong>
                   </p>
                   <p>
-                    <i class="far fa-thumbs-up"></i><span class="approvals-count"><strong>{this.state.selectedReport.approvals}</strong></span>
+                    
+                    <button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button><span class="approvals-count"><strong>{this.state.selectedReport.approvals}</strong></span>
                   </p>
                 </div>
               </InfoWindow>

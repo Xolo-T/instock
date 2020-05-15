@@ -25,6 +25,7 @@ export const logoutUser = () => ({
 
 export const signup = (user) => (dispatch) => {
   return (
+
   APIUtil.signup(user).then(
     (currentUser) => APIUtil.login({password: user.password, email: user.email})
       .then((res) => {

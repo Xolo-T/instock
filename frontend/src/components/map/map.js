@@ -55,7 +55,10 @@ class Map extends Component {
     let lat = coord.latLng.lat();
     let lng = coord.latLng.lng();
 
-    this.setState({ selectedCoords: { lat: lat, lng: lng } });
+    this.setState({ 
+      selectedCoords: { lat: lat, lng: lng },
+      selectedReport: null
+    });
 
     var geocoder = new google.maps.Geocoder();
 
@@ -94,6 +97,8 @@ class Map extends Component {
     const nextCenter = _.get(nextMarkers, "0.position", this.state.center);
 
     this.setState({
+      selectedReport: null,
+      selectedCoords: null,
       center: nextCenter,
       markers: nextMarkers,
     });
@@ -130,7 +135,7 @@ class Map extends Component {
                 />
               </InfoWindow>
             )}
-            {/* Maps existing reports */}
+            {/* Plots existing reports onto the map */}
             {this.props.reports.map((report) => {
               return (
                 <Marker
@@ -142,6 +147,7 @@ class Map extends Component {
                   onClick={() => {
                     this.setState({
                       selectedReport: report,
+                      selectedCoords: null
                     });
                   }}
                   icon={{
@@ -159,8 +165,8 @@ class Map extends Component {
                 }}
                 onCloseClick={() => {
                   this.setState({
-                    selectedReport: null,
-                    selectedCoords: null
+                    selectedReport: null
+                    // selectedCoords: null
                   });
                 }}
               >

@@ -122,9 +122,9 @@ class SignupForm extends React.Component {
     
     if (isValid) {
       this.props.signup(user, this.props.history);
-      this.props.closeModal();
-      // this.props.login(user).then(this.props.closeModal);
-  
+      if (Object.values(this.props.errors).length === 0) {
+        this.props.closeModal();
+      }  
     }
 
   }

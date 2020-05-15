@@ -49,8 +49,6 @@ app.use("/api/users", users);
 app.use("/api/reports", reports);
 app.use("/api/approvals", approvals);
 
-// console.log(REACT_APP_GOOGLE_KEY) 
-
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server all set ${port}`));

@@ -26,7 +26,7 @@ class Navbar extends React.Component{
             return (
               <nav className="navbar">
                 <label for="hamburger">
-                  <i class="fas fa-hamburger"></i>
+                  <i className="fa fa-2x">&#9776;</i>
                 </label>
                 <input type="checkbox" id="hamburger"></input>
 
@@ -47,7 +47,7 @@ class Navbar extends React.Component{
             return (
               <nav className="navbar">
                 <label for="hamburger">
-                  <i class="fas fa-hamburger"></i>
+                  <i className="fa fa-2x">&#9776;</i>
                 </label>
                 <input type="checkbox" id="hamburger"></input>
 
@@ -89,3 +89,5 @@ class Navbar extends React.Component{
 }
 
 export default Navbar;
+
+    // <i class="fas fa-hamburger"></i>;

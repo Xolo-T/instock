@@ -45,22 +45,30 @@ router.post('/',
     }
 );
 
+// router.patch('/update', (req, res) => {
+//     Report.findById(req.body.id, function (err, reportToUpvote) {
+//         if (!reportToUpvote)
+//             return next(new Error('Could not find report'));
+//         else {
+//             // updating
+//             reportToUpvote.approval += 1;
+//             reportToUpvote.save(function (err) {
+//                 if (err)
+//                     console.log('error')
+//                 else
+//                     console.log('success')
+//             });
+//         }
+//     });
+// });
+
 router.patch('/update', (req, res) => {
-    Report.findById(req.body.id, function (err, reportToUpvote) {
-        if (!reportToUpvote)
-            return next(new Error('Could not find report'));
-        else {
-            // updating
-            reportToUpvote.approval += 1;
-            reportToUpvote.save(function (err) {
-                if (err)
-                    console.log('error')
-                else
-                    console.log('success')
-            });
-        }
-    });
-});
+    Report.findById(req.body.id).then((report) => {
+        report.approvals += 1;
+        report.save();
+        res.json(report)
+    })
+})
 
 router.get("/:placeId", (req, res) => {
 

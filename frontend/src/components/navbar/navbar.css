@@ -72,12 +72,13 @@
 
     .navbar input:checked ~ #hamitems {
          display: block;
-        }
+    }
 
     .navbar-buttons-wrapper {
         position: absolute;
-        top: 25px;
-        right: 12px; 
+        top: 48px;
+        right: 0px;
+        width: 100vw; 
     }
 
     .navbar-button {

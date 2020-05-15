@@ -38,3 +38,9 @@ export const composeReport = report => dispatch => {
         .then(report => dispatch(receiveReport(report)))
         // .catch(err => console.log(err))
 )};
+
+export const updateReport = reportId => dispatch => {
+    return (
+        APIUtil.updateApprovals(reportId).then(report => dispatch(receiveReport(report)))
+    )
+}

@@ -170,6 +170,7 @@ body {
   cursor: pointer;
   transition: 0.2s;
   border-radius: .5rem;
+  margin: 1rem 0rem;
 }
 
 .input-button-1 {
@@ -177,7 +178,7 @@ body {
 }
 
 .input-button-2 {
-  width: 40%;
+  /* width: 40%; */
   position: relative;
   bottom: 20px;
 }

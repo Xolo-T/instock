@@ -49,10 +49,16 @@ class Map extends Component {
   };
 
   updateReport = (event) => {
-    debugger
+    
     event.preventDefault();
-    console.log("Banana");
-    // this.props.updateReport(this.state.selectedReport.id);
+    // const currentReport = this.state.selectedReport;
+    this.props.updateReport({"id": this.state.selectedReport._id});
+    this.setState({
+      selectedReport: null
+    })
+    // this.setState({
+    //   selectedReport: currentReport
+    // })
   }
 
   //Set selected coords when user clicks on open space of map

@@ -8,10 +8,12 @@ export const receiveReports = reports => ({
     reports
 });
 
-export const receiveReport = report => ({
+export const receiveReport = report => {
+    debugger
+    return {
     type: RECEIVE_REPORT,
     report
-});
+}};
 
 export const fetchReports = () => dispatch => (
     APIUtil.getReports()
@@ -40,6 +42,7 @@ export const composeReport = report => dispatch => {
 )};
 
 export const updateReport = reportId => dispatch => {
+    debugger
     return (
         APIUtil.updateApprovals(reportId).then(report => dispatch(receiveReport(report)))
     )

@@ -30,7 +30,7 @@ class Navbar extends React.Component{
                 </label>
                 <input type="checkbox" id="hamburger"></input>
 
-                <div id="hamitem">
+                <div id="hamitems">
                   <span className="welcome-header">
                     welcome {this.props.currentUser.name}
                   </span>

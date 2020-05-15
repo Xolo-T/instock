@@ -95,6 +95,8 @@ class Map extends Component {
     const nextCenter = _.get(nextMarkers, "0.position", this.state.center);
 
     this.setState({
+      selectedReport: null,
+      selectedCoords: null,
       center: nextCenter,
       markers: nextMarkers,
     });
@@ -131,7 +133,7 @@ class Map extends Component {
                 />
               </InfoWindow>
             )}
-            {/* Maps existing reports */}
+            {/* Plots existing reports onto the map */}
             {this.props.reports.map((report) => {
               return (
                 <Marker
@@ -160,8 +162,8 @@ class Map extends Component {
                 }}
                 onCloseClick={() => {
                   this.setState({
-                    selectedReport: null,
-                    selectedCoords: null
+                    selectedReport: null
+                    // selectedCoords: null
                   });
                 }}
               >

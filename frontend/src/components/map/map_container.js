@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { fetchReports, fetchPlaceReports, fetchReport, composeReport } from '../../actions/report_actions';
+import { selectAllReports } from '../../reducers/selectors';
 import Map from './map';
 
 const mapState = state => {
     return({
-        reports: Object.values(state.reports),
+        reports: selectAllReports(state.reports),
         isAuthenticated: state.session.isAuthenticated,
         currentUser: state.session.user
     });

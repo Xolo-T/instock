@@ -32,6 +32,10 @@
     border-radius: .5rem;
 }
 
+.iphone-welcome-header {
+    display: none;
+}
+
 /* Navbar when user is logged in */ 
 
 .welcome-header {
@@ -56,7 +60,7 @@
 
 
     .welcome-header {
-        display: none;
+        display: none; 
     }
 
     #hamitems { 
@@ -91,6 +95,16 @@
         transition: 0.2s;
         border: black 1px;
         border-radius: 0rem;
+    }
+
+    .iphone-welcome-header {
+        font-size: 2rem;
+        color: coral;  
+        font-family: 'Nunito', sans-serif;
+        font-weight: 900;
+        margin-right: 20px;
+        display: block;
+        text-align: center;
     }
 }
 

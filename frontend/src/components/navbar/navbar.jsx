@@ -39,6 +39,9 @@ class Navbar extends React.Component{
                     <button className="navbar-button" onClick={this.logoutUser}>
                       log out
                     </button>
+                    <span className="iphone-welcome-header">
+                      welcome {this.props.currentUser.name}
+                    </span>
                   </div>
                 </div>
               </nav>
@@ -80,10 +83,10 @@ class Navbar extends React.Component{
 
     render() {
         return (
-            <div className='navbar'>
-              <img class="logo" src="./logo.png" alt="My_Logo"/>
-              {this.populateNavbar()}
-            </div>
+          <div className="navbar">
+            <img class="logo" src="./logo.png" alt="My_Logo" />
+            {this.populateNavbar()}
+          </div>
         );
     }
 }

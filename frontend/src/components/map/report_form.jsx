@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './report.css';
 
 class ReportForm extends Component{
     constructor(props) {

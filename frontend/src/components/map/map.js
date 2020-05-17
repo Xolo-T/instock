@@ -8,6 +8,7 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
+import { MarkerWithLabel } from 'react-google-maps/lib/components/addons/MarkerWithLabel';
 import ReportFormContainer from './report_form_container';
 
 const {
@@ -135,7 +136,7 @@ class Map extends Component {
 
   render() {
     const MyMapComponent = withScriptjs(
-      withGoogleMap((props) => {
+      withGoogleMap((props) => {  
         return (
           <GoogleMap
             defaultZoom={15}
@@ -144,7 +145,7 @@ class Map extends Component {
             center={this.state.center}
           >
             <div><i className="fas fa-location-arrow geolocation-button" onClick={this.centerOnGeolocation}></i></div>
-            {this.props.isAuthenticated && this.state.selectedCoords && (
+            {this.state.selectedCoords && (
               <InfoWindow
                 
                 position={{
@@ -168,7 +169,7 @@ class Map extends Component {
             {/* Plots existing reports onto the map */}
             {this.props.reports.map((report) => {
               return (
-                <Marker
+                <MarkerWithLabel
                   key={report._id}
                   position={{
                     lat: report.lat,
@@ -177,14 +178,18 @@ class Map extends Component {
                   onClick={() => {
                     this.setState({
                       selectedReport: report,
-                      selectedCoords: null
+                      selectedCoords: null,
+                      center: { lat: report.lat, lng: report.lng }
                     });
                   }}
                   icon={{
                     url: "./toilet-paper.svg",
                     scaledSize: new window.google.maps.Size(40, 40),
                   }}
-                />
+                  labelAnchor={new google.maps.Point(-5, 50)}
+                >
+                  <div className="marker-badge"><i className="far fa-thumbs-up"></i>{report.approvals}</div>
+                </MarkerWithLabel>
               );
             })}
             {this.state.selectedReport && (
@@ -207,11 +212,10 @@ class Map extends Component {
                     {this.state.selectedReport.description}
                   </p>
                   <p>
-                    Reported by: <strong>{this.state.selectedReport.reporterName}</strong>
+                    Reported by <strong>{this.state.selectedReport.reporterName}</strong>
                   </p>
                   <p>
-                    
-                    <button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button><span class="approvals-count"><strong>{this.state.selectedReport.approvals}</strong></span>
+                    <button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button><span className="approvals-count"><strong>{this.state.selectedReport.approvals}</strong></span>
                   </p>
                 </div>
               </InfoWindow>
@@ -226,19 +230,6 @@ class Map extends Component {
                 type="text"
                 placeholder="Find me the TP"
                 className="address-searchbar"
-                style={{
-                  boxSizing: `border-box`,
-                  border: `1px solid transparent`,
-                  width: `240px`,
-                  height: `40px`,
-                  marginTop: `10px`,
-                  padding: `0 12px`,
-                  borderRadius: `4px`,
-                  boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                  fontSize: `14px`,
-                  outline: `none`,
-                  textOverflow: `ellipses`
-                }}
               />
             </SearchBox>
             {this.state.markers.map((marker, index) => (

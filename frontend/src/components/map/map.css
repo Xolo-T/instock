@@ -1,5 +1,4 @@
 /* HEADER STYLING */
-
 .call-to-action {
   background-color: #793AFC;
   margin: 0px;
@@ -45,6 +44,15 @@
   top: -40px;
 }
 
+.marker-badge {
+  background-color: #B5B4D4;
+  border: #6B6AAA 1px solid;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  border-radius: 4rem;
+  top: 100px;
+}
+
 /* GEOLOCATION */
 .geolocation-button {
   position: absolute;
@@ -64,4 +72,20 @@
 .geolocation-button:hover {
   color: #B5B4D4;
   cursor: pointer;
+}
+
+/* SEARCHBOX */
+
+.address-searchbar {
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  width: 240px;
+  height: 40px;
+  margin-top: 10px;
+  padding: 0 12px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  outline: none;
+  text-overflow: ellipsis;
 }

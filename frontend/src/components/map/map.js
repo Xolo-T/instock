@@ -70,9 +70,9 @@ class Map extends Component {
     
     event.preventDefault();
     this.props.updateReport({"id": this.state.selectedReport._id});
-    this.setState({
-      selectedReport: null
-    });
+    // this.setState({
+    //   selectedReport: null
+    // });
 
   };
 
@@ -135,6 +135,37 @@ class Map extends Component {
   };
 
   render() {
+    //Should eventually move reportInfoWindow into its own component
+    let reportInfoWindow =
+      this.state.selectedReport && (
+        <InfoWindow
+          position={{
+            lat: this.state.selectedReport.lat,
+            lng: this.state.selectedReport.lng,
+          }}
+          onCloseClick={() => {
+            this.setState({
+              selectedReport: null
+            });
+          }}
+        >
+          <div>
+            <h2 className="map-report-name">
+              {this.state.selectedReport.storeName}
+            </h2>
+            <p className="map-report-description">
+              {this.state.selectedReport.description}
+            </p>
+            <p>
+              Reported by <strong>{this.state.selectedReport.reporterName}</strong>
+            </p>
+            <p className="instock-verification">
+              <span><strong>In stock? </strong></span><button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button><button><i className="far fa-thumbs-down"></i></button>
+            </p>
+          </div>
+        </InfoWindow>
+      )
+
     const MyMapComponent = withScriptjs(
       withGoogleMap((props) => {  
         return (
@@ -169,13 +200,14 @@ class Map extends Component {
             {/* Plots existing reports onto the map */}
             {this.props.reports.map((report) => {
               return (
+                <>
                 <MarkerWithLabel
                   key={report._id}
                   position={{
                     lat: report.lat,
                     lng: report.lng,
                   }}
-                  onClick={() => {
+                  onClick={() => {      
                     this.setState({
                       selectedReport: report,
                       selectedCoords: null
@@ -189,36 +221,10 @@ class Map extends Component {
                 >
                   <div className="marker-badge"><i className="far fa-thumbs-up"></i>{report.approvals}</div>
                 </MarkerWithLabel>
+              </>
               );
             })}
-            {this.state.selectedReport && (
-              <InfoWindow
-                position={{
-                  lat: this.state.selectedReport.lat,
-                  lng: this.state.selectedReport.lng,
-                }}
-                onCloseClick={() => {
-                  this.setState({
-                    selectedReport: null
-                  });
-                }}
-              >
-                <div>
-                  <h2 className="map-report-name">
-                    {this.state.selectedReport.storeName}
-                  </h2>
-                  <p className="map-report-description">
-                    {this.state.selectedReport.description}
-                  </p>
-                  <p>
-                    Reported by <strong>{this.state.selectedReport.reporterName}</strong>
-                  </p>
-                  <p>
-                    <button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button><span className="approvals-count"><strong>{this.state.selectedReport.approvals}</strong></span>
-                  </p>
-                </div>
-              </InfoWindow>
-            )}
+            { reportInfoWindow }
             <SearchBox
               ref={this.onSearchBoxMounted}
               bounds={this.bounds}

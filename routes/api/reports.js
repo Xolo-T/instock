@@ -27,7 +27,7 @@ router.post('/',
             description: req.body.description,
             lng: req.body.lng,
             lat: req.body.lat,
-            approvals: 0,
+            approvals: 1,
         });
 
         newReport.save()

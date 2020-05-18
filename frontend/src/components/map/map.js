@@ -178,8 +178,7 @@ class Map extends Component {
                   onClick={() => {
                     this.setState({
                       selectedReport: report,
-                      selectedCoords: null,
-                      center: { lat: report.lat, lng: report.lng }
+                      selectedCoords: null
                     });
                   }}
                   icon={{

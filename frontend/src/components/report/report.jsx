@@ -9,13 +9,13 @@ class Report extends Component {
 
     this.state = {
       selectedReport: false,
-      hoursSinceReported: this.hoursSinceReported()
+      minutesSinceReported: this.minutesSinceReported()
     };
 
     this.updateReport = this.updateReport.bind(this);
   }
 
-  hoursSinceReported = () => {
+  minutesSinceReported = () => {
     // Milliseconds elapsed since the UNIX epoch 
     const currentDateTime = Date.now();
     const reportDateTime = Date.parse(this.props.report.date);
@@ -25,9 +25,9 @@ class Report extends Component {
     if (diff < 60) {
       return `${diff} minutes ago`;
     } else if (diff < 120) {
-      return `${Math.floor(diff/60)} hour ago`;
+      return `about ${Math.floor(diff/60)} hour ago`;
     } else if (diff <= 4320) {
-      return `${Math.floor(diff / 60)} hours ago`;
+      return `about ${Math.floor(diff / 60)} hours ago`;
     } else {
       return `over 72 hours ago`
     }
@@ -81,7 +81,7 @@ class Report extends Component {
               Reported by <strong>{report.reporterName}</strong>
             </p>
             <p>
-        Reported <strong>{this.state.hoursSinceReported}</strong>
+              Reported <strong>{this.state.minutesSinceReported}</strong>
             </p>
             <p className="instock-verification">
               <span><strong>In stock? </strong></span><button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button><button><i className="far fa-thumbs-down"></i></button>

@@ -49,7 +49,6 @@ class Report extends Component {
             lng: report.lng,
           }}
           onClick={() => {
-            debugger
             this.setState({
               selectedReport: true
             });

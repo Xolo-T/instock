@@ -45,6 +45,11 @@ class Report extends Component {
             lat: report.lat,
             lng: report.lng,
           }}
+          onCloseClick={() => {
+            this.setState({
+              selectedReport: false
+            });
+          }}
         >
           <div>
             <h2 className="map-report-name">

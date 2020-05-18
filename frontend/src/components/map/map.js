@@ -8,9 +8,8 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-import { MarkerWithLabel } from 'react-google-maps/lib/components/addons/MarkerWithLabel';
-import ReportFormContainer from './report_form_container';
-import Report from './report';
+import ReportFormContainer from '../report_form/report_form_container';
+import ReportContainer from '../report/report_container';
 
 const {
   SearchBox,
@@ -26,7 +25,6 @@ class Map extends Component {
     super(props);
 
     this.state = {
-      selectedReport: null,
       selectedCoords: null,
       reportInputText: "",
       bounds: null,
@@ -34,7 +32,6 @@ class Map extends Component {
       markers: [],
     };
 
-    this.updateReport = this.updateReport.bind(this);
     this.centerOnGeolocation = this.centerOnGeolocation.bind(this);
   }
 
@@ -67,16 +64,6 @@ class Map extends Component {
     this.setState({ selectedCoords: null });
   };
 
-  updateReport = (event) => {
-    
-    event.preventDefault();
-    this.props.updateReport({"id": this.state.selectedReport._id});
-    // this.setState({
-    //   selectedReport: null
-    // });
-
-  };
-
   //Set selected coords when user clicks on open space of map
   onMapClick = (coord) => {
     if (!this.props.isAuthenticated) {
@@ -87,8 +74,7 @@ class Map extends Component {
     let lng = coord.latLng.lng();
 
     this.setState({ 
-      selectedCoords: { lat: lat, lng: lng },
-      selectedReport: null
+      selectedCoords: { lat: lat, lng: lng }
     });
 
     var geocoder = new google.maps.Geocoder();
@@ -128,7 +114,6 @@ class Map extends Component {
     const nextCenter = _.get(nextMarkers, "0.position", this.state.center);
 
     this.setState({
-      selectedReport: null,
       selectedCoords: null,
       center: nextCenter,
       markers: nextMarkers,
@@ -136,37 +121,6 @@ class Map extends Component {
   };
 
   render() {
-    //Should eventually move reportInfoWindow into its own component
-    let reportInfoWindow =
-      this.state.selectedReport && (
-        <InfoWindow
-          position={{
-            lat: this.state.selectedReport.lat,
-            lng: this.state.selectedReport.lng,
-          }}
-          onCloseClick={() => {
-            this.setState({
-              selectedReport: null
-            });
-          }}
-        >
-          <div>
-            <h2 className="map-report-name">
-              {this.state.selectedReport.storeName}
-            </h2>
-            <p className="map-report-description">
-              {this.state.selectedReport.description}
-            </p>
-            <p>
-              Reported by <strong>{this.state.selectedReport.reporterName}</strong>
-            </p>
-            <p className="instock-verification">
-              <span><strong>In stock? </strong></span><button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button><button><i className="far fa-thumbs-down"></i></button>
-            </p>
-          </div>
-        </InfoWindow>
-      )
-
     const MyMapComponent = withScriptjs(
       withGoogleMap((props) => {  
         return (
@@ -201,31 +155,17 @@ class Map extends Component {
             {/* Plots existing reports onto the map */}
             {this.props.reports.map((report) => {
               return (
-                <>
-                <MarkerWithLabel
+                <ReportContainer
                   key={report._id}
-                  position={{
-                    lat: report.lat,
-                    lng: report.lng,
-                  }}
-                  onClick={() => {      
-                    this.setState({
-                      selectedReport: report,
-                      selectedCoords: null
-                    });
-                  }}
-                  icon={{
+                  report = {report}
+                  icon= {{
                     url: "./toilet-paper.svg",
                     scaledSize: new window.google.maps.Size(40, 40),
                   }}
-                  labelAnchor={new google.maps.Point(-5, 50)}
-                >
-                  <div className="marker-badge"><i className="far fa-thumbs-up"></i>{report.approvals}</div>
-                </MarkerWithLabel>
-              </>
+                  labelAnchor={new window.google.maps.Point(-5, 50)}
+                />
               );
             })}
-            { reportInfoWindow }
             <SearchBox
               ref={this.onSearchBoxMounted}
               bounds={this.bounds}

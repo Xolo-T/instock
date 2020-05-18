@@ -4,9 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
-import { logout, signup, login } from './actions/session_actions';
-import {updateReport} from './actions/report_actions';
-import { getReports, getReport, postReport, getPlaceReports } from './util/report_api_util';
+import { logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
 

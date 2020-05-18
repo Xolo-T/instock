@@ -24,7 +24,7 @@ class Navbar extends React.Component{
         if (this.props.loggedIn) {
             return (
               <nav className="navbar">
-                <label for="hamburger">
+                <label htmlFor="hamburger">
                   <i className="fa fa-2x">&#9776;</i>
                 </label>
                 <input type="checkbox" id="hamburger"></input>
@@ -45,7 +45,7 @@ class Navbar extends React.Component{
         } else {
             return (
               <nav className="navbar">
-                <label for="hamburger">
+                <label htmlFor="hamburger">
                   <i className="fa fa-2x">&#9776;</i>
                 </label>
                 <input type="checkbox" id="hamburger"></input>

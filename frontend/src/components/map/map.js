@@ -10,6 +10,7 @@ import {
 } from "react-google-maps";
 import { MarkerWithLabel } from 'react-google-maps/lib/components/addons/MarkerWithLabel';
 import ReportFormContainer from './report_form_container';
+import Report from './report';
 
 const {
   SearchBox,

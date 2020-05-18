@@ -16,15 +16,6 @@ span, article, footer, time, small {
   background: transparent;
 } */
 
-/* LIMIT MIN WIDTH, REMOVE AS APP BECOMES MORE MOBILE READY*/
-/* body {
-  min-width: 1000px;
-} */
-
-
-/* NAVBAR STYLING */
-
-
 /* AUTH FORM STYLING */
 
 .icon {
@@ -32,72 +23,8 @@ span, article, footer, time, small {
   width: 25%;
 }
 
-.modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-}
-
-.modal-child {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #8CB3DF;
-  height: 500px;
-  width: 500px;
-  box-shadow: 10px 10px #1D3B97
-}
-
-.auth-form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-
-}
-
-.auth-form {
-  height: inherit;
-  width: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.modal-closer-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: #793AFC
-}
-
-.modal-closer-button:hover {
-  cursor: pointer;
-  color: black;
-}
-
 .fa-times {
   font-size: 28px;
-}
-
-.login-or-signup-message {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: 28px;
-  color: #793AFC;
-  text-decoration: underline;
 }
 
 .input {
@@ -135,55 +62,4 @@ span, article, footer, time, small {
 
 .input-button-1:hover, .input-button-2:hover {
   background-color: #B5B4D4;
-}
-/* HEADER STYLING */
-
-.call-to-action {
-  background-color: #793AFC;
-  margin: 0px;
-  padding: 20px;
-  color: white;
-  font-weight: 500;
-  text-align: center;
-}
-
-.call-to-action h1 {
-  font-size: 2rem;
-  color: #793AFC;
-  background-color: #F6F2ED;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 900;
-  margin: 0px 20px;
-  box-shadow: 5px 5px black;
-  border-radius: .5rem;
-}
-
-/*FOOTER STYLING */
-
-  footer {
-    padding: 5px;
-    margin: 5px;
-    font-family: 'Karma', serif;
-    font-weight: bold;;
-    text-align: center;
-  }
-
-/*MAP STYLING */
-
-.map-component {
-  margin: 0px;
-  padding: 0px;
-}
-.gm-style .gm-style-iw-c {
-  position: absolute;
-  top: -40px;
-}
-
-.gm-style .gm-style-iw-t::after {
-  top: -40px;
-}
-
-/*REPORT INFOWINDOW STYLING */
-.approvals-count {
-  margin-left: 10px;
 }

@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import React, { Component } from "react";
+import './map.css';
 import {
   withScriptjs,
   withGoogleMap,
@@ -32,9 +33,25 @@ class Map extends Component {
     };
 
     this.updateReport = this.updateReport.bind(this);
+    this.centerOnGeolocation = this.centerOnGeolocation.bind(this);
+  }
+
+  centerOnGeolocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        const coords = pos.coords;
+        this.setState({
+          center: {
+            lat: coords.latitude,
+            lng: coords.longitude
+          }
+        });
+      });
+    }
   }
 
   componentDidMount() {
+    this.centerOnGeolocation();
     this.props.fetchReports();
   }
 
@@ -54,9 +71,9 @@ class Map extends Component {
     this.props.updateReport({"id": this.state.selectedReport._id});
     this.setState({
       selectedReport: null
-    })
+    });
 
-  }
+  };
 
   //Set selected coords when user clicks on open space of map
   onMapClick = (coord) => {
@@ -126,6 +143,7 @@ class Map extends Component {
             ref={this.onMapMounted}
             center={this.state.center}
           >
+            <div><i className="fas fa-location-arrow geolocation-button" onClick={this.centerOnGeolocation}></i></div>
             {this.props.isAuthenticated && this.state.selectedCoords && (
               <InfoWindow
                 

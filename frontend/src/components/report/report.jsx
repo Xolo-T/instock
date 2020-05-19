@@ -13,6 +13,7 @@ class Report extends Component {
     };
 
     this.updateReport = this.updateReport.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   minutesSinceReported = () => {
@@ -43,6 +44,10 @@ class Report extends Component {
     this.props.updateReport({ "id": this.props.report._id });
   };
 
+  handleClose = (e) => {
+    this.props.handleReportClose(e);
+  };
+
   render () {
     const { report, icon, labelAnchor } = this.props;
 
@@ -63,12 +68,13 @@ class Report extends Component {
         >
           <div className="marker-badge"><i className="far fa-thumbs-up"></i>{report.approvals}</div>
         </MarkerWithLabel>
-        {this.state.selectedReport && (<InfoWindow
+        {(this.state.selectedReport || this.props.searchedReport === this.props.report) && (<InfoWindow
           position={{
             lat: report.vendorLat,
             lng: report.vendorLng,
           }}
           onCloseClick={() => {
+            this.handleClose();
             this.setState({
               selectedReport: false
             });

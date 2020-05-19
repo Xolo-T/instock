@@ -28,7 +28,8 @@ class Map extends Component {
       center: { lat: 40.672482, lng: -73.968208 },
       timeFilter: Infinity,
       searchBoxMarkers: [],
-      selectedVendor: null
+      selectedVendor: null,
+      searchedReport: null
     };
 
     this.centerOnGeolocation = this.centerOnGeolocation.bind(this);
@@ -65,9 +66,17 @@ class Map extends Component {
 
     const places = refs.searchBox.getPlaces();
     const bounds = new google.maps.LatLngBounds();
-
+    // Open an existing report if it matches the search result
     places.forEach((place) => {
-      if (this.props.isAuthenticated) {
+      this.props.reports.forEach(report => {
+        if (report.vendorPlaceId === place.place_id) {
+          this.setState({
+            searchedReport: report
+          });
+        }
+      });
+      // Open a report form if the user is authenticated
+      if (this.props.isAuthenticated && this.state.searchedReport === null) {
         this.setState({
           selectedVendor: place
         });
@@ -80,15 +89,30 @@ class Map extends Component {
       }
     });
 
+    //Set markers for all relevant search results and set new map center
     const nextMarkers = places.map((place) => ({
       position: place.geometry.location,
     }));
     const nextCenter = _.get(nextMarkers, "0.position", this.state.center);
     this.setState({
       center: nextCenter,
-      searchBoxMarkers: nextMarkers
     });
+    //Only set markers for the searched results if they do not match existing report
+    if (this.state.searchedReport === null) {
+      this.setState({
+        searchBoxMarkers: nextMarkers
+      });
+    }
   };
+
+  //Set searchedReport to null on report close
+  handleReportClose = (e) => {
+    debugger
+    this.setState({
+      searchedReport: null
+    })
+    debugger
+  }
 
   //Set selectedVendor and searchBoxMarkers to null on report form submission
   handleReportSubmission = (e) => {
@@ -166,6 +190,8 @@ class Map extends Component {
                       scaledSize: new window.google.maps.Size(40, 40),
                     }}
                     labelAnchor={new window.google.maps.Point(-5, 50)}
+                    searchedReport={this.state.searchedReport}
+                    handleReportClose={this.handleReportClose}
                   />
                 );
               }

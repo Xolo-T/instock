@@ -17,13 +17,20 @@ class ReportForm extends Component{
         };
         
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClose = this.handleClose.bind(this);
         this.handleReportInputChange = this.handleReportInputChange.bind(this);
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.composeReport(this.state);
+        this.props.handleReportSubmission(e);
     };
+
+    handleClose = (e) => {
+        this.props.handleReportFormClose(e);
+    };
+
 
     //input changes are handled based on "name" of html element
     handleReportInputChange = (e) => {
@@ -40,6 +47,8 @@ class ReportForm extends Component{
                     lat: this.state.vendorLat,
                     lng: this.state.vendorLng,
                 }}
+
+                onCloseClick={this.handleClose}
             >
                 <div>
                     <h2>Tell us who's got the TP</h2>

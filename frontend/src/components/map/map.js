@@ -79,6 +79,7 @@ class Map extends Component {
         bounds.extend(place.geometry.location);
       }
     });
+
     const nextMarkers = places.map((place) => ({
       position: place.geometry.location,
     }));
@@ -89,11 +90,22 @@ class Map extends Component {
     });
   };
 
-  //Setting selectedVendor to null closes the report form on submission
+  //Set selectedVendor and searchBoxMarkers to null on report form submission
   handleReportSubmission = (e) => {
     e.preventDefault();
-    this.setState({ selectedVendor: null });
+    this.setState({
+      selectedVendor: null,
+      searchBoxMarkers: []
+    });
   };
+
+  //Set selectedVendor and searchBoxMarkers to null on report form close
+  handleReportFormClose = (e) => {
+    this.setState({
+      selectedVendor: null,
+      searchBoxMarkers: []
+    })
+  }
 
   handleTimeFilter = (e) => {
     e.preventDefault();
@@ -124,7 +136,7 @@ class Map extends Component {
             </div>
             <div><i className="fas fa-location-arrow geolocation-button" onClick={this.centerOnGeolocation}></i></div>
             {/* Display the report form on marker of search result if user authenticated */}
-            {this.state.selectedVendor && (
+            {this.props.isAuthenticated && this.state.selectedVendor && (
                 <ReportFormContainer
                   vendorPlaceId={this.state.selectedVendor.place_id}
                   vendorName={this.state.selectedVendor.name}
@@ -134,6 +146,7 @@ class Map extends Component {
                   vendorLat={this.state.selectedVendor.geometry.location.lat()}
                   vendorLng={this.state.selectedVendor.geometry.location.lng()}
                   handleReportSubmission={this.handleReportSubmission}
+                  handleReportFormClose={this.handleReportFormClose}
                 />
             )}
             {/* Plots existing reports onto the map */}

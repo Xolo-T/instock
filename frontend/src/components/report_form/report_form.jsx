@@ -16,6 +16,7 @@ class ReportForm extends Component{
         };
         
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleReportInputChange = this.handleReportInputChange.bind(this);
     }
 
     handleSubmit = (event) => {
@@ -24,12 +25,22 @@ class ReportForm extends Component{
         this.props.handleReportSubmission(event);
     };
 
+    handleReportInputChange = (event) => {
+        event.preventDefault();
+        this.setState({ vendorName: event.target.value });
+    };
+
     render(){
 
         return(
             <div>
                 <h2>Tell us who's got the TP</h2>
-                <p>{this.props.vendorName}</p>
+                <p>{this.state.vendorName}</p>
+                <input
+                    id="report-text-input"
+                    onChange={this.handleReportInputChange}
+                    placeholder="Edit vendor name"
+                ></input>
                 <p>{this.props.vendorAddress}</p>
                 <a href={"tel:+1" + this.props.vendorPhone}>{this.props.vendorPhone}</a>
                 <p>{this.props.vendorStatus}</p>

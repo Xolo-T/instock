@@ -13,11 +13,11 @@ router.get('/test', (req, res) => {
 router.post('/',
     
     (req, res) => {
-        const { errors, isValid } = validateReportInput(req.body);
+        // const { errors, isValid } = validateReportInput(req.body);
         
-        if (!isValid) {
-            return res.status(600).json(errors);
-        }
+        // if (!isValid) {
+        //     return res.status(600).json(errors);
+        // }
 
         const newReport = new Report({
             reporterId: req.body.reporterId,

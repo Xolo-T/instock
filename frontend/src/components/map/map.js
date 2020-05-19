@@ -168,6 +168,13 @@ class Map extends Component {
                 }}
               >
                 <ReportFormContainer
+                  vendorPlaceId={this.state.selectedVendor.place_id}
+                  vendorName={this.state.selectedVendor.name}
+                  vendorAddress={this.state.selectedVendor.formatted_address}
+                  vendorPhone={this.state.selectedVendor.formatted_phone_number}
+                  vendorStatus={this.state.selectedVendor.business_status}
+                  vendorLat={this.state.selectedVendor.geometry.location.lat()}
+                  vendorLng={this.state.selectedVendor.geometry.location.lng()}
                   lat={this.state.selectedVendor.geometry.location.lat()}
                   lng={this.state.selectedVendor.geometry.location.lng()}
                   handleReportSubmission={this.handleReportSubmission}

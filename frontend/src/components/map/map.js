@@ -27,6 +27,7 @@ class Map extends Component {
       bounds: null,
       center: { lat: 40.672482, lng: -73.968208 },
       timeFilter: Infinity,
+      searchBoxMarkers: [],
       selectedVendor: null
     };
 
@@ -84,6 +85,7 @@ class Map extends Component {
     const nextCenter = _.get(nextMarkers, "0.position", this.state.center);
     this.setState({
       center: nextCenter,
+      searchBoxMarkers: nextMarkers
     });
   };
 
@@ -161,6 +163,10 @@ class Map extends Component {
                 className="address-searchbar"
               />
             </SearchBox>
+            {/* Map markers for results of searchbox search */}
+            {this.state.searchBoxMarkers.map((marker, index) => (
+              <Marker key={index} position={marker.position} />
+            ))}
           </GoogleMap>
         );
       })

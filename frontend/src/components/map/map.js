@@ -6,7 +6,6 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
-  InfoWindow,
 } from "react-google-maps";
 import ReportFormContainer from '../report_form/report_form_container';
 import ReportContainer from '../report/report_container';

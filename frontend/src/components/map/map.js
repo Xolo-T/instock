@@ -77,7 +77,6 @@ class Map extends Component {
     const bounds = new google.maps.LatLngBounds();
 
     places.forEach((place) => {
-      debugger
       this.setState({
         selectedVendor: place
       });
@@ -109,7 +108,6 @@ class Map extends Component {
         return (
           <GoogleMap
             defaultZoom={15}
-            // onClick={this.onMapClick}
             ref={this.onMapMounted}
             center={this.state.center}
           >
@@ -125,21 +123,8 @@ class Map extends Component {
                 </select>
             </div>
             <div><i className="fas fa-location-arrow geolocation-button" onClick={this.centerOnGeolocation}></i></div>
-            {this.state.selectedVendor && (
-              <InfoWindow
-                
-                position={{
-                  lat: this.state.selectedVendor.geometry.location.lat(),
-                  lng: this.state.selectedVendor.geometry.location.lng(),
-                }}
-                onCloseClick={() => {
-                  this.setState({
-                    selectedVendor: null
-                    // selectedCoords: null,
-                    // reportInputText: ""
-                  });
-                }}
-              >
+            {/* Display the report form on marker of search result if user authenticated */}
+            {this.props.isAuthenticated && this.state.selectedVendor && (
                 <ReportFormContainer
                   vendorPlaceId={this.state.selectedVendor.place_id}
                   vendorName={this.state.selectedVendor.name}
@@ -148,11 +133,8 @@ class Map extends Component {
                   vendorStatus={this.state.selectedVendor.business_status}
                   vendorLat={this.state.selectedVendor.geometry.location.lat()}
                   vendorLng={this.state.selectedVendor.geometry.location.lng()}
-                  lat={this.state.selectedVendor.geometry.location.lat()}
-                  lng={this.state.selectedVendor.geometry.location.lng()}
                   handleReportSubmission={this.handleReportSubmission}
                 />
-              </InfoWindow>
             )}
             {/* Plots existing reports onto the map */}
             {this.props.reports.map((report) => {

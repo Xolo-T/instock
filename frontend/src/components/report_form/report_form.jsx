@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { InfoWindow } from "react-google-maps";
 
 class ReportForm extends Component{
     constructor(props) {
@@ -25,28 +26,38 @@ class ReportForm extends Component{
         this.props.handleReportSubmission(event);
     };
 
-    handleReportInputChange = (event) => {
-        event.preventDefault();
-        this.setState({ vendorName: event.target.value });
+    //input changes are handled based on "name" of html element
+    handleReportInputChange = (e) => {
+        e.preventDefault();
+        const name = e.target.name;
+        this.setState({[name]: e.target.value });
     };
 
     render(){
-
         return(
-            <div>
-                <h2>Tell us who's got the TP</h2>
-                <p>{this.state.vendorName}</p>
-                <input
-                    id="report-text-input"
-                    onChange={this.handleReportInputChange}
-                    placeholder="Edit vendor name"
-                ></input>
-                <p>{this.props.vendorAddress}</p>
-                <a href={"tel:+1" + this.props.vendorPhone}>{this.props.vendorPhone}</a>
-                <p>{this.props.vendorStatus}</p>
-                <p><strong>In stock?</strong></p>
-                <button onClick={this.handleSubmit}>Yup!</button>
-            </div>
+            <InfoWindow
+
+                position={{
+                    lat: this.state.vendorLat,
+                    lng: this.state.vendorLng,
+                }}
+            >
+                <div>
+                    <h2>Tell us who's got the TP</h2>
+                    <p>{this.state.vendorName}</p>
+                    <input
+                        id="report-text-input"
+                        name="vendorName"
+                        onChange={this.handleReportInputChange}
+                        placeholder="Edit vendor name"
+                    ></input>
+                    <p>{this.state.vendorAddress}</p>
+                    <a href={"tel:+1" + this.state.vendorPhone}>{this.state.vendorPhone}</a>
+                    <p>{this.state.vendorStatus}</p>
+                    <p><strong>In stock?</strong></p>
+                    <button onClick={this.handleSubmit}>Yup!</button>
+                </div>
+            </InfoWindow>
         )
     }
 }

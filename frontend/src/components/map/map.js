@@ -142,7 +142,7 @@ class Map extends Component {
               <label htmlFor="time-filter">Filter by date reported</label>
               <select id="time-filter" onChange={this.handleTimeFilter} value={this.state.timeFilter}>
                   <option value="Infinity">All time</option>
-                  <option value="24">Today </option>
+                  <option value="24">Past 24 hours </option>
                   <option value="48">Past 2 days</option>
                   <option value="72">Past 3 days</option>
                   <option value="168">Past week</option>
@@ -173,12 +173,12 @@ class Map extends Component {
             )}
             {/* Plots existing reports onto the map */}
             {this.props.reports.map((report) => {
-              // Milliseconds elapsed since the UNIX epoch 
+              // Milliseconds elapsed since the UNIX epoch represented as integer
               const currentDateTime = Date.now();
               const reportDateTime = Date.parse(report.date);
-              // Diff in hours
-              const diff = Math.floor((currentDateTime - reportDateTime) / 1000 / 60 / 60);
-              if (diff <= this.state.timeFilter) {
+              // millisecondsDiff / 1000 => seconds; seconds / 60 => minutes; minutes / 60 => hours
+              const milliSecondsDiff = Math.floor((currentDateTime - reportDateTime) / 1000 / 60 / 60);
+              if (milliSecondsDiff <= this.state.timeFilter) {
                 return (
                   <ReportContainer
                     key={report._id}

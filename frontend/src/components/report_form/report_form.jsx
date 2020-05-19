@@ -5,11 +5,15 @@ class ReportForm extends Component{
         super(props);
 
         this.state = {
+            storeName: "",
             reporterId: this.props.currentUser.id,
             reporterName: this.props.currentUser.name,
-            storeName: "",
-            lng: this.props.lng,
-            lat: this.props.lat,
+            vendorPlaceId: this.props.vendorPlaceId,
+            vendorName: this.props.vendorName,
+            vendorAddress: this.props.vendorAddress,
+            vendorPhone: this.props.vendorPhone,
+            vendorLat: this.props.vendorLat,
+            vendorLng: this.props.vendorLng
         };
 
         this.handleReportInputChange = this.handleReportInputChange.bind(this);
@@ -32,14 +36,13 @@ class ReportForm extends Component{
         return(
             <div>
                 <h2>Tell us who's got the TP</h2>
-                <input
-                    id="report-text-input"
-                    value={this.state.storeName}
-                    onChange={this.handleReportInputChange}
-                    placeholder="Enter store name"
-                ></input>
-                <button onClick={this.handleSubmit}>Submit</button>
-            </div> 
+                <p>{this.props.vendorName}</p>
+                <p>{this.props.vendorAddress}</p>
+                <a href={"tel:+1" + this.props.vendorPhone}>{this.props.vendorPhone}</a>
+                <p>{this.props.vendorStatus}</p>
+                <p><strong>In stock?</strong></p>
+                <button onClick={this.handleSubmit}>Yup!</button>
+            </div>
         )
     }
 }

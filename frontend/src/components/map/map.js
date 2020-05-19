@@ -63,7 +63,7 @@ class Map extends Component {
   //Setting selectedCoords to null closes the report form on submission
   handleReportSubmission = (event) => {
     event.preventDefault();
-    this.setState({ selectedCoords: null });
+    this.setState({ selectedVendor: null });
   };
 
   //Set selected coords when user clicks on open space of map

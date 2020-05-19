@@ -89,6 +89,12 @@ class Map extends Component {
     });
   };
 
+  //Setting selectedVendor to null closes the report form on submission
+  handleReportSubmission = (e) => {
+    e.preventDefault();
+    this.setState({ selectedVendor: null });
+  };
+
   handleTimeFilter = (e) => {
     e.preventDefault();
     this.setState ({
@@ -127,7 +133,7 @@ class Map extends Component {
                   vendorStatus={this.state.selectedVendor.business_status}
                   vendorLat={this.state.selectedVendor.geometry.location.lat()}
                   vendorLng={this.state.selectedVendor.geometry.location.lng()}
-                  handleReportFormClose={this.handleReportFormClose}
+                  handleReportSubmission={this.handleReportSubmission}
                 />
             )}
             {/* Plots existing reports onto the map */}

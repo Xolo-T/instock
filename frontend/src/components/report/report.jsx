@@ -78,12 +78,8 @@ class Report extends Component {
             <h2 className="map-report-name">
               {report.vendorName}
             </h2>
-            <p>
-              {report.vendorAddress}
-            </p>
-            <p>
-              {report.vendorPhone}
-            </p>
+            <p>{report.vendorAddress}</p>
+            <a href={"tel:+1" + report.vendorPhone}>{report.vendorPhone}</a>
             <p>
               Reported by <strong>{report.reporterName}</strong>
             </p>

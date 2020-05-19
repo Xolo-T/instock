@@ -177,8 +177,8 @@ class Map extends Component {
               const currentDateTime = Date.now();
               const reportDateTime = Date.parse(report.date);
               // millisecondsDiff / 1000 => seconds; seconds / 60 => minutes; minutes / 60 => hours
-              const milliSecondsDiff = Math.floor((currentDateTime - reportDateTime) / 1000 / 60 / 60);
-              if (milliSecondsDiff <= this.state.timeFilter) {
+              const millisecondsDiff = Math.floor((currentDateTime - reportDateTime) / 1000 / 60 / 60);
+              if (millisecondsDiff <= this.state.timeFilter) {
                 return (
                   <ReportContainer
                     key={report._id}

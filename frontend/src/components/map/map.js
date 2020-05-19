@@ -6,7 +6,6 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
-  InfoWindow,
 } from "react-google-maps";
 import ReportFormContainer from '../report_form/report_form_container';
 import ReportContainer from '../report/report_container';
@@ -25,12 +24,11 @@ class Map extends Component {
     super(props);
 
     this.state = {
-      selectedCoords: null,
-      reportInputText: "",
       bounds: null,
       center: { lat: 40.672482, lng: -73.968208 },
-      markers: [],
-      timeFilter: Infinity
+      timeFilter: Infinity,
+      searchBoxMarkers: [],
+      selectedVendor: null
     };
 
     this.centerOnGeolocation = this.centerOnGeolocation.bind(this);
@@ -59,40 +57,6 @@ class Map extends Component {
     refs.map = ref;
   };
 
-  //Setting selectedCoords to null closes the report form on submission
-  handleReportSubmission = (event) => {
-    event.preventDefault();
-    this.setState({ selectedCoords: null });
-  };
-
-  //Set selected coords when user clicks on open space of map
-  onMapClick = (coord) => {
-    if (!this.props.isAuthenticated) {
-      return;
-    }
-
-    let lat = coord.latLng.lat();
-    let lng = coord.latLng.lng();
-
-    this.setState({ 
-      selectedCoords: { lat: lat, lng: lng }
-    });
-
-    var geocoder = new google.maps.Geocoder();
-
-    geocoder.geocode({ location: coord.latLng }, function (results, status) {
-      if (status === "OK") {
-        if (results[0]) {
-        } else {
-          window.alert("No results found");
-        }
-      } else {
-        window.alert("Geocoder failed due to: " + status);
-      }
-    });
-  };
-
-
   onSearchBoxMounted = (ref) => {
     refs.searchBox = ref;
   };
@@ -103,23 +67,45 @@ class Map extends Component {
     const bounds = new google.maps.LatLngBounds();
 
     places.forEach((place) => {
+      if (this.props.isAuthenticated) {
+        this.setState({
+          selectedVendor: place
+        });
+      }
+
       if (place.geometry.viewport) {
         bounds.union(place.geometry.viewport);
       } else {
         bounds.extend(place.geometry.location);
       }
     });
+
     const nextMarkers = places.map((place) => ({
       position: place.geometry.location,
     }));
     const nextCenter = _.get(nextMarkers, "0.position", this.state.center);
-
     this.setState({
-      selectedCoords: null,
       center: nextCenter,
-      markers: nextMarkers,
+      searchBoxMarkers: nextMarkers
     });
   };
+
+  //Set selectedVendor and searchBoxMarkers to null on report form submission
+  handleReportSubmission = (e) => {
+    e.preventDefault();
+    this.setState({
+      selectedVendor: null,
+      searchBoxMarkers: []
+    });
+  };
+
+  //Set selectedVendor and searchBoxMarkers to null on report form close
+  handleReportFormClose = (e) => {
+    this.setState({
+      selectedVendor: null,
+      searchBoxMarkers: []
+    })
+  }
 
   handleTimeFilter = (e) => {
     e.preventDefault();
@@ -134,7 +120,6 @@ class Map extends Component {
         return (
           <GoogleMap
             defaultZoom={15}
-            onClick={this.onMapClick}
             ref={this.onMapMounted}
             center={this.state.center}
           >
@@ -150,26 +135,19 @@ class Map extends Component {
                 </select>
             </div>
             <div><i className="fas fa-location-arrow geolocation-button" onClick={this.centerOnGeolocation}></i></div>
-            {this.state.selectedCoords && (
-              <InfoWindow
-                
-                position={{
-                  lat: this.state.selectedCoords.lat,
-                  lng: this.state.selectedCoords.lng,
-                }}
-                onCloseClick={() => {
-                  this.setState({
-                    selectedCoords: null,
-                    reportInputText: ""
-                  });
-                }}
-              >
+            {/* Display the report form on marker of search result if user authenticated */}
+            {this.props.isAuthenticated && this.state.selectedVendor && (
                 <ReportFormContainer
-                  lat={this.state.selectedCoords.lat}
-                  lng={this.state.selectedCoords.lng}
+                  vendorPlaceId={this.state.selectedVendor.place_id}
+                  vendorName={this.state.selectedVendor.name}
+                  vendorAddress={this.state.selectedVendor.formatted_address}
+                  vendorPhone={this.state.selectedVendor.formatted_phone_number}
+                  vendorStatus={this.state.selectedVendor.business_status}
+                  vendorLat={this.state.selectedVendor.geometry.location.lat()}
+                  vendorLng={this.state.selectedVendor.geometry.location.lng()}
                   handleReportSubmission={this.handleReportSubmission}
+                  handleReportFormClose={this.handleReportFormClose}
                 />
-              </InfoWindow>
             )}
             {/* Plots existing reports onto the map */}
             {this.props.reports.map((report) => {
@@ -204,10 +182,10 @@ class Map extends Component {
                 className="address-searchbar"
               />
             </SearchBox>
-            {this.state.markers.map((marker, index) => (
+            {/* Map markers for results of searchbox search */}
+            {this.state.searchBoxMarkers.map((marker, index) => (
               <Marker key={index} position={marker.position} />
             ))}
-        
           </GoogleMap>
         );
       })

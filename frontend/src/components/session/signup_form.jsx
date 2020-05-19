@@ -130,8 +130,6 @@ class SignupForm extends React.Component {
     
     if (isValid) {
       this.props.signup(user, this.props.history).then(this.closeModalOnSubmit);
-      debugger
-
     }
 
   }

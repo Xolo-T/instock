@@ -76,9 +76,12 @@ class Map extends Component {
     const bounds = new google.maps.LatLngBounds();
 
     places.forEach((place) => {
-      this.setState({
-        selectedVendor: place
-      });
+      if (this.props.isAuthenticated) {
+        this.setState({
+          selectedVendor: place
+        });
+      }
+
       if (place.geometry.viewport) {
         bounds.union(place.geometry.viewport);
       } else {
@@ -123,7 +126,7 @@ class Map extends Component {
             </div>
             <div><i className="fas fa-location-arrow geolocation-button" onClick={this.centerOnGeolocation}></i></div>
             {/* Display the report form on marker of search result if user authenticated */}
-            {this.props.isAuthenticated && this.state.selectedVendor && (
+            {this.state.selectedVendor && (
                 <ReportFormContainer
                   vendorPlaceId={this.state.selectedVendor.place_id}
                   vendorName={this.state.selectedVendor.name}

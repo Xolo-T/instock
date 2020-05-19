@@ -26,10 +26,14 @@ class Report extends Component {
       return `${diff} minutes ago`;
     } else if (diff < 120) {
       return `about ${Math.floor(diff/60)} hour ago`;
-    } else if (diff <= 4320) {
-      return `about ${Math.floor(diff / 60)} hours ago`;
+    } else if (diff < 4320) {
+      return `about ${Math.floor(diff/60)} hours ago`;
+    } else if (diff < 10080) {
+      return `about ${Math.floor(diff/60/24) } days ago`;
+    } else if (diff <= 20160) {
+      return `about ${Math.floor(diff/60/24/7)} weeks ago`;
     } else {
-      return `over 72 hours ago`
+      return `more than two weeks ago`
     }
   };
 

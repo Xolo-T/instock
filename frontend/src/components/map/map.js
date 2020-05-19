@@ -30,6 +30,7 @@ class Map extends Component {
       bounds: null,
       center: { lat: 40.672482, lng: -73.968208 },
       markers: [],
+      timeFilter: Infinity
     };
 
     this.centerOnGeolocation = this.centerOnGeolocation.bind(this);
@@ -120,6 +121,13 @@ class Map extends Component {
     });
   };
 
+  handleTimeFilter = (e) => {
+    e.preventDefault();
+    this.setState ({
+      timeFilter: e.target.value
+    });
+  };
+
   render() {
     const MyMapComponent = withScriptjs(
       withGoogleMap((props) => {  
@@ -130,6 +138,17 @@ class Map extends Component {
             ref={this.onMapMounted}
             center={this.state.center}
           >
+            <div className="time-filter-container">
+              <label htmlFor="time-filter">Filter by date reported</label>
+              <select id="time-filter" onChange={this.handleTimeFilter} value={this.state.timeFilter}>
+                  <option value="Infinity">All time</option>
+                  <option value="24">Today </option>
+                  <option value="48">Past 2 days</option>
+                  <option value="72">Past 3 days</option>
+                  <option value="168">Past week</option>
+                  <option value="336">Past two weeks</option>
+                </select>
+            </div>
             <div><i className="fas fa-location-arrow geolocation-button" onClick={this.centerOnGeolocation}></i></div>
             {this.state.selectedCoords && (
               <InfoWindow
@@ -154,18 +173,25 @@ class Map extends Component {
             )}
             {/* Plots existing reports onto the map */}
             {this.props.reports.map((report) => {
-              return (
-                <ReportContainer
-                  key={report._id}
-                  report = {report}
-                  icon= {{
-                    url: "./toilet-paper.svg",
-                    scaledSize: new window.google.maps.Size(40, 40),
-                  }}
-                  labelAnchor={new window.google.maps.Point(-5, 50)}
-                />
-              );
-            })}
+              // Milliseconds elapsed since the UNIX epoch 
+              const currentDateTime = Date.now();
+              const reportDateTime = Date.parse(report.date);
+              // Diff in hours
+              const diff = Math.floor((currentDateTime - reportDateTime) / 1000 / 60 / 60);
+              if (diff <= this.state.timeFilter) {
+                return (
+                  <ReportContainer
+                    key={report._id}
+                    report = {report}
+                    icon= {{
+                      url: "./toilet-paper.svg",
+                      scaledSize: new window.google.maps.Size(40, 40),
+                    }}
+                    labelAnchor={new window.google.maps.Point(-5, 50)}
+                  />
+                );
+              }
+              })}
             <SearchBox
               ref={this.onSearchBoxMounted}
               bounds={this.bounds}

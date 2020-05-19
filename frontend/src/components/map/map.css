@@ -53,6 +53,16 @@
   top: 100px;
 }
 
+.time-filter-container {
+  position: absolute;
+  top: 220px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+}
+
 /* GEOLOCATION */
 .geolocation-button {
   position: absolute;

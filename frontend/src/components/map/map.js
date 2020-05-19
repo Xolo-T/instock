@@ -24,11 +24,8 @@ class Map extends Component {
     super(props);
 
     this.state = {
-      selectedCoords: null,
-      reportInputText: "",
       bounds: null,
       center: { lat: 40.672482, lng: -73.968208 },
-      markers: [],
       timeFilter: Infinity,
       selectedVendor: null
     };
@@ -58,13 +55,6 @@ class Map extends Component {
   onMapMounted = (ref) => {
     refs.map = ref;
   };
-
-  //Setting selectedCoords to null closes the report form on submission
-  handleReportSubmission = (event) => {
-    event.preventDefault();
-    this.setState({ selectedVendor: null });
-  };
-
 
   onSearchBoxMounted = (ref) => {
     refs.searchBox = ref;
@@ -135,7 +125,7 @@ class Map extends Component {
                   vendorStatus={this.state.selectedVendor.business_status}
                   vendorLat={this.state.selectedVendor.geometry.location.lat()}
                   vendorLng={this.state.selectedVendor.geometry.location.lng()}
-                  handleReportSubmission={this.handleReportSubmission}
+                  handleReportFormClose={this.handleReportFormClose}
                 />
             )}
             {/* Plots existing reports onto the map */}
@@ -171,10 +161,6 @@ class Map extends Component {
                 className="address-searchbar"
               />
             </SearchBox>
-            {this.state.markers.map((marker, index) => (
-              <Marker key={index} position={marker.position} />
-            ))}
-        
           </GoogleMap>
         );
       })

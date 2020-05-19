@@ -20,10 +20,9 @@ class ReportForm extends Component{
         this.handleReportInputChange = this.handleReportInputChange.bind(this);
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    handleSubmit = (e) => {
+        e.preventDefault();
         this.props.composeReport(this.state);
-        this.props.handleReportSubmission(event);
     };
 
     //input changes are handled based on "name" of html element

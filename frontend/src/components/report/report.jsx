@@ -16,20 +16,25 @@ class Report extends Component {
   }
 
   minutesSinceReported = () => {
-    // Milliseconds elapsed since the UNIX epoch 
+    // Milliseconds elapsed since the UNIX epoch represented as integer
     const currentDateTime = Date.now();
     const reportDateTime = Date.parse(this.props.report.date);
-    // Diff in minutes
-    const diff = Math.floor((currentDateTime - reportDateTime) / 1000 / 60);
+    // millisecondsDiff/1000 => seconds; seconds/60 => minutes; 
+    //minutes/60 => hours; hours/24 => days; days/7 => weeks;
+    const millisecondsDiff = Math.floor((currentDateTime - reportDateTime) / 1000 / 60);
 
-    if (diff < 60) {
-      return `${diff} minutes ago`;
-    } else if (diff < 120) {
-      return `about ${Math.floor(diff/60)} hour ago`;
-    } else if (diff <= 4320) {
-      return `about ${Math.floor(diff / 60)} hours ago`;
+    if (millisecondsDiff < 60) {
+      return `${millisecondsDiff} minutes ago`;
+    } else if (millisecondsDiff < 120) {
+      return `about ${Math.floor(millisecondsDiff/60)} hour ago`;
+    } else if (millisecondsDiff < 4320) {
+      return `about ${Math.floor(millisecondsDiff/60)} hours ago`;
+    } else if (millisecondsDiff < 10080) {
+      return `about ${Math.floor(millisecondsDiff/60/24) } days ago`;
+    } else if (millisecondsDiff <= 20160) {
+      return `about ${Math.floor(millisecondsDiff/60/24/7)} weeks ago`;
     } else {
-      return `over 72 hours ago`
+      return `more than two weeks ago`
     }
   };
 
@@ -49,7 +54,6 @@ class Report extends Component {
             lng: report.lng,
           }}
           onClick={() => {
-            debugger
             this.setState({
               selectedReport: true
             });

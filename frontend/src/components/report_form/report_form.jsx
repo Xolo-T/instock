@@ -5,7 +5,6 @@ class ReportForm extends Component{
         super(props);
 
         this.state = {
-            storeName: "",
             reporterId: this.props.currentUser.id,
             reporterName: this.props.currentUser.name,
             vendorPlaceId: this.props.vendorPlaceId,
@@ -15,8 +14,7 @@ class ReportForm extends Component{
             vendorLat: this.props.vendorLat,
             vendorLng: this.props.vendorLng
         };
-
-        this.handleReportInputChange = this.handleReportInputChange.bind(this);
+        
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -24,11 +22,6 @@ class ReportForm extends Component{
         event.preventDefault();
         this.props.composeReport(this.state);
         this.props.handleReportSubmission(event);
-    };
-
-    handleReportInputChange = (event) => {
-        event.preventDefault();
-        this.setState({ storeName: event.target.value });
     };
 
     render(){

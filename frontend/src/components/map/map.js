@@ -66,33 +66,6 @@ class Map extends Component {
     this.setState({ selectedVendor: null });
   };
 
-  //Set selected coords when user clicks on open space of map
-  onMapClick = (coord) => {
-    if (!this.props.isAuthenticated) {
-      return;
-    }
-
-    let lat = coord.latLng.lat();
-    let lng = coord.latLng.lng();
-
-    this.setState({ 
-      selectedCoords: { lat: lat, lng: lng }
-    });
-
-    var geocoder = new google.maps.Geocoder();
-
-    geocoder.geocode({ location: coord.latLng }, function (results, status) {
-      if (status === "OK") {
-        if (results[0]) {
-        } else {
-          window.alert("No results found");
-        }
-      } else {
-        window.alert("Geocoder failed due to: " + status);
-      }
-    });
-  };
-
 
   onSearchBoxMounted = (ref) => {
     refs.searchBox = ref;

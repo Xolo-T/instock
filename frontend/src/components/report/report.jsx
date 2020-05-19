@@ -50,8 +50,8 @@ class Report extends Component {
       <>
         <MarkerWithLabel
           position={{
-            lat: report.lat,
-            lng: report.lng,
+            lat: report.vendorLat,
+            lng: report.vendorLng,
           }}
           onClick={() => {
             this.setState({
@@ -65,8 +65,8 @@ class Report extends Component {
         </MarkerWithLabel>
         {this.state.selectedReport && (<InfoWindow
           position={{
-            lat: report.lat,
-            lng: report.lng,
+            lat: report.vendorLat,
+            lng: report.vendorLng,
           }}
           onCloseClick={() => {
             this.setState({
@@ -76,10 +76,13 @@ class Report extends Component {
         >
           <div>
             <h2 className="map-report-name">
-              {report.storeName}
+              {report.vendorName}
             </h2>
-            <p className="map-report-description">
-              {report.description}
+            <p>
+              {report.vendorAddress}
+            </p>
+            <p>
+              {report.vendorPhone}
             </p>
             <p>
               Reported by <strong>{report.reporterName}</strong>

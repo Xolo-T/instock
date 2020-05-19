@@ -30,7 +30,8 @@ class Map extends Component {
       bounds: null,
       center: { lat: 40.672482, lng: -73.968208 },
       markers: [],
-      timeFilter: Infinity
+      timeFilter: Infinity,
+      selectedVendor: null
     };
 
     this.centerOnGeolocation = this.centerOnGeolocation.bind(this);
@@ -103,6 +104,10 @@ class Map extends Component {
     const bounds = new google.maps.LatLngBounds();
 
     places.forEach((place) => {
+      debugger
+      this.setState({
+        selectedVendor: place
+      });
       if (place.geometry.viewport) {
         bounds.union(place.geometry.viewport);
       } else {
@@ -113,11 +118,8 @@ class Map extends Component {
       position: place.geometry.location,
     }));
     const nextCenter = _.get(nextMarkers, "0.position", this.state.center);
-
     this.setState({
-      selectedCoords: null,
       center: nextCenter,
-      markers: nextMarkers,
     });
   };
 
@@ -134,7 +136,7 @@ class Map extends Component {
         return (
           <GoogleMap
             defaultZoom={15}
-            onClick={this.onMapClick}
+            // onClick={this.onMapClick}
             ref={this.onMapMounted}
             center={this.state.center}
           >
@@ -150,23 +152,24 @@ class Map extends Component {
                 </select>
             </div>
             <div><i className="fas fa-location-arrow geolocation-button" onClick={this.centerOnGeolocation}></i></div>
-            {this.state.selectedCoords && (
+            {this.state.selectedVendor && (
               <InfoWindow
                 
                 position={{
-                  lat: this.state.selectedCoords.lat,
-                  lng: this.state.selectedCoords.lng,
+                  lat: this.state.selectedVendor.geometry.location.lat(),
+                  lng: this.state.selectedVendor.geometry.location.lng(),
                 }}
                 onCloseClick={() => {
                   this.setState({
-                    selectedCoords: null,
-                    reportInputText: ""
+                    selectedVendor: null
+                    // selectedCoords: null,
+                    // reportInputText: ""
                   });
                 }}
               >
                 <ReportFormContainer
-                  lat={this.state.selectedCoords.lat}
-                  lng={this.state.selectedCoords.lng}
+                  lat={this.state.selectedVendor.geometry.location.lat()}
+                  lng={this.state.selectedVendor.geometry.location.lng()}
                   handleReportSubmission={this.handleReportSubmission}
                 />
               </InfoWindow>

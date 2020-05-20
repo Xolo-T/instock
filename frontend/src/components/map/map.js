@@ -73,7 +73,8 @@ class Map extends Component {
         if (report.vendorPlaceId === place.place_id) {
           this.setState({
             searchedReport: report,
-            selectedVendor: null
+            selectedVendor: null,
+            searchBoxMarkers: []
           });
         }
       });

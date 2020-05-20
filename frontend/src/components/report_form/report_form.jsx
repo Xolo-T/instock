@@ -47,7 +47,6 @@ class ReportForm extends Component{
                     lat: this.state.vendorLat,
                     lng: this.state.vendorLng,
                 }}
-
                 onCloseClick={this.handleClose}
             >
                 <div>

@@ -15,6 +15,12 @@ class Report extends Component {
     this.updateReport = this.updateReport.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      selectedReport: this.props.searchedReport === this.props.report
+    });
+  }
+
   minutesSinceReported = () => {
     // Milliseconds elapsed since the UNIX epoch represented as integer
     const currentDateTime = Date.now();

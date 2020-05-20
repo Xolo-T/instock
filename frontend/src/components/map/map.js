@@ -72,7 +72,8 @@ class Map extends Component {
       this.props.reports.forEach(report => {
         if (report.vendorPlaceId === place.place_id) {
           this.setState({
-            searchedReport: report
+            searchedReport: report,
+            selectedVendor: null
           });
         }
       });
@@ -113,15 +114,6 @@ class Map extends Component {
       });
     }
   };
-
-  //Set searchedReport to null on report close
-  handleReportClose = (e) => {
-    debugger
-    this.setState({
-      searchedReport: null
-    })
-    debugger
-  }
 
   //Set selectedVendor and searchBoxMarkers to null on report form submission
   handleReportSubmission = (e) => {
@@ -200,7 +192,6 @@ class Map extends Component {
                     }}
                     labelAnchor={new window.google.maps.Point(-5, 50)}
                     searchedReport={this.state.searchedReport}
-                    handleReportClose={this.handleReportClose}
                   />
                 );
               }

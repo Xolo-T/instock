@@ -9,6 +9,7 @@ import {
 } from "react-google-maps";
 import ReportFormContainer from '../report_form/report_form_container';
 import ReportContainer from '../report/report_container';
+import FooterContainer from '../footer/footer_container';
 
 const {
   SearchBox,
@@ -242,9 +243,11 @@ class Map extends Component {
           </h1>
         </header>
 
-        <footer>
+
+        <FooterContainer/>
+        {/* <footer>
           Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.
-        </footer>
+        </footer> */}
       </div>
     );
   }

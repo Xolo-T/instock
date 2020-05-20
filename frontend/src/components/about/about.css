@@ -1,0 +1,22 @@
+#about-container {
+    width: 85%;
+}
+
+.profile-pic {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    float: left;
+}
+
+.profile-text {
+    position: relative;
+    left: 20px;
+    max-height: 70px;
+    overflow-y: scroll;
+}
+
+#just-the-four-of-us {
+    display: flex;
+    flex-direction: column;
+}

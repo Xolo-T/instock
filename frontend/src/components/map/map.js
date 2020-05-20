@@ -68,6 +68,7 @@ class Map extends Component {
     const bounds = new google.maps.LatLngBounds();
     // Open an existing report if it matches the search result
     places.forEach((place) => {
+
       this.props.reports.forEach(report => {
         if (report.vendorPlaceId === place.place_id) {
           this.setState({
@@ -75,11 +76,19 @@ class Map extends Component {
           });
         }
       });
-      // Open a report form if the user is authenticated
-      if (this.props.isAuthenticated && this.state.searchedReport === null) {
-        this.setState({
-          selectedVendor: place
-        });
+      // If searchedReported value is null or does not match place, reset searchedReport
+      // and show report form if the user is logged in
+      if (this.state.searchedReport === null || place.place_id !== this.state.searchedReport.vendorPlaceId) {
+        if (this.props.isAuthenticated) {
+          this.setState({
+            selectedVendor: place,
+            searchedReport: null
+          });
+        } else {
+          this.setState({
+            searchedReport: null
+          });
+        }
       }
 
       if (place.geometry.viewport) {

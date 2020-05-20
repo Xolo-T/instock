@@ -45,6 +45,9 @@ class Report extends Component {
   };
 
   handleClose = (e) => {
+    if (!this.props.searchedReport) {
+      return;
+    }
     this.props.handleReportClose(e);
   };
 

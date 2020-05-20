@@ -13,21 +13,22 @@ router.get('/test', (req, res) => {
 router.post('/',
     
     (req, res) => {
-        const { errors, isValid } = validateReportInput(req.body);
+        // const { errors, isValid } = validateReportInput(req.body);
         
-        if (!isValid) {
-            return res.status(600).json(errors);
-        }
+        // if (!isValid) {
+        //     return res.status(600).json(errors);
+        // }
 
         const newReport = new Report({
             reporterId: req.body.reporterId,
             reporterName: req.body.reporterName,
-            placeId: req.body.placeId,
-            storeName: req.body.storeName,
-            description: req.body.description,
-            lng: req.body.lng,
-            lat: req.body.lat,
-            approvals: 0,
+            vendorPlaceId: req.body.vendorPlaceId,
+            vendorName: req.body.vendorName,
+            vendorAddress: req.body.vendorAddress,
+            vendorPhone: req.body.vendorPhone,
+            vendorLat: req.body.vendorLat,
+            vendorLng: req.body.vendorLng,
+            approvals: 1,
         });
 
         newReport.save()

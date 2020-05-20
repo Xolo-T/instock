@@ -1,0 +1,17 @@
+.instock-verification {
+  font-size: 1rem;
+}
+
+.instock-verification button {
+  margin: 0 0.25rem;
+}
+
+.instock-verification button:hover {
+  background-color: gray;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.instock-verification .far {
+  font-size: 1rem;
+}

@@ -1,0 +1,102 @@
+/* HEADER STYLING */
+.call-to-action {
+  background-color: #793AFC;
+  margin: 0px;
+  padding: 20px;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+
+.call-to-action h1 {
+  font-size: 2rem;
+  color: #793AFC;
+  background-color: #F6F2ED;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  margin: 0px 20px;
+  box-shadow: 5px 5px black;
+  border-radius: .5rem;
+}
+
+/*FOOTER STYLING */
+
+  footer {
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Karma', serif;
+    font-weight: bold;;
+    text-align: center;
+  }
+
+/*MAP STYLING */
+
+.map-component {
+  margin: 0px;
+  padding: 0px;
+}
+.gm-style .gm-style-iw-c {
+  position: absolute;
+  top: -40px;
+}
+
+.gm-style .gm-style-iw-t::after {
+  top: -40px;
+}
+
+.marker-badge {
+  background-color: #B5B4D4;
+  border: #6B6AAA 1px solid;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  border-radius: 4rem;
+  top: 100px;
+}
+
+.time-filter-container {
+  position: absolute;
+  top: 220px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+}
+
+/* GEOLOCATION */
+.geolocation-button {
+  position: absolute;
+  top: 160px;
+  right: 10px;
+  font-size: 1.25rem;
+  color: #6B6AAA;
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 40px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+}
+
+.geolocation-button:hover {
+  color: #B5B4D4;
+  cursor: pointer;
+}
+
+/* SEARCHBOX */
+
+.address-searchbar {
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  width: 240px;
+  height: 40px;
+  margin-top: 10px;
+  padding: 0 12px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  outline: none;
+  text-overflow: ellipsis;
+}

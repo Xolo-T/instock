@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './navbar.css';
 
 class Navbar extends React.Component{
@@ -29,8 +28,8 @@ class Navbar extends React.Component{
                 <span className="iphone-welcome-header">
                   welcome {this.props.currentUser.name}
                 </span>
-
-                <label for="hamburger">
+                
+                <label htmlFor="hamburger">
                   <i className="fa fa-2x">&#9776;</i>
                 </label>
                 <input type="checkbox" id="hamburger"></input>
@@ -51,7 +50,7 @@ class Navbar extends React.Component{
         } else {
             return (
               <nav className="navbar">
-                <label for="hamburger">
+                <label htmlFor="hamburger">
                   <i className="fa fa-2x">&#9776;</i>
                 </label>
                 <input type="checkbox" id="hamburger"></input>

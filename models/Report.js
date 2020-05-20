@@ -4,26 +4,30 @@ const Schema = mongoose.Schema;
 const ReportSchema = new Schema({
     reporterId: {
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'users',
+        required: true
     },
     reporterName: {
         type: String,
+        required: true
     },
-    placeId: {
+    vendorPlaceId: {
         type: String,
+        required: true
     },
-    storeName: {
+    vendorName: {
         type: String,
         required: true,
     },
-    description: {
+    vendorAddress: {
         type: String,
+        required: true,
     },
-    lng: {
+    vendorLat: {
         type: Number,
         required: true,
     },
-    lat: {
+    vendorLng: {
         type: Number,
         required: true,
     },

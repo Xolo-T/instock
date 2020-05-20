@@ -58,7 +58,7 @@
 .navbar label, #hamburger { display: none; }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
     .navbar label {
         display: inline-block;
         color: white;
@@ -84,16 +84,18 @@
     }
 
     .iphone-welcome-header {
-        font-size: 1.2rem;
-        color: coral;  
+        font-size: 1.5rem;
+        color: white;  
         font-family: 'Nunito', sans-serif;
         font-weight: 900;
         display: block;
         text-align: center;
-        margin-left: 7px;
-        height: 40px; 
+        margin: .75rem 0 .75rem 1rem;
+        height: 1.5rem; 
         background: #793AFC;
         width: 100%;
+        line-height: 1.5rem;
+        text-align: left;
     }
     
     .navbar input:checked ~ #hamitems {
@@ -143,7 +145,7 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
     .navbar label {
         display: inline-block;
         color: white;

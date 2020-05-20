@@ -33,7 +33,6 @@ class Navbar extends React.Component{
                 <input type="checkbox" id="hamburger"></input>
                 <div id="hamitems">
                   <div className="navbar-buttons-wrapper">
-                    <button className="navbar-button">profile</button>
                     <button className="navbar-button" onClick={this.logoutUser}>
                       log out
                     </button>

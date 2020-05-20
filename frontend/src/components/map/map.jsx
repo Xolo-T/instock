@@ -218,35 +218,66 @@ class Map extends Component {
       })
     );
 
-    return (
-      <div style={{ width: "100vw", height: "50vh" }} className="map-component">
-        <MyMapComponent
-          isMarkerShown
-          googleMapURL={"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=" + googleMap}
-          loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div style={{ height: `65vh` }} />}
-          mapElement={<div style={{ height: `100%` }} />}
-        />
-        <header className="call-to-action">
-          <h1>Looking for toilet paper in your neighborhood?</h1>
-          <h2>
-            Don't waste time traveling from one bodega to another only to come
-            up empty-handed.
-          </h2>
-          <h2>
-            Click on one of the pins to find the stores where your neighbors
-            have identified toilet paper is in stock.
-          </h2>
-          <h1>
-            Sign up to help notify your neighborhood about what is InStock!
-          </h1>
-        </header>
+    if (this.props.isAuthenticated) {
+      return (
+        <div
+          style={{ width: "100vw", height: "50vh" }}
+          className="map-component"
+        >
+          <MyMapComponent
+            isMarkerShown
+            googleMapURL={
+              "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=" +
+              googleMap
+            }
+            loadingElement={<div style={{ height: `100%` }} />}
+            // containerElement={<div style={{ height: `65vh` }} />}
+            containerElement={<div style={{ height: `90vh` }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+          />
 
-        <footer>
-          Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.
-        </footer>
-      </div>
-    );
+          <footer>
+            Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.
+          </footer>
+        </div>
+      );
+    } else {
+      return (
+        <div
+          style={{ width: "100vw", height: "50vh" }}
+          className="map-component"
+        >
+          <MyMapComponent
+            isMarkerShown
+            googleMapURL={
+              "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=" +
+              googleMap
+            }
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: `65vh` }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+          />
+          <header className="call-to-action">
+            <h1>Looking for toilet paper in your neighborhood?</h1>
+            <h2>
+              Don't waste time traveling from one bodega to another only to come
+              up empty-handed.
+            </h2>
+            <h2>
+              Click on one of the pins to find the stores where your neighbors
+              have identified toilet paper is in stock.
+            </h2>
+            <h1>
+              Sign up to help notify your neighborhood about what is InStock!
+            </h1>
+          </header>
+
+          <footer>
+            Powered by Petit Pot. Copyright &copy; 2020 Team PuddingHunter.
+          </footer>
+        </div>
+      );
+    }
   }
 }
 

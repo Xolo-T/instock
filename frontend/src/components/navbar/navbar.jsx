@@ -81,7 +81,7 @@ class Navbar extends React.Component{
         return (
           <div className="navbar">
             <div className="navbar-header">
-              <img class="logo" src="./logo.png" alt="My_Logo" />
+              <img className="logo" src="./logo.png" alt="My_Logo" />
               <span className="iphone-welcome-header">
                 welcome {this.props.currentUser.name}
               </span>

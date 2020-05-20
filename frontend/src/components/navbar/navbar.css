@@ -66,6 +66,60 @@
         font-size: 1.2em;
         padding: 10px;
     }
+    
+    #hamitems { 
+        display: none;
+    }
+
+    #hamitems button {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-top: 1px solid #333;
+    }
+
+    .iphone-welcome-header {
+        display: none;
+    }
+    
+    .navbar input:checked ~ #hamitems {
+         display: block;
+    }
+
+    .navbar-buttons-wrapper {
+        position: absolute;
+        top: 48px;
+        right: 0px;
+        width: 100vw; 
+    }
+
+    .navbar-button {
+        font-size: 1.5rem;
+        color: #FBFAFB;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        margin-right: 20px;
+        box-shadow: none;
+        transition: 0.2s;
+        border: black 1px;
+        border-radius: 0rem;
+    }
+    
+    .logo {
+        height: 50%;
+        size: 50%;
+        margin-left: 10px;
+    }
+ 
+}
+@media screen and (max-width: 700px) {
+    .navbar label {
+        display: inline-block;
+        color: white;
+        font-style: normal;
+        font-size: 1.2em;
+        padding: 10px;
+    }
 
 
     .welcome-header {
@@ -84,17 +138,18 @@
     }
 
     .iphone-welcome-header {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         color: white;  
         font-family: 'Nunito', sans-serif;
         font-weight: 900;
         display: block;
         text-align: center;
         margin: .75rem 0 .75rem 1rem;
-        height: 1.5rem; 
+        /* margin: 0 auto; */
+        height: 2rem; 
         background: #793AFC;
         width: 100%;
-        line-height: 1.5rem;
+        line-height: 2rem;
         text-align: left;
     }
     
@@ -122,8 +177,8 @@
     }
     
     .logo {
-        height: 40%;
-        size: 40%;
+        height: 50%;
+        size: 50%;
         margin-left: 10px;
     }
  

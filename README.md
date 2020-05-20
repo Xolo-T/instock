@@ -4,13 +4,15 @@
 
 ## Overview
 
-InStock is a web application that lets users determine whether their local stores have certain items in stock. The problem InStock seeks to address is that many small stores do not have sophisticated POI systems that allow customers to see their stock remotely. Instead, customers must physically visit the store to see if what they want is in stock. 
+InStock is an application that lets users determine whether their local stores have certain items in stock. The problem InStock seeks to address is that many small stores do not have sophisticated POI systems that allow customers to see their stock remotely. Instead, customers must physically visit the store to see if what they want is in stock. 
 
-InStock remedies this problem by crowdsourcing data: if a certain number of users submit reports that a given store has an item in stock, a badge will appear on top of that store's location on a map visible to all users. While this isn't a 100% guarantee that a store has the item, it's a pretty good indicator.
+InStock remedies this problem by crowdsourcing data: after a user submits a report of an item being in stock at a particular location, other users can confirm or deny that the item is, in fact, in stock. Each kind of item has a unique icon for its marker which has a badge indicating how many people have confirmed the report. Users can also filter the results by how recently they were made.
+
+Users can deduce the validity of the report based on how recently they were made and the number of confirmations.
 
 ## Technologies
 
-InStock is built with the MERN stack (MongoDB, Express, React and Node.js). Frontend state is handled with Redux. Maps are handled with the Google Maps Javascript API.
+InStock is built with the MERN stack (MongoDB, Express, React and Node.js). Frontend state is handled with Redux. Maps are handled with the Google Maps Javascript API via the [React Google Maps Library](https://tomchentw.github.io/react-google-maps/).
 
 ## Group Members
 * Technical Project Manager/Flex - Jared Kaneshiro
@@ -19,7 +21,7 @@ InStock is built with the MERN stack (MongoDB, Express, React and Node.js). Fron
 * Google Maps API Integration - Ben Hsieh
 
 ## Code Snippets / Learnings
-### Implementing the [React Google Maps Library](https://tomchentw.github.io/react-google-maps/)
+### Implementing the React Google Maps Library
 This library is a wrapper for the [Google Maps JavaScript APIv3](https://developers.google.com/maps/documentation/javascript/tutorial). It allowed us to quickly create components for our map, but we eventually encountered uses cases were not described in the user documentation. A few of those challenges and solutions are described below.
 
 ### Creating reports from clicked points on the map

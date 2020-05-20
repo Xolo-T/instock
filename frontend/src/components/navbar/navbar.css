@@ -20,6 +20,15 @@
   text-transform: lowercase;
 }
 
+.navbar-header {
+    height: 6rem;
+    display: flex;
+    /* justify-content: space-around; */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
 .navbar-button {
     background-color: #6B6AAA;
     font-size: 2rem;
@@ -62,7 +71,7 @@
     .welcome-header {
         display: none; 
     }
-
+    
     #hamitems { 
         display: none;
     }
@@ -74,6 +83,19 @@
     border-top: 1px solid #333;
     }
 
+    .iphone-welcome-header {
+        font-size: 1.2rem;
+        color: coral;  
+        font-family: 'Nunito', sans-serif;
+        font-weight: 900;
+        display: block;
+        text-align: center;
+        margin-left: 7px;
+        height: 40px; 
+        background: #793AFC;
+        width: 100%;
+    }
+    
     .navbar input:checked ~ #hamitems {
          display: block;
     }
@@ -98,20 +120,11 @@
     }
     
     .logo {
-  height: 40%;
-  size: 40%;
-  margin-left: 10px;
-}
-    .iphone-welcome-header {
-        font-size: 1.2rem;
-        color: coral;  
-        font-family: 'Nunito', sans-serif;
-        font-weight: 900;
-        /* margin-right: 20px; */
-        display: block;
-        text-align: center;
-        margin-left: 7px;
+        height: 40%;
+        size: 40%;
+        margin-left: 10px;
     }
+ 
 }
 
 

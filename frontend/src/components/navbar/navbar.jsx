@@ -24,20 +24,14 @@ class Navbar extends React.Component{
         if (this.props.loggedIn) {
             return (
               <nav className="navbar">
-  
-                <span className="iphone-welcome-header">
+                <span className="welcome-header">
                   welcome {this.props.currentUser.name}
                 </span>
-                
                 <label htmlFor="hamburger">
                   <i className="fa fa-2x">&#9776;</i>
                 </label>
                 <input type="checkbox" id="hamburger"></input>
-
                 <div id="hamitems">
-                  <span className="welcome-header">
-                    welcome {this.props.currentUser.name}
-                  </span>
                   <div className="navbar-buttons-wrapper">
                     <button className="navbar-button">profile</button>
                     <button className="navbar-button" onClick={this.logoutUser}>
@@ -83,15 +77,33 @@ class Navbar extends React.Component{
     }
 
     render() {
+
+        if (this.props.loggedIn) {
         return (
           <div className="navbar">
-            <img class="logo" src="./logo.png" alt="My_Logo" />
+            <div className="navbar-header">
+              <img class="logo" src="./logo.png" alt="My_Logo" />
+              <span className="iphone-welcome-header">
+                welcome {this.props.currentUser.name}
+              </span>
+            </div>
             {this.populateNavbar()}
           </div>
         );
+        }
+        else {
+          return (
+            <div className="navbar">
+                <img class="logo" src="./logo.png" alt="My_Logo" />
+              {this.populateNavbar()}
+            </div>
+          );
+        }
     }
 }
 
 export default Navbar;
 
-    // <i class="fas fa-hamburger"></i>;
+
+
+ 

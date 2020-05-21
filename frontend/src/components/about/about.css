@@ -13,7 +13,7 @@
     position: relative;
     left: 20px;
     max-height: 70px;
-    /* overflow-y: scroll; */
+    font-family: 'Nunito', sans-serif;
 }
 
 #just-the-four-of-us {

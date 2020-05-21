@@ -1,5 +1,122 @@
 
+/*LOGO AND BASE NAVBAR ELEMENTS*/
 .logo {
+  height: 50%;
+  size: 50%;
+  margin-top: 0;
+  margin-left: 1rem;
+}
+.navbar-header {
+    height: 6rem;
+    display: flex;
+    /* justify-content: space-around; */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.navbar {
+  height: 7.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+  background-color: #793AFC;
+  text-transform: lowercase;
+}
+.navbar-button {
+    background-color: #6B6AAA;
+    font-size: 2rem;
+    color: #FBFAFB;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    margin-right: 20px;
+    box-shadow: 5px 5px black;
+    transition: 0.2s;
+    border-radius: .5rem;
+}
+.navbar-button:hover {
+  background-color: #B5B4D4;
+  cursor: pointer;
+}
+.demo-button {
+  background-color: coral;
+}
+/* WELCOME HEADER */
+.welcome-header {
+  font-size: 2rem;
+  color: #fff; 
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  margin-right: 20px;
+}
+/* MOBILE ELEMENTS (HIDE ON LARGER VIEWPORT) */
+.iphone-welcome-header {
+    display: none;
+}
+.navbar label, #hamburger { display: none; }
+@media screen and (max-width: 875px) {
+    /* NAVBAR BUTTON STYLING (SHOW ON SMALLER VIEWPORT) */
+    .navbar-buttons-wrapper {
+        position: absolute;
+        top: 60px;
+        right: 0px;
+        width: 100vw; 
+    }
+    .navbar-button {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: auto;
+        box-shadow: none;
+        border: none;
+        border-radius: 0rem;
+    }
+    /* HAMBURGER MENU (DISPLAY ON SMALLER VIEWPORT) */
+    .navbar label {
+        display: inline-block;
+        color: white;
+        font-style: normal;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+    #hamitems { 
+        display: none;
+    }
+    #hamitems button {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-top: 1px solid #333;
+    }
+    /* DISPLAY HAMBURGER MENU ITEMS WHEN MENU CLICKED */
+    .navbar input:checked ~ #hamitems {
+        display: flex; 
+        position: relative;
+        z-index: 100;
+    }
+}
+@media screen and (max-width: 700px) {
+    /* HIDE BASE WELCOME HEADER ON SMALLEST SCREENS */
+    .welcome-header { display: none }
+    /* SHOW MOBILE WELCOME HEADER INSTEAD */
+    .iphone-welcome-header {
+        font-size: 1.8rem;
+        color: white;  
+        font-family: 'Nunito', sans-serif;
+        font-weight: 900;
+        display: block;
+        text-align: center;
+        margin: .75rem 0 .75rem 1.75rem;
+        height: 2rem; 
+        background: #793AFC;
+        width: 100%;
+        line-height: 2rem;
+        text-align: left;
+    }
+}
+
+
+
+/* .logo {
   height: 50%;
   size: 50%;
   margin-left: 20px;
@@ -22,9 +139,9 @@
 
 .navbar-header {
     height: 6rem;
-    display: flex;
+    display: flex; */
     /* justify-content: space-around; */
-    flex-direction: column;
+    /* flex-direction: column;
     align-items: center;
     margin-top: 20px;
 }
@@ -43,11 +160,11 @@
 
 .iphone-welcome-header {
     display: none;
-}
+} */
 
 /* Navbar when user is logged in */ 
 
-.welcome-header {
+/* .welcome-header {
   font-size: 2rem;
   color: #fff; 
   font-family: 'Nunito', sans-serif;
@@ -119,10 +236,10 @@
         font-style: normal;
         font-size: 1.2em;
         padding: 10px;
-    }
+    } */
 
 
-    .welcome-header {
+    /* .welcome-header {
         display: none; 
     }
     
@@ -144,9 +261,9 @@
         font-weight: 900;
         display: block;
         text-align: center;
-        margin: .75rem 0 .75rem 1rem;
+        margin: .75rem 0 .75rem 1rem; */
         /* margin: 0 auto; */
-        height: 2rem; 
+        /* height: 2rem; 
         background: #793AFC;
         width: 100%;
         line-height: 2rem;
@@ -182,12 +299,12 @@
         margin-left: 10px;
     }
  
-}
+} */
 
 
 /* Navbar when user is not logged in */ 
 
-.navbar label, #hamburger { display: none; }
+/* .navbar label, #hamburger { display: none; }
 
 #hamitems { 
     display: flex; 
@@ -214,6 +331,6 @@
     }
 
 }
+ */
 
-
-
+ 

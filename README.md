@@ -10,6 +10,19 @@ InStock remedies this problem by crowdsourcing data: after a user submits a repo
 
 Users can deduce the validity of the report based on how recently they were made and the number of confirmations.
 
+### Features
+When a user enters either a place or an address in the search bar, they will receive either an existing report or a blank marker at the coordinates that they searched.
+
+![Address Search](frontend/public/screenshots/search_for_report.gif)
+
+If the searched coordinates do not have an active report, and the user is logged in, they will also see a simple form with the place's contact information and a button that allows them to create a new report of an item being in stock.
+
+![Report Form](frontend/public/screenshots/report_in_stock.png)
+
+To find the most relevant results, a user can see badges indicating the number of people who have confirmed that an item is in stock and can also filter by the date on which reports were made.
+
+![Filter By Report Creation Date](frontend/public/screenshots/filter_by_date_reported.gif)
+
 ## Technologies
 
 InStock is built with the MERN stack (MongoDB, Express, React and Node.js). Frontend state is handled with Redux. Maps are handled with the Google Maps Javascript API via the [React Google Maps Library](https://tomchentw.github.io/react-google-maps/).

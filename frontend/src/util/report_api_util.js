@@ -20,3 +20,6 @@ export const updateApprovals = reportId => {
     return axios.patch('api/reports/update', reportId);
 }
 
+export const downDateApprovals = reportId => {
+    return axios.patch('api/reports/downDate', reportId);
+}

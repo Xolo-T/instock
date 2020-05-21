@@ -109,6 +109,10 @@
   background-color: coral;
 }
 
+.demo-button:hover {
+    background-color: #FECFBD;
+}
+
 
 @media screen and (max-width: 768px) {
     .navbar label {

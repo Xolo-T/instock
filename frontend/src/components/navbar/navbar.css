@@ -2,7 +2,6 @@
 /*LOGO AND BASE NAVBAR ELEMENTS*/
 .logo {
   height: 50%;
-  size: 50%;
   margin-top: 0;
   margin-left: 1rem;
 }
@@ -11,6 +10,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 87%;
 }
 .navbar {
   height: 7.5rem;
@@ -50,18 +50,18 @@
   color: #fff; 
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
-  margin-right: 20px;
-}
-/* MOBILE ELEMENTS (HIDE ON LARGER VIEWPORT) */
-.iphone-welcome-header {
-    display: none;
+  justify-content: right;
+  margin-right: 1.5rem;
 }
 .navbar label, #hamburger { display: none; }
+
+@media screen and (max-width: 1152px) {
+  .navbar-header {
+    width: 83%;
+  }
+}
 @media screen and (max-width: 875px) {
     /* NAVBAR BUTTON STYLING (SHOW ON SMALLER VIEWPORT) */
-    .navbar-header {
-      flex-direction: column;
-    }
 
     .navbar-buttons-wrapper {
         position: absolute;
@@ -100,23 +100,23 @@
         position: relative;
         z-index: 100;
     }
+
+
 }
-@media screen and (max-width: 700px) {
-    /* HIDE BASE WELCOME HEADER ON SMALLEST SCREENS */
-    .welcome-header { display: none }
-    /* SHOW MOBILE WELCOME HEADER INSTEAD */
-    .iphone-welcome-header {
-        font-size: 1.8rem;
-        color: white;  
-        font-family: 'Nunito', sans-serif;
-        font-weight: 900;
-        display: block;
-        text-align: center;
-        margin: .75rem 0 .75rem 1.75rem;
-        height: 2rem; 
-        background: #793AFC;
-        width: 100%;
-        line-height: 2rem;
+@media screen and (max-width: 768px) {
+    .logo {
+      height: 35%;
+    }
+    /* FlEX THE NAVBAR HEADER AND VERTICALLY ON SMALL SCREENS */
+    .navbar-header {
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .welcome-header {
+        font-size: 1.5rem;
+        margin: 1rem 0rem 0.5rem 0.75rem;
+        line-height: 1.5rem;
         text-align: left;
     }
 }

@@ -9,7 +9,7 @@
 }
 
 .call-to-action h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: #793AFC;
   background-color: #F6F2ED;
   font-family: 'Nunito', sans-serif;
@@ -17,6 +17,10 @@
   margin: 0 1.5rem;
   box-shadow: 5px 5px black;
   border-radius: .5rem;
+}
+
+.call-to-action h2 {
+  font-size: 1.25rem;
 }
 
 /*MAP STYLING */
@@ -93,13 +97,13 @@
 }
 
 /*MEDIA QUERIES*/
-@media screen and (max-width 875px) {
+@media screen and (max-width: 700px) {
   .call-to-action {
     padding: 0.5rem;
   }
 
   .call-to-action h1 {
-    font-size: 0.5rem;
+    font-size: 1.25rem;
     color: #793AFC;
     font-weight: 900;
     margin: 0 0.5rem;
@@ -108,6 +112,6 @@
   }
 
   .call-to-action h2 {
-    font-size: 0.5rem;
+    font-size: 0.85rem;
   }
 }

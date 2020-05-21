@@ -224,8 +224,8 @@ class Map extends Component {
           style={
             (this.props.isAuthenticated && {
               width: "100vw",
-              height: "70vh",
-            }) || { width: "100vw", height: "50vh" }
+              height: "80vh",
+            }) || { width: "100vw", height: "60vh" }
           }
           className="map-component"
         >

@@ -1,6 +1,6 @@
 # InStock
 
-[Live](https://nstockapp.herokuapp.com/) | [GitHub](https://github.com/Solomon-T/instock)
+[Live](https://nstockapp.herokuapp.com/)
 
 ## Overview
 

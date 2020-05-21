@@ -9,10 +9,8 @@
 .navbar-header {
     height: 6rem;
     display: flex;
-    /* justify-content: space-around; */
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
 }
 .navbar {
   height: 7.5rem;
@@ -61,6 +59,10 @@
 .navbar label, #hamburger { display: none; }
 @media screen and (max-width: 875px) {
     /* NAVBAR BUTTON STYLING (SHOW ON SMALLER VIEWPORT) */
+    .navbar-header {
+      flex-direction: column;
+    }
+
     .navbar-buttons-wrapper {
         position: absolute;
         top: 60px;

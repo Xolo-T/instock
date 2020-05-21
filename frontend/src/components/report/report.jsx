@@ -93,7 +93,9 @@ class Report extends Component {
               Reported <strong>{this.state.minutesSinceReported}</strong>
             </p>
             <p className="instock-verification">
-              <span><strong>In stock? </strong></span><button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button><button><i className="far fa-thumbs-down"></i></button>
+              <span><strong>In stock? </strong></span>
+              <button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button>
+              <button><i className="far fa-thumbs-down"></i></button>
             </p>
           </div>
         </InfoWindow>)}

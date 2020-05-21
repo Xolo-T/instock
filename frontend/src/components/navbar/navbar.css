@@ -113,6 +113,8 @@
       justify-content: center;
       align-items: flex-start;
     }
+
+    /* MAKE THE WELCOME HEADER FONT-SIZE SMALLER ON SMALLER SCREENS */
     .welcome-header {
         font-size: 1.5rem;
         margin: 1rem 0rem 0.5rem 0.75rem;

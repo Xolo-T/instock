@@ -70,6 +70,11 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    
+    this.setState({
+      emailError: "",
+      passwordError: "",
+    });
 
     let user = {
       email: this.state.email,

@@ -52,7 +52,8 @@ class Report extends Component {
 
   downdateReport = (e) => {
     e.preventDefault();
-    console.log('where is my backend?');
+    console.log(this.props.report.approvals === 0);
+    if (this.props.report.approvals === 0) return;
     this.props.downDateReport({ "id": this.props.report._id });
   }
 

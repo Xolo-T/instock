@@ -44,6 +44,21 @@ router.patch('/update', (req, res) => {
     })
 })
 
+
+router.patch('/downDate', (req, res) => {
+    Report.findById(req.body.id).then((report) => {
+        if (report.approvals > 0) {
+            report.approvals -= 1;
+            report.save();
+            res.json(report)
+        }
+        else {
+            res.json(report)
+        }
+    })
+})
+
+
 router.get("/:placeId", (req, res) => {
 
   Report.find({ placeId: req.params.placeId })

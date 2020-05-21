@@ -1,23 +1,19 @@
 import React from 'react';
-import { AuthRoute } from '../util/route_util';
-import { Switch } from 'react-router-dom';
 import "../App.css";
 import "../index.css";
 
-import SplashContainer from './splash/splash';
 import NavbarContainer from './navbar/navbar_container';
 import MapContainer from './map/map_container';
 import Modal from './modal/modal';
+import FooterContainer from './footer/footer_container';
 
 
 const App = () => (
     <>
         <Modal />
-        <NavbarContainer/>
-        <MapContainer/>
-        <Switch>
-            <AuthRoute exapct path="/" component={SplashContainer} />
-        </Switch>
+        <NavbarContainer />
+        <MapContainer />
+        <FooterContainer />
     </>
 );
 

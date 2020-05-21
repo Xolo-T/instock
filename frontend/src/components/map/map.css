@@ -1,33 +1,27 @@
-/* HEADER STYLING */
+/* CALL TO ACTION STYLING */
 .call-to-action {
   background-color: #793AFC;
   margin: 0px;
-  padding: 20px;
+  padding: 1.5rem;
   color: white;
   font-weight: 500;
   text-align: center;
 }
 
 .call-to-action h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: #793AFC;
   background-color: #F6F2ED;
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
-  margin: 0px 20px;
+  margin: 0 1.5rem;
   box-shadow: 5px 5px black;
   border-radius: .5rem;
 }
 
-/*FOOTER STYLING */
-
-  footer {
-    padding: 5px;
-    margin: 5px;
-    font-family: 'Karma', serif;
-    font-weight: bold;;
-    text-align: center;
-  }
+.call-to-action h2 {
+  font-size: 1.25rem;
+}
 
 /*MAP STYLING */
 
@@ -100,4 +94,24 @@
   font-size: 14px;
   outline: none;
   text-overflow: ellipsis;
+}
+
+/*MEDIA QUERIES*/
+@media screen and (max-width: 700px) {
+  .call-to-action {
+    padding: 0.5rem;
+  }
+
+  .call-to-action h1 {
+    font-size: 1.25rem;
+    color: #793AFC;
+    font-weight: 900;
+    margin: 0 0.5rem;
+    box-shadow: 2px 2px black;
+    border-radius: .25rem;
+  }
+
+  .call-to-action h2 {
+    font-size: 0.85rem;
+  }
 }

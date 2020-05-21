@@ -38,8 +38,13 @@
   background-color: #B5B4D4;
   cursor: pointer;
 }
+
 .demo-button {
   background-color: coral;
+}
+
+.demo-button:hover {
+  background-color: #FECFBD;
 }
 /* WELCOME HEADER */
 .welcome-header {

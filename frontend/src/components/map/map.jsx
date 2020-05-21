@@ -231,8 +231,7 @@ class Map extends Component {
               googleMap
             }
             loadingElement={<div style={{ height: `100%` }} />}
-            // containerElement={<div style={{ height: `65vh` }} />}
-            containerElement={<div style={{ height: `90vh` }} />}
+            containerElement={<div style={{ height: `85vh` }} />}
             mapElement={<div style={{ height: `100%` }} />}
           />
 

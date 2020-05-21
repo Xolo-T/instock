@@ -37,8 +37,13 @@ export const composeReport = report => dispatch => {
 )};
 
 export const updateReport = reportId => dispatch => {
-    
     return (
         APIUtil.updateApprovals(reportId).then(report => dispatch(receiveReport(report)))
+    )
+}
+
+export const downDateReport = reportId => dispatch => {
+    return (
+        APIUtil.downDateApprovals(reportId).then(report => dispatch(receiveReport(report)))
     )
 }

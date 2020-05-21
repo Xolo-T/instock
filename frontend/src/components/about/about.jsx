@@ -18,7 +18,7 @@ class About extends React.Component {
                 <div>
                     <img class="profile-pic" src="./ben.jpg"></img>
                     <div class="profile-text">
-                            <a class="profile-link" href="https://benhsieh-dev.github.io/" target="_blank">Ben Hsieh</a> is a New York based software engineer that specializes in React JS, JavaScript, and Ruby on Rails.
+                            <a class="profile-link" href="https://benhsieh-dev.github.io/" target="_blank">Ben Hsieh</a> is a New York based software engineer who enjoys playing guitar and investing in the stock market.
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@ class About extends React.Component {
                 <div>
                     <img class="profile-pic" src="./taylor.jpg"></img>
                     <div class="profile-text">
-                        <a class="profile-link" href="https://twofford.github.io/" target="_blank">Taylor Wofford</a> is a NYC-based software engineer who specializes in React, Redux, Rails and JS. He likes dogs and biking.
+                        <a class="profile-link" href="https://twofford.github.io/" target="_blank">Taylor Wofford</a> is a NYC-based software engineer who specializes in React, Redux, Rails and JS. He likes dogs and riding his bike.
                     </div>
                 </div>
 

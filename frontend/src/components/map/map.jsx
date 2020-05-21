@@ -219,42 +219,27 @@ class Map extends Component {
       })
     );
 
-    if (this.props.isAuthenticated) {
-      return (
-        <div
-          style={{ width: "100vw", height: "50vh" }}
-          className="map-component"
-        >
-          <MyMapComponent
-            isMarkerShown
-            googleMapURL={
-              "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=" +
-              googleMap
-            }
-            loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={<div style={{ height: `85vh` }} />}
-            mapElement={<div style={{ height: `100%` }} />}
-          />
-
-          <FooterContainer />
-        </div>
-      );
-    } else {
-      return (
-        <div
-          style={{ width: "100vw", height: "50vh" }}
-          className="map-component"
-        >
-          <MyMapComponent
-            isMarkerShown
-            googleMapURL={
-              "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=" +
-              googleMap
-            }
-            loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={<div style={{ height: `65vh` }} />}
-            mapElement={<div style={{ height: `100%` }} />}
-          />
+    return (
+      <div
+        style={
+          (this.props.isAuthenticated && {
+            width: "100vw",
+            height: "70vh",
+          }) || { width: "100vw", height: "50vh" }
+        }
+        className="map-component"
+      >
+        <MyMapComponent
+          isMarkerShown
+          googleMapURL={
+            "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=" +
+            googleMap
+          }
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `100%` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+        {!this.props.isAuthenticated && (
           <header className="call-to-action">
             <h1>Looking for toilet paper in your neighborhood?</h1>
             <h2>
@@ -269,11 +254,10 @@ class Map extends Component {
               Sign up to help notify your neighborhood about what is InStock!
             </h1>
           </header>
-
-          <FooterContainer />
-        </div>
-      );
-    }
+        )}
+        <FooterContainer />
+      </div>
+    );
   }
 }
 

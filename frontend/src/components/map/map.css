@@ -55,7 +55,8 @@
 
 .time-filter-container {
   position: absolute;
-  top: 220px;
+  /* top: 220px; */
+  top: 250px;
   right: 10px;
   display: flex;
   flex-direction: column;

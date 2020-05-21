@@ -13,6 +13,7 @@ class Report extends Component {
     };
 
     this.updateReport = this.updateReport.bind(this);
+    this.downdateReport = this.downdateReport.bind(this);
   }
 
   componentDidMount() {
@@ -48,6 +49,12 @@ class Report extends Component {
     e.preventDefault();
     this.props.updateReport({ "id": this.props.report._id });
   };
+
+  downdateReport = (e) => {
+    e.preventDefault();
+    if (this.props.report.approvals === 0) return;
+    this.props.downDateReport({ "id": this.props.report._id });
+  }
 
   render () {
     const { report, icon, labelAnchor } = this.props;
@@ -93,7 +100,9 @@ class Report extends Component {
               Reported <strong>{this.state.minutesSinceReported}</strong>
             </p>
             <p className="instock-verification">
-              <span><strong>In stock? </strong></span><button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button><button><i className="far fa-thumbs-down"></i></button>
+              <span><strong>In stock? </strong></span>
+              <button onClick={this.updateReport}><i className="far fa-thumbs-up"></i></button>
+              <button onClick={this.downdateReport}><i className="far fa-thumbs-down"></i></button>
             </p>
           </div>
         </InfoWindow>)}

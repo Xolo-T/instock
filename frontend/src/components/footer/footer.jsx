@@ -1,11 +1,12 @@
 import React from 'react';
+import './footer.css';
 
 class Footer extends React.Component {
 
     render() {
         return(
             <footer>
-                Click <a onClick={() => this.props.openModal("about")}>here</a> to learn more about the developers of InStock.
+                <a className="link" onClick={() => this.props.openModal("about")}>Learn more about the developers of InStock</a> 
             </footer>
         )
     }

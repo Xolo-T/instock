@@ -33,6 +33,9 @@ class Navbar extends React.Component{
                 <input type="checkbox" id="hamburger"></input>
                 <div id="hamitems">
                   <div className="navbar-buttons-wrapper">
+                  <button className="navbar-button" onClick={this.logoutUser}>
+                      help
+                    </button>
                     <button className="navbar-button" onClick={this.logoutUser}>
                       log out
                     </button>
@@ -50,6 +53,12 @@ class Navbar extends React.Component{
 
                 <div id="hamitems">
                   <div className="navbar-buttons-wrapper ">
+                  <button
+                      className="navbar-button"
+                      onClick={() => this.props.openModal("login")}
+                    >
+                      help
+                    </button>
                     <button
                       className="navbar-button demo-button"
                       onClick={this.demoLogin}

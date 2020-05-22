@@ -104,33 +104,36 @@ class help extends React.Component {
 
   renderForm() {
     return (
-      <div className="auth-form-container">
+      <div id='help-div' className="auth-form-container">
+        
         <span className="modal-closer-button" onClick={this.props.closeModal}>
           <i className="fas fa-times"></i>
         </span>
-        <form className="auth-form" onSubmit={this.handleSubmit}>
-          <span className="login-or-signup-message">Instructions</span>
-          <img class="icon" src="/icon.png" alt="InStock Toilet Paper Icon" />
-          {this.renderErrors()}
-          <input className="input"
-            type="text"
-            value={this.state.email}
-            onChange={this.update("email")}
-            placeholder="Email"
-          />
-          <div className="frontEnd-session-errors">{this.state.emailError}</div>
-            <input className="input"
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-          <div className="frontEnd-session-errors">
-            {this.state.passwordError}
-          </div>
-          <input className="input-button-1" type="submit" value="Submit" />
-          {this.props.otherForm}
-        </form>
+        
+        <span className="login-or-signup-message">Instructions</span>
+        
+        {/* <img class="icon" src="/icon.png" alt="InStock Toilet Paper Icon" /> */}
+        
+        <h3>To view reports</h3>
+        <ul>
+            <li>Simply click on a tp icon to view the details</li>
+            <li>You can also search for a store to see if it was reported</li>
+        </ul>
+        <h3>To approve/disapprove reports</h3>
+        <ul>
+            <li>Log in</li>
+            <li>Open report you want to approve</li>
+            <li>Click on thumbs up to approve or vice versa</li>
+        </ul>
+        <h3>To create reports</h3>
+        <ul>
+            <li>Log in</li>
+            <li>Use the search bar to search for a store you want to report</li>
+            <li>If store isn't reported yet a form will pop up</li>
+            <li>You can edit the name if not accurate</li>
+            <li>Submit report by clicking "Yup"</li>
+        </ul>
+      
       </div>
     );
   }

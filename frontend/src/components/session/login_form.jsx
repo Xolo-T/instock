@@ -110,7 +110,7 @@ class LoginForm extends React.Component {
         </span>
         <form className="auth-form" onSubmit={this.handleSubmit}>
           <span className="login-or-signup-message">log in</span>
-          <img class="icon" src="/icon.png" alt="InStock Toilet Paper Icon" />
+          <img className="icon" src="/icon.png" alt="InStock Toilet Paper Icon" />
           {this.renderErrors()}
           <input className="input"
             type="text"

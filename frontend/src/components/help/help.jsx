@@ -16,7 +16,6 @@ class help extends React.Component {
         
         <span className="login-or-signup-message">Instructions</span>
         
-        {/* <img class="icon" src="/icon.png" alt="InStock Toilet Paper Icon" /> */}
         <div className='help-instructions'>
             <h3 className='instruction-h3'>To view reports</h3>
             <ul className='instruction-ul'>

@@ -10,7 +10,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 87%;
+    width: 85%;
 }
 .navbar {
   height: 7.5rem;
@@ -55,9 +55,33 @@
 }
 .navbar label, #hamburger { display: none; }
 
+@media screen and (max-width: 1652px) {
+  .navbar-header {
+    width: 82%;
+  }
+}
+
+@media screen and (max-width: 1411px) {
+  .navbar-header {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1252px) {
+  .navbar-header {
+    width: 79%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .navbar-header {
+    width: 77%;
+  }
+}
+
 @media screen and (max-width: 1152px) {
   .navbar-header {
-    width: 83%;
+    width: 75%;
   }
 }
 @media screen and (max-width: 985px) {
@@ -100,6 +124,10 @@
         display: flex; 
         position: relative;
         z-index: 100;
+    }
+
+    .navbar-header {
+      width: 89%;
     }
 
 

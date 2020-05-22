@@ -60,7 +60,8 @@
     width: 83%;
   }
 }
-@media screen and (max-width: 875px) {
+@media screen and (max-width: 985px) {
+  /* @media screen and (max-width: 875px) { */
     /* NAVBAR BUTTON STYLING (SHOW ON SMALLER VIEWPORT) */
 
     .navbar-buttons-wrapper {

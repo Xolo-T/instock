@@ -55,7 +55,7 @@ class Navbar extends React.Component{
                   <div className="navbar-buttons-wrapper ">
                   <button
                       className="navbar-button"
-                      onClick={() => this.props.openModal("login")}
+                      onClick={() => this.props.openModal("help")}
                     >
                       help
                     </button>

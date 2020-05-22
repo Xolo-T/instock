@@ -24,9 +24,6 @@ class Navbar extends React.Component{
         if (this.props.loggedIn) {
             return (
               <nav className="navbar">
-                <span className="welcome-header">
-                  welcome {this.props.currentUser.name}
-                </span>
                 <label htmlFor="hamburger">
                   <i className="fa fa-2x">&#9776;</i>
                 </label>
@@ -91,7 +88,7 @@ class Navbar extends React.Component{
           <div className="navbar">
             <div className="navbar-header">
               <img className="logo" src="./logo.png" alt="My_Logo" />
-              <span className="iphone-welcome-header">
+              <span className="welcome-header">
                 welcome {this.props.currentUser.name}
               </span>
             </div>

@@ -47,17 +47,18 @@
 
 @media screen and (max-width: 700px) {
   .icon {
-    height: 20%;
-    margin-bottom: 0;
+    display: none;
+    margin: 0;
   }
 
   .input-button-1, .input-button-2 {
     font-size: 1.25rem;
   }
-}
 
-@media screen and (max-width: 700px) and (orientation: landscape) {
-  .icon {
-    display: none;
+  .input {
+    padding: 0.25rem 0.1rem;
+    margin: 0.1rem;
   }
 }
+
+

@@ -8,7 +8,7 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 6vh;
+    height: 8vh;
 }
 .link:hover {
     cursor: pointer;

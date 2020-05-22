@@ -33,3 +33,9 @@ h3.instruction-h3 {
 ul.instruction-ul {
   margin-top: 3px;
 }
+
+@media screen and (max-width: 700px) {
+  .icon {
+    height: 20%;
+  }
+} 

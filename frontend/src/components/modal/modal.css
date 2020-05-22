@@ -5,7 +5,7 @@
   right: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
+  z-index: 2;
 }
 
 .modal-child {
@@ -17,7 +17,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: #8CB3DF;
-  height: 618px;
+  height: 75%;
   width: 500px;
   box-shadow: 10px 10px #1D3B97
 }
@@ -33,3 +33,9 @@
   cursor: pointer;
   color: black;
 }
+
+@media screen and (max-width: 700px) {
+  .modal-child {
+    width: 300px;
+  }
+} 

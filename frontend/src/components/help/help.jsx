@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import './help.css';
 class help extends React.Component {
   constructor(props) {
     super(props);
@@ -17,19 +17,19 @@ class help extends React.Component {
         <span className="login-or-signup-message">Instructions</span>
         
         <div className='help-instructions'>
-            <h3 className='instruction-h3'>To view reports</h3>
+            <h3>To view reports</h3>
             <ul className='instruction-ul'>
                 <li>Simply click on a tp icon to view the details</li>
                 <li>You can also search for a store to see if it was reported</li>
             </ul>
-            <h3 className='instruction-h3'>To approve/disapprove reports</h3>
-            <ul className='instruction-ul'>
+            <h3>To approve/disapprove reports</h3>
+            <ul>
                 <li>Log in</li>
                 <li>Open report you want to approve</li>
                 <li>Click on thumbs up to approve or vice versa</li>
             </ul>
-            <h3 className='instruction-h3'>To create reports</h3>
-            <ul className='instruction-ul'>
+            <h3>To create reports</h3>
+            <ul>
                 <li>Log in</li>
                 <li>Use the search bar to search for a store you want to report</li>
                 <li>If store isn't reported yet a form will pop up</li>

@@ -25,3 +25,11 @@
   color: #793AFC;
   text-decoration: underline;
 }
+
+h3.instruction-h3 {
+  margin-bottom: 3px;
+}
+
+ul.instruction-ul {
+  margin-top: 3px;
+}

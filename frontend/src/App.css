@@ -44,3 +44,20 @@
 .input-button-1:hover, .input-button-2:hover {
   background-color: #B5B4D4;
 }
+
+@media screen and (max-width: 700px) {
+  .icon {
+    height: 20%;
+    margin-bottom: 0;
+  }
+
+  .input-button-1, .input-button-2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 700px) and (orientation: landscape) {
+  .icon {
+    display: none;
+  }
+}

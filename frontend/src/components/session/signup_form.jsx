@@ -152,7 +152,7 @@ class SignupForm extends React.Component {
 
   renderForm() {
     return (
-      <div className="auth-form-container">
+      <div className="modal-form-container">
         <span className="modal-closer-button" onClick={this.props.closeModal}>
           <i className="fas fa-times"></i>
         </span>

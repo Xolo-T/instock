@@ -8,7 +8,7 @@ class help extends React.Component {
 
   render() {
     return (
-        <div id='help-div' className="auth-form-container">
+        <div id='help-div' className="modal-form-container">
         
         <span className="modal-closer-button" onClick={this.props.closeModal}>
           <i className="fas fa-times"></i>

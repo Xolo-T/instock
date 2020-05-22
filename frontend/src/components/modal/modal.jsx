@@ -5,6 +5,7 @@ import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import './modal.css';
 import AboutContainer from '../about/about_container';
+import HelpContainer from '../help/help_container';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -21,6 +22,9 @@ function Modal({ modal, closeModal }) {
     case "about":
       component = <AboutContainer />;
       break;
+    case "help":
+      component = <HelpContainer />;
+    break;
     default:
       return null;
   }

@@ -30,6 +30,9 @@ class Navbar extends React.Component{
                 <input type="checkbox" id="hamburger"></input>
                 <div id="hamitems">
                   <div className="navbar-buttons-wrapper">
+                  <button className="navbar-button" onClick={() => this.props.openModal("help")}>
+                      help
+                    </button>
                     <button className="navbar-button" onClick={this.logoutUser}>
                       log out
                     </button>
@@ -47,6 +50,12 @@ class Navbar extends React.Component{
 
                 <div id="hamitems">
                   <div className="navbar-buttons-wrapper ">
+                  <button
+                      className="navbar-button"
+                      onClick={() => this.props.openModal("help")}
+                    >
+                      help
+                    </button>
                     <button
                       className="navbar-button demo-button"
                       onClick={this.demoLogin}
@@ -90,7 +99,7 @@ class Navbar extends React.Component{
         else {
           return (
             <div className="navbar">
-                <img class="logo" src="./logo.png" alt="My_Logo" />
+                <img className="logo" src="./logo.png" alt="My_Logo" />
               {this.populateNavbar()}
             </div>
           );

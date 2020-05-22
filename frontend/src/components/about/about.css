@@ -22,13 +22,13 @@
 
 @media screen and (max-width: 700px) {
     #just-the-four-of-us div {
-        margin: 0.5rem;
+        margin: 0rem;
     }
 
     .profile-pic {
-        height: 50px;
+        height: 35px;
     }
     .profile-text {
         font-size: 0.75rem;
     }
-} 
+}

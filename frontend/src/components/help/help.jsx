@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-// import './session_form.css';
 
 class help extends React.Component {
   constructor(props) {

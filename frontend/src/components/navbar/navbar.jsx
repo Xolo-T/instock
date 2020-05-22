@@ -30,7 +30,7 @@ class Navbar extends React.Component{
                 <input type="checkbox" id="hamburger"></input>
                 <div id="hamitems">
                   <div className="navbar-buttons-wrapper">
-                  <button className="navbar-button" onClick={() => this.props.openModal("help")}>
+                    <button className="navbar-button" onClick={() => this.props.openModal("help")}>
                       help
                     </button>
                     <button className="navbar-button" onClick={this.logoutUser}>

@@ -1,5 +1,14 @@
 .help-instructions {
   margin: 2rem;
+  width: auto;
+}
+
+.help-instructions header {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #793AFC;
+  text-decoration: underline;
 }
 
 .help-instructions > div {
@@ -19,8 +28,12 @@
     margin: 1.25rem;
   }
 
+  .help-instructions header {
+    font-size: 1.25rem;
+  }
+
   .help-instructions > div {
-    margin: 2rem 0rem 2rem 0rem;
+    /* margin: 2rem 0rem 2rem 0rem; */
   }
 
   .help-instructions > div:first-child {
@@ -28,10 +41,10 @@
   }
 
   .help-instructions h3 {
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
 
   .help-instructions ul {
-    font-size: 0.75rem;
+    font-size: 0.5rem;
   }
 }

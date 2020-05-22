@@ -13,10 +13,8 @@ class help extends React.Component {
         <span className="modal-closer-button" onClick={this.props.closeModal}>
           <i className="fas fa-times"></i>
         </span>
-        
-        <span className="login-or-signup-message">Instructions</span>
-        
         <div className='help-instructions'>
+          <header>Instructions</header>
           <div>
             <h3>To view reports</h3>
             <ul>

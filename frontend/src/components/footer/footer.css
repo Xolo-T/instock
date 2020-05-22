@@ -24,6 +24,6 @@ footer {
 @media screen and (max-width: 700px) {
   .link {
     font-size: 1rem;
-    margin-bottom: 0.75rem;
+    margin: 1rem 0;
   }
 }

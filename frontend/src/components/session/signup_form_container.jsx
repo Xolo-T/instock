@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
     signup: (user) => dispatch(signup(user)),
     login: (user) => dispatch(login(user)),
     otherForm: (
-      <a href="" onClick={() => dispatch(openModal("login"))}>Already an InStock user? Log in</a>
+      <a href="#" onClick={() => dispatch(openModal("login"))}>Already an InStock user? Log in</a>
     ),
     closeModal: () => dispatch(closeModal())
   };

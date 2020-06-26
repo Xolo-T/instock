@@ -59,6 +59,10 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
 }
 
+.time-filter-container-sm {
+  display: none;
+}
+
 /* GEOLOCATION */
 .geolocation-button {
   position: absolute;
@@ -81,7 +85,7 @@
 }
 
 .fa {
-  line-height: inherit;
+  line-height: 1.5rem;
 }
 /* SEARCHBOX */
 
@@ -120,5 +124,15 @@
 
   .time-filter-container-lg {
     display: none;
+  }
+
+  .time-filter-container-sm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .time-filter-container-sm select {
+    margin-left: 1rem;
   }
 }

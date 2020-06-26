@@ -149,7 +149,7 @@ class Map extends Component {
             ref={this.onMapMounted}
             center={this.state.center}
           >
-            <div className="time-filter-container">
+            <div className="time-filter-container-lg">
               <label htmlFor="time-filter">Filter by date reported</label>
               <select id="time-filter" onChange={this.handleTimeFilter} value={this.state.timeFilter}>
                   <option value="Infinity">All time</option>

@@ -47,7 +47,7 @@
   top: 100px;
 }
 
-.time-filter-container {
+.time-filter-container-lg {
   position: absolute;
   /* top: 220px; */
   top: 250px;
@@ -80,6 +80,9 @@
   cursor: pointer;
 }
 
+.fa {
+  line-height: inherit;
+}
 /* SEARCHBOX */
 
 .address-searchbar {
@@ -113,5 +116,9 @@
 
   .call-to-action h2 {
     font-size: 0.85rem;
+  }
+
+  .time-filter-container-lg {
+    display: none;
   }
 }

@@ -130,9 +130,14 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    background-color: #793AFC;
+    padding: 0.75rem;
   }
 
   .time-filter-container-sm select {
-    margin-left: 1rem;
+    margin-left: .25rem;
+    font-size: 1rem;
   }
 }

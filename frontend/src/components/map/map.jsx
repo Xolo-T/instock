@@ -149,7 +149,7 @@ class Map extends Component {
             ref={this.onMapMounted}
             center={this.state.center}
           >
-            <div className="time-filter-container">
+            <div className="time-filter-container-lg">
               <label htmlFor="time-filter">Filter by date reported</label>
               <select id="time-filter" onChange={this.handleTimeFilter} value={this.state.timeFilter}>
                   <option value="Infinity">All time</option>
@@ -239,6 +239,17 @@ class Map extends Component {
             containerElement={<div style={{ height: `100%` }} />}
             mapElement={<div style={{ height: `100%` }} />}
           />
+        </div>
+        <div className="time-filter-container-sm">
+          <label htmlFor="time-filter">Filter by date reported</label>
+          <select id="time-filter" onChange={this.handleTimeFilter} value={this.state.timeFilter}>
+            <option value="Infinity">All time</option>
+            <option value="24">Past 24 hours </option>
+            <option value="48">Past 2 days</option>
+            <option value="72">Past 3 days</option>
+            <option value="168">Past week</option>
+            <option value="336">Past two weeks</option>
+          </select>
         </div>
       {!this.props.isAuthenticated && (
         <section className="call-to-action">

@@ -47,7 +47,7 @@
   top: 100px;
 }
 
-.time-filter-container {
+.time-filter-container-lg {
   position: absolute;
   /* top: 220px; */
   top: 250px;
@@ -57,6 +57,10 @@
   background-color: white;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+}
+
+.time-filter-container-sm {
+  display: none;
 }
 
 /* GEOLOCATION */
@@ -80,6 +84,9 @@
   cursor: pointer;
 }
 
+.fa {
+  line-height: 1.5rem;
+}
 /* SEARCHBOX */
 
 .address-searchbar {
@@ -113,5 +120,24 @@
 
   .call-to-action h2 {
     font-size: 0.85rem;
+  }
+
+  .time-filter-container-lg {
+    display: none;
+  }
+
+  .time-filter-container-sm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    background-color: #793AFC;
+    padding: 0.75rem;
+  }
+
+  .time-filter-container-sm select {
+    margin-left: .25rem;
+    font-size: 1rem;
   }
 }

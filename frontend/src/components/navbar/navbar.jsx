@@ -1,6 +1,12 @@
 import React from 'react';
 import './navbar.css';
 
+/**
+ * Class react component for navbar.
+ * @function
+ * @param {object} props - React props.
+ * @returns {JSX.Element} - Rendered component
+ */
 class Navbar extends React.Component{
     constructor(props){
         super(props);
@@ -30,10 +36,10 @@ class Navbar extends React.Component{
                 <input type="checkbox" id="hamburger"></input>
                 <div id="hamitems">
                   <div className="navbar-buttons-wrapper">
-                    <button className="navbar-button" onClick={() => this.props.openModal("help")}>
+                    <button data-test="help-button" className="navbar-button" onClick={() => this.props.openModal("help")}>
                       help
                     </button>
-                    <button className="navbar-button" onClick={this.logoutUser}>
+                    <button data-test="logout-button" className="navbar-button" onClick={this.logoutUser}>
                       log out
                     </button>
                   </div>
@@ -51,24 +57,28 @@ class Navbar extends React.Component{
                 <div id="hamitems">
                   <div className="navbar-buttons-wrapper ">
                   <button
+                      data-test="help-button"
                       className="navbar-button"
                       onClick={() => this.props.openModal("help")}
                     >
                       help
                     </button>
                     <button
+                      data-test="demo-login-button"
                       className="navbar-button demo-button"
                       onClick={this.demoLogin}
                     >
                       demo login
                     </button>
                     <button
+                      data-test="login-button"
                       className="navbar-button"
                       onClick={() => this.props.openModal("login")}
                     >
                       log in
                     </button>
                     <button
+                      data-test="signup-button"
                       className="navbar-button"
                       onClick={() => this.props.openModal("signup")}
                     >
@@ -85,10 +95,10 @@ class Navbar extends React.Component{
 
         if (this.props.loggedIn) {
         return (
-          <div className="navbar">
+          <div data-test="component-navbar" className="navbar">
             <div className="navbar-header">
               <img className="logo" src="./logo.png" alt="My_Logo" />
-              <span className="welcome-header">
+              <span data-test="welcome-message" className="welcome-header">
                 welcome {this.props.currentUser.name}
               </span>
             </div>
@@ -98,7 +108,7 @@ class Navbar extends React.Component{
         }
         else {
           return (
-            <div className="navbar">
+            <div data-test="component-navbar" className="navbar">
                 <img className="logo" src="./logo.png" alt="My_Logo" />
               {this.populateNavbar()}
             </div>
